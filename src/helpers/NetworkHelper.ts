@@ -1,0 +1,106 @@
+import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers";
+import { EnvHelper } from "./Environment";
+import { NodeHelper } from "./NodeHelper";
+import { NETWORKS } from "../constants";
+
+interface IGetCurrentNetwork {
+  provider: StaticJsonRpcProvider | JsonRpcProvider;
+}
+
+export const initNetworkFunc = async ({ provider }: IGetCurrentNetwork) => {
+  try {
+    let networkName: string;
+    let uri: string;
+    let supported = true;
+    const id: number = await provider.getNetwork().then(network => network.chainId);
+    switch (id) {
+      case 56:
+        networkName = "BSC mainnet";
+        uri = NodeHelper.getBSCURI(id);
+        break;
+      case 97:
+        networkName = "BSC testnet";
+        uri = NodeHelper.getBSCURI(id);
+        break;
+      case 42161:
+        networkName = "Arbitrum";
+        uri = NodeHelper.getBSCURI(id);
+        break;
+      case 421611:
+        networkName = "Arbitrum Testnet";
+        uri = EnvHelper.alchemyArbitrumTestnetURI;
+        break;
+      case 43113:
+        networkName = "Avalanche Fuji Testnet";
+        uri = EnvHelper.alchemyAvalancheTestnetURI;
+        break;
+      case 43114:
+        networkName = "Avalanche";
+        uri = NodeHelper.getBSCURI(id);
+        break;
+      default:
+        supported = false;
+        networkName = "Unsupported Network";
+        uri = "";
+        break;
+    }
+
+    return {
+      networkId: id,
+      networkName: networkName,
+      uri: uri,
+      initialized: supported,
+    };
+  } catch (e) {
+    console.log(e);
+    return {
+      networkId: -1,
+      networkName: "",
+      uri: "",
+      initialized: false,
+    };
+  }
+};
+
+interface ISwitchNetwork {
+  provider: StaticJsonRpcProvider | JsonRpcProvider;
+  networkId: number;
+}
+
+export const switchNetwork = async ({ provider, networkId }: ISwitchNetwork) => {
+  try {
+    await provider.send("wallet_switchEthereumChain", [{ chainId: idToHexString(networkId) }]);
+  } catch (e) {
+    // If the chain has not been added to the user's wallet
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (e.code === 4902) {
+      const network = NETWORKS[networkId];
+      const params = [
+        {
+          chainId: idToHexString(networkId),
+          chainName: network["chainName"],
+          nativeCurrency: network["nativeCurrency"],
+          rpcUrls: network["rpcUrls"],
+          blockExplorerUrls: network["blockExplorerUrls"],
+        },
+      ];
+
+      try {
+        await provider.send("wallet_addEthereumChain", params);
+      } catch (e) {
+        console.log(e);
+        // dispatch(error("Error switching network!"));
+      }
+    }
+    // }
+  }
+};
+
+const idToHexString = (id: number) => {
+  return "0x" + id.toString(16);
+};
+
+export const idFromHexString = (hexString: string) => {
+  return parseInt(hexString, 16);
+};

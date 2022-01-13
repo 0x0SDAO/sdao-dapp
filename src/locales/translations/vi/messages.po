@@ -1,0 +1,1347 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2021-12-08 06:27+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: vi\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/views/33Together/PoolWithdraw.jsx:121
+msgid "(The 6-day early exit fee has been waived. Network fees apply.)"
+msgstr ""
+
+#: src/views/33Together/PoolWithdraw.jsx:121
+#~ msgid "(exit fee has been waived)"
+#~ msgstr ""
+
+#: src/views/33Together/PoolInfo.jsx:67
+msgid "1 in {0}"
+msgstr "1 trong {0}"
+
+#: src/views/33Together/33together.tsx:167
+msgid "3, 3 Together"
+msgstr "3, 3 cùng nhau"
+
+#: src/views/Zap/ZapInfo.jsx:81
+#~ msgid "A zap swap is a series of smart contracts that deploys one asset to another a protocol to handle a trusted transaction."
+#~ msgstr "Hoán đổi zap là một loạt các giao ước thông minh triển khai một tài sản này sang một giao thức khác để xử lý một giao dịch đáng tin cậy "
+
+#: src/views/Zap/ZapInfo.jsx:81
+msgid "A zap swap is a series of smart contracts that deploys one asset to another protocol to handle a trusted transaction."
+msgstr ""
+
+#: src/components/TopBar/OhmMenu.jsx:185
+msgid "ADD TOKEN TO WALLET"
+msgstr "THÊM DẤU HIỆU VÀO VÍ"
+
+#: src/views/Stake/Stake.tsx:302
+#: src/views/V1-Stake/V1-Stake.jsx:218
+msgid "APY"
+msgstr "APY"
+
+#: src/components/GiveProject/ProjectCard.tsx:616
+#~ msgid "About"
+#~ msgstr ""
+
+#: src/components/TopBar/Wallet/Token.tsx:195
+#~ msgid "Add to Wallet"
+#~ msgstr ""
+
+#: src/views/V1-Stake/V1-Stake.jsx:298
+msgid "All your assets are migrated"
+msgstr ""
+
+#: src/views/Zap/ZapCta.jsx:50
+msgid "All-in-One contract to save time"
+msgstr "Tất cả trong một giao ước để tiết kiệm thời gian"
+
+#: src/views/Zap/ZapInfo.jsx:103
+msgid "All-in-one easy staking"
+msgstr " Tất cả trong một dễ đóng cọc"
+
+#: src/views/Zap/ZapInfo.jsx:98
+msgid "All-in-one zap contracts"
+msgstr "Tất cả trong một hợp đồng zap"
+
+#: src/views/Bond/BondPurchase.jsx:158
+msgid "Amount"
+msgstr "Số lượng"
+
+#: src/views/Zap/ZapStakeHeader.jsx:26
+msgid "Any asset"
+msgstr "Tài sản"
+
+#: src/views/Give/WithdrawDepositModal.tsx:98
+#~ msgid "Any remaining yield will still be redeemable by the recipient ({0})."
+#~ msgstr ""
+
+#: src/views/Give/RedeemYieldModal.tsx:88
+#~ msgid "Any sSDOGE directed towards you will continue to rebase and earn additional yield on your behalf."
+#~ msgstr ""
+
+#: src/components/Migration/MigrationModal.jsx:253
+#: src/components/Migration/MigrationModal.jsx:341
+#: src/views/33Together/PoolDeposit.jsx:175
+#: src/views/Stake/Stake.tsx:440
+#: src/views/Stake/Stake.tsx:472
+#: src/views/V1-Stake/V1-Stake.jsx:412
+#: src/views/Zap/ZapStakeAction.jsx:429
+msgid "Approve"
+msgstr "Chấp thuận"
+
+#: src/components/Migration/MigrationModal.jsx:238
+#: src/components/Migration/MigrationModal.jsx:326
+#: src/views/Zap/ZapStakeAction.jsx:422
+msgid "Approved"
+msgstr "Chấp thuận"
+
+#: src/views/Zap/ZapStakeHeader.jsx:63
+msgid "Auto staked for sSDOGE"
+msgstr "Tự động đặt cọc cho SDOGE"
+
+#: src/views/33Together/PoolPrize.jsx:114
+msgid "Award Balance will grow at 1st rebase."
+msgstr "Số dư giải thưởng sẽ tăng ở cơ sở thứ nhất"
+
+#: src/views/33Together/PoolPrize.jsx:203
+msgid "Award period has finished, you can navigate to Pool Together's UI to begin distribution"
+msgstr "Thời gian trao thưởng đã kết thúc, bạn có thể điều hướng đến giao diện người dùng của Pool Together để bắt đầu phân phối"
+
+#: src/views/33Together/PoolPrize.jsx:182
+msgid "Award period has finished, you can navigate to Pool Together's UI to complete distribution"
+msgstr "Thời gian trao thưởng đã kết thúc, bạn có thể điều hướng đến giao diện người dùng của Pool Together để hoàn thành việc phân phối"
+
+#: src/views/TreasuryDashboard/components/Metric/Metric.js:57
+msgid "Backing per SDOGE"
+msgstr ""
+
+#: src/components/Sidebar/NavContent.jsx:152
+#: src/views/ChooseBond/ChooseBond.tsx:75
+#: src/views/ChooseBond/ChooseBond.tsx:125
+#: src/views/ChooseBond/ClaimBonds.jsx:75
+msgid "Bond"
+msgstr "Dòng tiền"
+
+#: src/views/Bond/Bond.tsx:80
+msgid "Bond Price"
+msgstr "Dòng tiền giá bán"
+
+#: src/components/Sidebar/NavContent.jsx:159
+msgid "Bond discounts"
+msgstr "Bhiết khấu dòng tiền"
+
+#: src/views/ChooseBond/BondRow.jsx:75
+msgid "Bond {0}"
+msgstr "Dòng tiền {0}"
+
+#: src/components/Sidebar/NavContent.jsx:136
+#: src/components/Sidebar/NavContent.jsx:253
+msgid "Bridge"
+msgstr "Cầu nối"
+
+#: src/components/TopBar/OhmMenu.jsx:267
+msgid "Bridge Tokens"
+msgstr "Toeken cầu nối"
+
+#: src/components/TopBar/OhmMenu.jsx:135
+#: src/components/TopBar/OhmMenu.jsx:148
+msgid "Buy on {0}"
+msgstr "Mua vào {0}"
+
+#: src/components/TopBar/ThemeSwitch.jsx:12
+msgid "Change Theme"
+msgstr "Thay đổi chủ đề"
+
+#: src/components/TopBar/LocaleSwitch.tsx:37
+msgid "Change locale"
+msgstr "Thay đổi địa điểm"
+
+#: src/views/33Together/PoolDeposit.jsx:116
+#: src/views/33Together/PoolWithdraw.jsx:109
+msgid "Check back soon!"
+msgstr "Sớm kiểm tra lại !"
+
+#: src/views/Bond/AdvancedSettings.jsx:63
+msgid "Choose recipient address. By default, this is your currently connected address"
+msgstr "Chọn địa chỉ tiếp nhận. Theo mặc định, đây là địa chỉ của ví mà bạn hiện đang kết nối"
+
+#: src/views/TreasuryDashboard/components/Metric/Metric.js:44
+msgid "Circulating Supply"
+msgstr ""
+
+#: src/views/Bond/BondRedeem.jsx:72
+#: src/views/ChooseBond/ClaimRow.jsx:133
+msgid "Claim"
+msgstr "Xác nhận"
+
+#: src/views/ChooseBond/ClaimBonds.jsx:118
+msgid "Claim all"
+msgstr "Xác nhận tất cả"
+
+#: src/views/ChooseBond/ClaimBonds.jsx:135
+msgid "Claim all and Stake"
+msgstr "Xác nhận tất cả và đặt cọc"
+
+#: src/views/Bond/BondRedeem.jsx:88
+msgid "Claim and Autostake"
+msgstr "Xác nhận quyền sở hữu và Tự động đăng ký"
+
+#: src/views/ChooseBond/ClaimRow.jsx:141
+msgid "Claim and Stake"
+msgstr "Xác nhận và Tiền đặt cọc"
+
+#: src/views/ChooseBond/ClaimBonds.jsx:78
+msgid "Claimable"
+msgstr "Nhận phần thưởng"
+
+#: src/views/Bond/BondRedeem.jsx:105
+msgid "Claimable Rewards"
+msgstr "Phần thưởng"
+
+#: src/components/Migration/MigrationModal.jsx:198
+msgid "Click on the Migrate button to complete the upgrade to v2."
+msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:164
+#: src/components/GiveProject/ProjectCard.tsx:211
+#~ msgid "Completed"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:617
+#~ msgid "Confirm sSDOGE"
+#~ msgstr ""
+
+#: src/components/ConnectButton.jsx:9
+#: src/components/TopBar/ConnectMenu.jsx:20
+#: src/views/Stake/Stake.tsx:210
+#: src/views/Zap/Zap.jsx:38
+msgid "Connect Wallet"
+msgstr "Kết nối ví"
+
+#: src/views/Give/Give.tsx:31
+#~ msgid "Connect your wallet to give or redeem SDOGE"
+#~ msgstr ""
+
+#: src/views/Stake/Stake.tsx:336
+#: src/views/V1-Stake/V1-Stake.jsx:271
+msgid "Connect your wallet to stake SDOGE"
+msgstr "Kết nối ví của bạn để đặt cọc cho SDOGE"
+
+#: src/views/Zap/Zap.jsx:42
+msgid "Connect your wallet to use Zap"
+msgstr "Kết nối với ví của bạn đến Zap"
+
+#: src/components/GiveProject/ProjectCard.tsx:278
+#~ msgid "Connect your wallet to view the fundraising progress"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:600
+#: src/views/Give/RecipientModal.tsx:636
+#~ msgid "Continue"
+#~ msgstr ""
+
+#: src/components/EducationCard.tsx:384
+#~ msgid "Current Deposit"
+#~ msgstr ""
+
+#: src/views/Stake/Stake.tsx:320
+#: src/views/TreasuryDashboard/components/Metric/Metric.js:70
+#: src/views/V1-Stake/V1-Stake.jsx:253
+msgid "Current Index"
+msgstr "Chỉ số hiện tại"
+
+#: src/views/33Together/PoolPrize.jsx:121
+msgid "Current Prize"
+msgstr "Giải thưởng hiện tại"
+
+#: src/views/Give/CausesDashboard.tsx:154
+#~ msgid "Custom Recipient"
+#~ msgstr ""
+
+#: src/components/Sidebar/NavContent.jsx:94
+msgid "Dashboard"
+msgstr "Bảng điều khiển"
+
+#: src/views/Bond/BondPurchase.jsx:272
+#: src/views/Bond/BondRedeem.jsx:129
+msgid "Debt Ratio"
+msgstr "Tỷ lệ nợ"
+
+#: src/views/Give/YieldRecipients.tsx:192
+#~ msgid "Deposit"
+#~ msgstr "Đặt cọc trước"
+
+#: src/views/ChooseBond/BondRow.jsx:28
+#: src/views/ChooseBond/BondRow.jsx:99
+#~ msgid "Deposit LP"
+#~ msgstr ""
+
+#: src/views/33Together/PoolDeposit.jsx:164
+msgid "Deposit sSDOGE"
+msgstr "Đặt cọc SDOGE"
+
+#: src/views/Give/GiveInfo.jsx:12
+#~ msgid "Deposit sSDOGE from wallet"
+#~ msgstr ""
+
+#: src/views/33Together/PoolDeposit.jsx:101
+msgid "Deposit sSDOGE to win! Once deposited, you will receive a corresponding amount of 33T and be entered to win until your sSDOGE is withdrawn."
+msgstr "Đặt cọc SDOGE để giành chiến thắng! Sau khi tạm ứng, bạn sẽ nhận được số tiền tương ứng là 33T và được tham gia để giành chiến thắng cho đến khi sSDOGE của bạn được rút."
+
+#: src/views/33Together/PoolDeposit.jsx:182
+msgid "Depositing {quantity} sSDOGE will increase odds of winning to 1 in {newOdds}"
+msgstr "Tiền đặt cọc {quantity} vào sSDOGE sẽ tăng tỷ lệ đạt được lên 1 trong {newOdds}"
+
+#: src/views/Give/DepositYield.tsx:43
+#~ msgid "Deposits Dashboard"
+#~ msgstr ""
+
+#: src/views/33Together/PoolDeposit.jsx:113
+msgid "Deposits can be made once the prize has been awarded."
+msgstr "Tiền đặt cọc có thể được thực hiện sau khi giải thưởng đã được trao."
+
+#: src/views/Give/RecipientModal.tsx:484
+#~ msgid "Details"
+#~ msgstr ""
+
+#: src/views/Zap/ZapStakeAction.jsx:479
+msgid "Dialing Zapper..."
+msgstr "Quay lại Zapper"
+
+#: src/views/Give/DepositYield.tsx:58
+#~ msgid "Direct yield from your deposited sSDOGE to other recipients. Your sSDOGE is deposited in a vault, but you can withdraw it or change the deposited amount at any time."
+#~ msgstr ""
+
+#: src/components/TopBar/ConnectMenu.jsx:28
+#: src/components/TopBar/ConnectMenu.jsx:125
+msgid "Disconnect"
+msgstr "Không kết nối"
+
+#: src/components/Sidebar/externalUrls.jsx:20
+msgid "Docs"
+msgstr "Tài liệu"
+
+#: src/components/GiveProject/ProjectCard.tsx:471
+#: src/components/GiveProject/ProjectCard.tsx:568
+#: src/views/Give/YieldRecipients.tsx:176
+#~ msgid "Donate Yield"
+#~ msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:274
+#~ msgid "Donated"
+#~ msgstr ""
+
+#: src/views/Give/RedeemYield.tsx:211
+#~ msgid "Donated sSDOGE Generating Yield"
+#~ msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:581
+#~ msgid "Donations"
+#~ msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:595
+#~ msgid "Donors"
+#~ msgstr ""
+
+#: src/views/33Together/PoolInfo.jsx:122
+msgid "Early Exit Fee"
+msgstr "Phí trước khi thoát ra"
+
+#: src/views/33Together/PoolWithdraw.jsx:180
+msgid "Early withdraw will incur a fairness fee of {exitFee}."
+msgstr "Rút tiền trước hạn sẽ phải chịu một khoản phí là {exitFee}."
+
+#: src/views/Give/YieldRecipients.tsx:219
+#~ msgid "Edit"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:653
+#~ msgid "Edit Give Amount"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:261
+#~ msgid "Edit Yield"
+#~ msgstr ""
+
+#: src/slices/PendingTxnsSlice.ts:36
+#~ msgid "Editing sSDOGE donation amount"
+#~ msgstr ""
+
+#: src/views/Zap/ZapStakeAction.jsx:397
+#: src/views/Zap/ZapStakeAction.jsx:451
+msgid "Enter Amount"
+msgstr "Nhập số tiền"
+
+#: src/views/Give/RecipientModal.tsx:405
+#~ msgid "Enter a wallet address in the form of 0x ..."
+#~ msgstr ""
+
+#: src/views/33Together/PoolDeposit.jsx:134
+msgid "Enter an amount"
+msgstr "Nhập số tiền"
+
+#: src/views/Zap/ZapStakeAction.jsx:366
+msgid "Exchange Rate"
+msgstr "Tỷ giá"
+
+#: src/views/33Together/PoolInfo.jsx:128
+msgid "Exit Fee Decay Time"
+msgstr "Thời gian thoát phí"
+
+#: src/views/Stake/ExternalStakePool.tsx:62
+msgid "Farm Pool"
+msgstr "Vùng Phục vụ đào tiền, cải thiện doanh thu khai thác"
+
+#: src/components/GiveProject/ProjectCard.tsx:177
+#: src/components/GiveProject/ProjectCard.tsx:225
+#~ msgid "Finishes at"
+#~ msgstr ""
+
+#: src/views/Bond/BondPurchase.jsx:149
+msgid "First time bonding"
+msgstr "Liên kết đầu tiên"
+
+#: src/views/Give/RecipientModal.tsx:472
+#~ msgid "First time donating <0>sSDOGE</0>?<1/>Please approve Olympus DAO to use your <2>sSDOGE</2> for donating."
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:386
+#~ msgid "First time giving <0>sSDOGE</0>?<1/>Please approve Olympus DAO to use your <2>sSDOGE</2> for giving."
+#~ msgstr ""
+
+#: src/views/Stake/Stake.tsx:373
+msgid "First time staking"
+msgstr "Thời gian đầu giữ tiền trong ví"
+
+#: src/views/Stake/Stake.tsx:380
+#: src/views/V1-Stake/V1-Stake.jsx:313
+msgid "First time unstaking"
+msgstr "Thời gian đầu không giữ tiền"
+
+#: src/components/Sidebar/externalUrls.jsx:10
+msgid "Forum"
+msgstr "Diễn đàn"
+
+#: src/views/ChooseBond/ClaimBonds.jsx:84
+msgid "Fully Vested"
+msgstr "Trao đầy đủ"
+
+#: src/components/CallToAction/CallToAction.jsx:48
+msgid "Get Started"
+msgstr ""
+
+#: src/components/TopBar/OhmMenu.jsx:250
+#~ msgid "Get Test Tokens"
+#~ msgstr ""
+
+#: src/components/GiveProject/GiveHeader.tsx:31
+#: src/components/Sidebar/NavContent.jsx:233
+#~ msgid "Give"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:263
+#~ msgid "Give Yield"
+#~ msgstr ""
+
+#: src/slices/PendingTxnsSlice.ts:34
+#~ msgid "Giving sSDOGE"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:612
+#: src/views/Give/RecipientModal.tsx:648
+#~ msgid "Go Back"
+#~ msgstr ""
+
+#: src/views/V1-Stake/V1-Stake.jsx:369
+msgid "Go to Bonds"
+msgstr ""
+
+#: src/views/V1-Stake/V1-Stake.jsx:382
+msgid "Go to Stake V2"
+msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:294
+#~ msgid "Goal"
+#~ msgstr ""
+
+#: src/components/Sidebar/externalUrls.jsx:15
+msgid "Governance"
+msgstr "Quản trị"
+
+#: src/views/Give/RedeemYield.tsx:192
+#~ msgid "If other wallets have directed their sSDOGE rebases to you, you can transfer that yield into your wallet."
+#~ msgstr ""
+
+#: src/components/TopBar/ConnectMenu.jsx:33
+msgid "In progress"
+msgstr "Trong tiến trình"
+
+#: src/views/Give/YieldRecipients.tsx:171
+#~ msgid "It looks like you haven't donated any yield. Let's fix that!"
+#~ msgstr ""
+
+#: src/components/CallToAction/CallToAction.jsx:17
+#: src/components/Migration/MigrationModal.jsx:208
+msgid "Learn More"
+msgstr ""
+
+#: src/components/RebaseTimer/RebaseTimer.jsx:33
+#: src/components/RebaseTimer/RebaseTimer.jsx:64
+msgid "Less than a minute"
+msgstr "Ít hơn một phút"
+
+#: src/views/Give/GiveInfo.jsx:15
+#~ msgid "Lock sSDOGE in vault"
+#~ msgstr ""
+
+#: src/views/TreasuryDashboard/components/Metric/Metric.js:16
+msgid "Market Cap"
+msgstr "Vốn hóa thị trường"
+
+#: src/views/Bond/Bond.tsx:88
+msgid "Market Price"
+msgstr "Giá thị trường"
+
+#: src/views/33Together/PoolDeposit.jsx:147
+#: src/views/33Together/PoolWithdraw.jsx:147
+#: src/views/Bond/BondPurchase.jsx:170
+msgid "Max"
+msgstr "Tối đa"
+
+#: src/views/Zap/ZapStakeAction.jsx:328
+#~ msgid "Max Slippage"
+#~ msgstr "Trượt giá tối đa"
+
+#: src/views/Bond/BondPurchase.jsx:250
+msgid "Max You Can Buy"
+msgstr "Mức tối đa bạn có thể mua"
+
+#: src/components/Migration/MigrationModal.jsx:365
+#: src/views/V1-Stake/V1-Stake.jsx:356
+msgid "Migrate"
+msgstr ""
+
+#: src/views/Stake/Stake.tsx:210
+#~ msgid "Migrate sSDOGE!"
+#~ msgstr "Di chuyển sSDOGE"
+
+#: src/components/Migration/MigrationModal.jsx:234
+#: src/components/Migration/MigrationModal.jsx:322
+msgid "Migrated"
+msgstr ""
+
+#: src/components/Migration/MigrationModal.jsx:186
+msgid "Migration complete"
+msgstr ""
+
+#: src/views/Zap/ZapStakeAction.jsx:381
+msgid "Minimum You Get"
+msgstr "Mức tối thiểu bạn có"
+
+#: src/components/GiveProject/GiveHeader.tsx:43
+#: src/views/Give/DepositYield.tsx:55
+#~ msgid "My Donations"
+#~ msgstr ""
+
+#: src/views/Stake/Stake.tsx:537
+#: src/views/V1-Stake/V1-Stake.jsx:474
+msgid "Next Reward Amount"
+msgstr "Số tiền tiếp theo"
+
+#: src/views/Stake/Stake.tsx:539
+#: src/views/V1-Stake/V1-Stake.jsx:476
+msgid "Next Reward Yield"
+msgstr "Lợi nhuận tiếp theo"
+
+#: src/views/33Together/PoolPrize.jsx:131
+#~ msgid "Next award"
+#~ msgstr "Tiếp tục"
+
+#: src/views/ChooseBond/ChooseBond.tsx:105
+#: src/views/TreasuryDashboard/components/Metric/Metric.js:29
+msgid "SDOGE Price"
+msgstr "Giá bán SDOGE"
+
+#: src/views/Zap/ZapInfo.jsx:106
+msgid "OlyZap reduces complexity, saves you time and keeps you here on Olympus."
+msgstr "OlyZap giảm độ phức tạp, tiết kiệm thời gian và giúp bạn luôn ở đây trên Olympus"
+
+#: src/components/EducationCard.tsx:81
+#: src/components/EducationCard.tsx:119
+#~ msgid "Olympus Give is a means of directing the yield that is accrued on your sSDOGE to another wallet. The first step is depositing your sSDOGE and specifying a recipient."
+#~ msgstr ""
+
+#: src/views/V1-Stake/V1-Stake.jsx:296
+msgid "Once your current bonds have been claimed, you can migrate your assets to stake more SDOGE"
+msgstr ""
+
+#: src/views/404/NotFound.tsx:14
+msgid "Page not found"
+msgstr "Không tìm thấy trang"
+
+#: src/views/ChooseBond/ClaimBonds.jsx:81
+msgid "Pending"
+msgstr "Đang chờ đợi"
+
+#: src/views/Bond/BondRedeem.jsx:97
+msgid "Pending Rewards"
+msgstr "Đang chờ thưởng"
+
+#: src/slices/PendingTxnsSlice.ts:38
+#: src/slices/PendingTxnsSlice.ts:42
+#: src/slices/PendingTxnsSlice.ts:46
+#: src/views/Zap/ZapStakeAction.jsx:395
+#: src/views/Zap/ZapStakeAction.jsx:429
+msgid "Pending..."
+msgstr "Đang chờ..."
+
+#: src/views/Bond/BondPurchase.jsx:150
+#: src/views/Stake/Stake.tsx:375
+#: src/views/Stake/Stake.tsx:382
+#: src/views/V1-Stake/V1-Stake.jsx:315
+msgid "Please approve Olympus Dao to use your"
+msgstr "Vui lòng chấp thuận cho Olympus Dao sử dụng"
+
+#: src/slices/RedeemThunk.ts:25
+#~ msgid "Please conenect your wallet!"
+#~ msgstr ""
+
+#: src/slices/GiveThunk.ts:60
+#: src/slices/GiveThunk.ts:101
+#~ msgid "Please connect your wallet"
+#~ msgstr ""
+
+#: src/slices/GiveThunk.ts:152
+#: src/slices/GiveThunk.ts:219
+#: src/slices/GiveThunk.ts:290
+#: src/slices/RedeemThunk.ts:74
+#~ msgid "Please connect your wallet!"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:234
+#~ msgid "Please enter a different address: cannot direct to the same wallet"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:228
+#~ msgid "Please enter a valid Ethereum address"
+#~ msgstr ""
+
+#: src/views/Bond/BondPurchase.jsx:53
+msgid "Please enter a valid value!"
+msgstr "Vui lòng nhập một giá trị hợp lệ!"
+
+#: src/views/Give/RecipientModal.tsx:186
+#~ msgid "Please enter a value"
+#~ msgstr ""
+
+#: src/views/33Together/PoolDeposit.jsx:67
+#: src/views/33Together/PoolWithdraw.jsx:60
+#: src/views/Bond/BondPurchase.jsx:51
+#: src/views/Stake/Stake.tsx:151
+#: src/views/Stake/Stake.tsx:151
+msgid "Please enter a value!"
+msgstr "Vui lòng nhập một giá trị!"
+
+#: src/slices/RedeemThunk.ts:79
+#~ msgid "Please switch to testnet!"
+#~ msgstr ""
+
+#: src/views/33Together/PoolPrize.jsx:111
+msgid "Pool Award Balance is currently 0."
+msgstr "Số dư giải thưởng hiện tại là O."
+
+#: src/views/33Together/PoolInfo.jsx:113
+msgid "Pool owner"
+msgstr "Chủ sở hữu "
+
+#: src/components/Migration/MigrationModal.jsx:283
+msgid "Post-migration"
+msgstr ""
+
+#: src/components/Migration/MigrationModal.jsx:272
+msgid "Pre-migration"
+msgstr ""
+
+#: src/views/ChooseBond/BondRow.jsx:38
+#: src/views/ChooseBond/ChooseBond.tsx:128
+msgid "Price"
+msgstr "Giá"
+
+#: src/views/33Together/PoolInfo.jsx:40
+msgid "Prize Pool Info"
+msgstr "Thông tin về giải thưởng"
+
+#: src/views/33Together/PoolPrize.jsx:127
+msgid "Prize is being awarded"
+msgstr "Giải thưởng đang được trao"
+
+#: src/views/ChooseBond/BondRow.jsx:55
+#: src/views/ChooseBond/ChooseBond.tsx:134
+msgid "Purchased"
+msgstr "Đã mua"
+
+#: src/views/Bond/BondPurchase.jsx:263
+#: src/views/Bond/BondRedeem.jsx:120
+#: src/views/ChooseBond/BondRow.jsx:46
+#: src/views/ChooseBond/ChooseBond.tsx:131
+msgid "ROI"
+msgstr "ROI"
+
+#: src/views/Stake/Stake.tsx:544
+#: src/views/V1-Stake/V1-Stake.jsx:481
+msgid "ROI (5-Day Rate)"
+msgstr "ROI (Giá 5 ngày)"
+
+#: src/views/33Together/PoolWithdraw.jsx:188
+msgid "Read more about Fairness"
+msgstr "Vốn chủ sở hữu"
+
+#: src/components/EducationCard.tsx:263
+#~ msgid "Receives yield from"
+#~ msgstr ""
+
+#: src/components/EducationCard.tsx:172
+#~ msgid "Receives yield from {quantity} sSDOGE"
+#~ msgstr ""
+
+#: src/views/Bond/BondPurchase.jsx:289
+msgid "Recipient"
+msgstr "Người nhận"
+
+#: src/views/Bond/AdvancedSettings.jsx:57
+msgid "Recipient Address"
+msgstr "Địa chỉ người nhận"
+
+#: src/views/Give/GiveInfo.jsx:18
+#~ msgid "Recipient earns sSDOGE rebases"
+#~ msgstr ""
+
+#: src/views/Bond/Bond.tsx:112
+msgid "Redeem"
+msgstr "Mua lại"
+
+#: src/views/Give/RedeemYield.tsx:189
+#~ msgid "Redeem Yield"
+#~ msgstr ""
+
+#: src/views/Give/RedeemYieldModal.tsx:78
+#~ msgid "Redeem Yield?"
+#~ msgstr ""
+
+#: src/components/EducationCard.tsx:200
+#~ msgid "Redeem {quantity} sSDOGE in yield"
+#~ msgstr ""
+
+#: src/views/Give/RedeemYield.tsx:219
+#~ msgid "Redeemable Amount"
+#~ msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:187
+#~ msgid "Remaining"
+#~ msgstr ""
+
+#: src/views/Zap/ZapStakeAction.jsx:467
+msgid "Select Zap Token"
+msgstr "Chọn Zap Token"
+
+#: src/views/Zap/ZapStakeAction.jsx:245
+#: src/views/Zap/ZapStakeAction.jsx:282
+msgid "Select a Token"
+msgstr "Chọn Token"
+
+#: src/views/Zap/ZapStakeHeader.jsx:26
+msgid "Select any asset"
+msgstr "Chọn vài tài sản"
+
+#: src/views/Zap/ZapStakeAction.jsx:485
+msgid "Ser, you have no assets..."
+msgstr "Bạn không có tài sản"
+
+#: src/views/V1-Stake/V1-Stake.jsx:206
+msgid "Single Stake"
+msgstr ""
+
+#: src/views/Stake/Stake.tsx:499
+#: src/views/V1-Stake/V1-Stake.jsx:436
+#: src/views/V1-Stake/V1-Stake.jsx:460
+msgid "Single Staking"
+msgstr "Đặt cọc đơn"
+
+#: src/views/Stake/Stake.tsx:511
+msgid "Single Staking (v1)"
+msgstr ""
+
+#: src/views/V1-Stake/V1-Stake.jsx:455
+#~ msgid "Single Staking (v2)"
+#~ msgstr ""
+
+#: src/views/Bond/AdvancedSettings.jsx:37
+msgid "Slippage"
+msgstr "Trượt giá"
+
+#: src/views/Zap/ZapStakeAction.jsx:345
+msgid "Slippage Tolerance"
+msgstr ""
+
+#: src/views/Bond/BondPurchase.jsx:185
+#: src/views/ChooseBond/BondRow.jsx:73
+#: src/views/ChooseBond/BondRow.jsx:128
+#~ msgid "Sold Out"
+#~ msgstr "Bán hết"
+
+#: src/views/33Together/PoolInfo.jsx:143
+msgid "Something not right, fren? Check Pool Together's UI below."
+msgstr "Có gì đó không đúng? Kiểm tra giao diện người dùng của Pool Together bên dưới."
+
+#: src/components/Sidebar/NavContent.jsx:109
+#: src/views/V1-Stake/V1-Stake.jsx:287
+msgid "Stake"
+msgstr "Đặt cọc"
+
+#: src/views/Stake/Stake.tsx:428
+msgid "Stake SDOGE"
+msgstr "Đặt cọc cho SDOGE"
+
+#: src/views/Stake/ExternalStakePool.tsx:87
+#: src/views/Stake/ExternalStakePool.tsx:115
+msgid "Stake on Trader Joe"
+msgstr "Đặt cọc trên Trader Joe"
+
+#: src/views/Stake/Stake.tsx:491
+#: src/views/V1-Stake/V1-Stake.jsx:428
+msgid "Staked Balance"
+msgstr "Số dư của tiền cọc"
+
+#: src/views/Stake/Stake.tsx:529
+#: src/views/V1-Stake/V1-Stake.jsx:442
+msgid "Staked Balance in Fuse"
+msgstr "Số dư cố định trong Fuse"
+
+#: src/views/V1-Stake/V1-Stake.jsx:437
+#~ msgid "Staked Balance in Fuse (v1)"
+#~ msgstr ""
+
+#: src/views/Zap/ZapInfo.jsx:129
+msgid "Staking"
+msgstr "Tiền cọc trong ví"
+
+#: src/slices/PendingTxnsSlice.ts:28
+msgid "Staking SDOGE"
+msgstr "Đang đặt cọc SDOGE"
+
+#: src/views/Zap/ZapInfo.jsx:132
+msgid "Staking is the primary value accrual strategy of Olympus. When you stake, you lock SDOGE and receive an equal amount of sSDOGE."
+msgstr "Đặt cọc là chiến lược tích lũy giá trị chính của Olympus. Khi bạn đặt cọc, bạn khóa SDOGE và nhận được một lượng sSDOGE tương đương"
+
+#: src/views/Dashboard/Dashboard.jsx:66
+#~ msgid "Supply (circulating/total)"
+#~ msgstr "Cung cấp (xoay vòng/ tất cả)"
+
+#: src/views/Zap/ZapStakeHeader.jsx:50
+msgid "Swap for SDOGE"
+msgstr "Hoán đổi lấy SDOGE"
+
+#: src/views/Zap/ZapStakeHeader.jsx:40
+msgid "Swap for sSDOGE"
+msgstr "Hoán đổi lấy sSDOGE"
+
+#: src/views/Zap/ZapCta.jsx:58
+msgid "Swap into sSDOGE"
+msgstr "Chuyển đổi thành sSDOGE"
+
+#: src/views/V1-Stake/V1-Stake.jsx:233
+msgid "TVL"
+msgstr ""
+
+#: src/views/Give/YieldRecipients.tsx:193
+#~ msgid "The amount of sSDOGE deposited"
+#~ msgstr ""
+
+#: src/views/33Together/PoolWithdraw.jsx:118
+msgid "The pool has been temporarily disabled for V2 Migration. Please withdraw your 33T"
+msgstr ""
+
+#: src/components/EducationCard.tsx:331
+#: src/components/EducationCard.tsx:369
+#~ msgid "The recipient you specified, or the project you selected, will then receive the rebases associated with your sSDOGE deposit until you withdraw your sSDOGE principal from the vault."
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:396
+#~ msgid "The specified wallet address will receive the rebase yield from the amount that you deposit."
+#~ msgstr ""
+
+#: src/components/EducationCard.tsx:188
+#: src/components/EducationCard.tsx:232
+#~ msgid "Then, your deposited sSDOGE is kept in a vault smart contract that will send your rebases to the recipient. You can withdraw or edit your principal sSDOGE amount at any time."
+#~ msgstr ""
+
+#: src/views/33Together/PoolDeposit.jsx:110
+msgid "This Prize Pool is unable to accept deposits at this time."
+msgstr "Nhóm Giải thưởng này không thể nhận tiền gửi vào lúc này."
+
+#: src/views/33Together/PoolWithdraw.jsx:103
+msgid "This Prize Pool is unable to accept withdrawals at this time."
+msgstr "Nhóm Giải thưởng này không thể chấp nhận rút tiền vào lúc này."
+
+#: src/components/Migration/MigrationModal.jsx:276
+msgid "This is the current balance of v1 assets in your wallet."
+msgstr ""
+
+#: src/components/Migration/MigrationModal.jsx:287
+msgid "This is the equivalent amount of gSDOGE you will have in your wallet once migration is complete."
+msgstr ""
+
+#: src/views/Bond/BondRedeem.jsx:113
+msgid "Time until fully vested"
+msgstr "Thời gian cho đến khi được cấp đầy đủ"
+
+#: src/views/33Together/PoolInfo.jsx:91
+msgid "Total Deposits"
+msgstr "Tổng số tiền gửi"
+
+#: src/views/33Together/PoolInfo.jsx:99
+msgid "Total Sponsorship"
+msgstr "Tổng tài trợ"
+
+#: src/views/Stake/Stake.tsx:311
+msgid "Total Value Deposited"
+msgstr "Tổng giá trị đã gửi"
+
+#: src/views/Give/RecipientModal.tsx:513
+#~ msgid "Transaction"
+#~ msgstr ""
+
+#: src/views/Bond/AdvancedSettings.jsx:51
+msgid "Transaction may revert if price changes by more than slippage %"
+msgstr "Giao dịch có thể hoàn nguyên nếu giá thay đổi hơn % trượt giá"
+
+#: src/views/ChooseBond/ChooseBond.tsx:83
+msgid "Treasury Balance"
+msgstr "Số dư kho bạc"
+
+#: src/views/Stake/Stake.tsx:361
+#: src/views/Stake/Stake.tsx:460
+#: src/views/V1-Stake/V1-Stake.jsx:288
+msgid "Unstake"
+msgstr "Hoàn cọc"
+
+#: src/components/TopBar/OhmMenu.jsx:256
+msgid "Unstake Legacy LP Token"
+msgstr "Rút mã thông báo LP Token"
+
+#: src/views/V1-Stake/V1-Stake.jsx:400
+msgid "Unstake SDOGE"
+msgstr "Hoàn cọc SDOGE"
+
+#: src/views/Stake/Stake.tsx:483
+#: src/views/V1-Stake/V1-Stake.jsx:420
+msgid "Unstaked Balance"
+msgstr "Số dư hoàn cọc"
+
+#: src/views/V1-Stake/V1-Stake.jsx:415
+#~ msgid "Unstaked Balance (v1)"
+#~ msgstr ""
+
+#: src/slices/PendingTxnsSlice.ts:28
+msgid "Unstaking sSDOGE"
+msgstr "Đang hoàn cọc sSDOGE"
+
+#: src/slices/PendingTxnsSlice.ts:32
+msgid "Unwrapping sSDOGE"
+msgstr "Mở gói sSDOGE"
+
+#: src/components/EducationCard.tsx:404
+#~ msgid "Updated Deposit"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:203
+#~ msgid "Value cannot be more than your sSDOGE balance of"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:192
+#~ msgid "Value must be positive"
+#~ msgstr ""
+
+#: src/components/EducationCard.tsx:134
+#: src/components/EducationCard.tsx:179
+#: src/components/EducationCard.tsx:223
+#~ msgid "Vault"
+#~ msgstr ""
+
+#: src/views/Bond/BondPurchase.jsx:281
+#: src/views/Bond/BondRedeem.jsx:138
+msgid "Vesting Term"
+msgstr "Thời hạn quyền lợi"
+
+#: src/views/ChooseBond/BondRow.jsx:28
+#: src/views/ChooseBond/BondRow.jsx:99
+msgid "View Contract"
+msgstr "Xem hợp đồng"
+
+#: src/components/GiveProject/ProjectCard.tsx:443
+#~ msgid "View Details"
+#~ msgstr ""
+
+#: src/components/EducationCard.tsx:33
+#: src/components/EducationCard.tsx:72
+#: src/components/EducationCard.tsx:110
+#: src/components/TopBar/Wallet/index.tsx:12
+#~ msgid "Wallet"
+#~ msgstr ""
+
+#: src/views/33Together/PoolInfo.jsx:85
+msgid "Winners / prize period"
+msgstr "Người chiến thắng/ Phần thưởng"
+
+#: src/views/33Together/33together.tsx:180
+msgid "Withdraw"
+msgstr "Rút"
+
+#: src/views/Give/WithdrawDepositModal.tsx:88
+#~ msgid "Withdraw Deposit?"
+#~ msgstr ""
+
+#: src/views/33Together/PoolWithdraw.jsx:162
+msgid "Withdraw Early & pay"
+msgstr "Rút tiền sớm và thanh toán"
+
+#: src/views/33Together/PoolWithdraw.jsx:163
+msgid "Withdraw sSDOGE"
+msgstr "Rút sSDOGE"
+
+#: src/views/33Together/PoolWithdraw.jsx:106
+msgid "Withdrawals can be made once the prize has been awarded."
+msgstr "Rút tiền có thể được thực hiện sau khi giải thưởng đã được trao"
+
+#: src/slices/PendingTxnsSlice.ts:37
+#~ msgid "Withdrawing sSDOGE donation"
+#~ msgstr ""
+
+#: src/views/33Together/PoolWithdraw.jsx:170
+msgid "Withdrawing {quantity} sSDOGE reduces your odds of winning to 1 in {newOdds}"
+msgstr "Rút {quantity} sSDOGE giảm tỷ lệ chiến thắng của bạn xuống còn 1 trong {newOdds}"
+
+#: src/views/Stake/Stake.tsx:505
+#: src/views/V1-Stake/V1-Stake.jsx:448
+#: src/views/V1-Stake/V1-Stake.jsx:466
+msgid "Wrapped Balance"
+msgstr "Số dư được rút"
+
+#: src/views/Stake/Stake.tsx:517
+msgid "Wrapped Balance (v1)"
+msgstr ""
+
+#: src/views/V1-Stake/V1-Stake.jsx:461
+#~ msgid "Wrapped Balance (v2)"
+#~ msgstr ""
+
+#: src/views/Stake/Stake.tsx:523
+#: src/views/V1-Stake/V1-Stake.jsx:454
+msgid "Wrapped Balance in FiatDAO"
+msgstr "Số dư được rút trên FiatDAO"
+
+#: src/views/V1-Stake/V1-Stake.jsx:449
+#~ msgid "Wrapped Balance in FiatDAO (v1)"
+#~ msgstr ""
+
+#: src/views/Stake/Stake.tsx:519
+#~ msgid "Wrapped Balance in Fuse"
+#~ msgstr ""
+
+#: src/slices/PendingTxnsSlice.ts:32
+msgid "Wrapping SDOGE"
+msgstr "Đang rút SDOGE"
+
+#: src/views/33Together/PoolInfo.jsx:107
+msgid "Yield Source"
+msgstr "Nguồn lợi nhuận"
+
+#: src/components/EducationCard.tsx:275
+#~ msgid "You"
+#~ msgstr ""
+
+#: src/views/Zap/ZapStakeAction.jsx:295
+msgid "You Get"
+msgstr "Bạn nhận được"
+
+#: src/views/Zap/ZapInfo.jsx:124
+msgid "You Get sSDOGE"
+msgstr "Bạn nhận được sSDOGE"
+
+#: src/views/Zap/ZapInfo.jsx:73
+msgid "You Give"
+msgstr "Bạn cho đi "
+
+#: src/views/Zap/ZapStakeAction.jsx:216
+msgid "You Pay"
+msgstr "Bạn thanh toán"
+
+#: src/views/Bond/BondPurchase.jsx:237
+msgid "You Will Get"
+msgstr "Bạn sẽ nhận được"
+
+#: src/components/Migration/MigrationModal.jsx:188
+msgid "You are now ready to migrate"
+msgstr ""
+
+#: src/views/33Together/PoolWithdraw.jsx:94
+msgid "You can choose to withdraw the deposited fund at any time. By withdrawing the fund, you are eliminating reducing the chance to win the prize in this pool in future prize periods"
+msgstr "Bạn có thể chọn rút tiền đã ký gửi bất kỳ lúc nào. Bằng cách rút tiền, bạn đang loại bỏ việc giảm cơ hội giành được giải thưởng trong nhóm này trong các kỳ giải thưởng trong tương lai"
+
+#: src/views/Stake/Stake.tsx:157
+#: src/views/Stake/Stake.tsx:157
+msgid "You cannot stake more than your SDOGE balance."
+msgstr "Bạn không thể cọc nhiều hơn số dư SDOGE của mình"
+
+#: src/views/Stake/Stake.tsx:140
+#: src/views/Stake/Stake.tsx:140
+#~ msgid "You cannot unstake more than your sSDOGE balance."
+#~ msgstr "Bạn không thể hoàn cọc nhiều hơn số dư trong sSDOGE"
+
+#: src/views/33Together/PoolWithdraw.jsx:87
+msgid "You cannot withdraw more than your pool balance"
+msgstr "Bạn không thể rút nhiều hơn số dư nhóm của mình"
+
+#: src/views/Stake/Stake.tsx:163
+#: src/views/Stake/Stake.tsx:163
+msgid "You do not have enough sSDOGE to complete this transaction.  To unstake from gSDOGE, please check the box."
+msgstr ""
+
+#: src/views/Bond/BondPurchase.jsx:56
+msgid "You have an existing bond. Bonding will reset your vesting period and forfeit rewards. We recommend claiming rewards first or using a fresh wallet. Do you still want to proceed?"
+msgstr "Bạn có một trái phiếu hiện tại. Việc ràng buộc sẽ thiết lập lại thời gian yêu cầu của bạn và mất phần thưởng. Chúng tôi khuyên bạn nên yêu cầu phần thưởng trước hoặc sử dụng ví mới. Bạn vẫn muốn tiếp tục?"
+
+#: src/components/CallToAction/CallToAction.jsx:44
+#: src/components/Migration/MigrationModal.jsx:189
+msgid "You have assets ready to migrate to v2"
+msgstr ""
+
+#: src/slices/RedeemThunk.ts:53
+#: src/slices/RedeemThunk.ts:107
+#~ msgid "You have no yield that can be redeemed."
+#~ msgstr ""
+
+#: src/slices/GiveThunk.ts:197
+#: src/slices/GiveThunk.ts:264
+#~ msgid "You may be trying to give more than your balance! Error code: 32603. Message: ds-math-sub-underflow"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:461
+#~ msgid "You must be logged into your wallet to use this feature. Click on the \"Connect Wallet\" button and try again."
+#~ msgstr ""
+
+#: src/views/V1-Stake/V1-Stake.jsx:299
+msgid "You must complete the migration of your assets to stake additional SDOGE"
+msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:198
+#~ msgid "You must have a balance of sSDOGE (staked SDOGE) to continue"
+#~ msgstr ""
+
+#: src/views/Bond/BondPurchase.jsx:222
+msgid "Your Balance"
+msgstr "Số dư"
+
+#: src/views/33Together/PoolWithdraw.jsx:198
+msgid "Your Pooled Balance (withdrawable)"
+msgstr "Số dư gộp của bạn (có thể rút)"
+
+#: src/views/33Together/PoolDeposit.jsx:193
+msgid "Your Staked Balance (Depositable)"
+msgstr "Số dư cố định của bạn (Có thể ký gửi"
+
+#: src/views/Give/RecipientModal.tsx:566
+#~ msgid "Your Staked Balance (depositable)"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:490
+#~ msgid "Your Wallet Address"
+#~ msgstr ""
+
+#: src/views/33Together/PoolInfo.jsx:61
+msgid "Your odds"
+msgstr "Tỷ lệ cược của bạn"
+
+#: src/views/33Together/PoolInfo.jsx:55
+msgid "Your pool deposits"
+msgstr "Tiền gửi của bạn"
+
+#: src/views/Give/RecipientModal.tsx:535
+#~ msgid "Your sSDOGE will be tansferred into the vault when you submit. You will need to approve the transaction and pay for gas fees."
+#~ msgstr ""
+
+#: src/views/33Together/PoolInfo.jsx:49
+msgid "Your total awards"
+msgstr "Tổng giải thưởng của bạn"
+
+#: src/views/33Together/PoolInfo.jsx:73
+msgid "Your wallet balance"
+msgstr "Số dư ví của bạn"
+
+#: src/views/Zap/ZapInfo.jsx:78
+msgid "Zap is a swap"
+msgstr "Zap là 1 hoán đổi"
+
+#: src/views/Zap/ZapCta.jsx:40
+msgid "Zap with more assets and stake <0>SDOGE</0>"
+msgstr "Zap với nhiều tài sản và đặt cọc <0>SDOGE</0"
+
+#: src/views/Zap/ZapStakeAction.jsx:399
+#: src/views/Zap/ZapStakeAction.jsx:451
+msgid "Zap-Stake"
+msgstr "Zap- đặt cọc"
+
+#: src/views/33Together/PoolPrize.jsx:141
+msgid "day"
+msgstr "ngày"
+
+#: src/views/Give/WithdrawDepositModal.tsx:94
+#~ msgid "deposited"
+#~ msgstr ""
+
+#. The action of bonding (verb)
+#: src/views/Bond/Bond.tsx:106
+#: src/views/ChooseBond/BondRow.jsx:132
+msgid "do_bond"
+msgstr "Mua"
+
+#. The action of staking (verb)
+#: src/views/Stake/Stake.tsx:355
+msgid "do_stake"
+msgstr "Cọc"
+
+#: src/views/Bond/BondPurchase.jsx:151
+msgid "for bonding"
+msgstr "Đang mua"
+
+#: src/views/Stake/Stake.tsx:376
+msgid "for staking"
+msgstr "Đang cọc"
+
+#: src/views/Stake/Stake.tsx:383
+#: src/views/V1-Stake/V1-Stake.jsx:316
+msgid "for unstaking"
+msgstr "Đang hoàn cọc"
+
+#: src/views/TreasuryDashboard/components/Metric/Metric.js:84
+msgid "gSDOGE Price"
+msgstr ""
+
+#: src/views/33Together/PoolPrize.jsx:148
+msgid "hrs"
+msgstr "hrs"
+
+#: src/views/Give/RedeemYield.tsx:199
+#: src/views/Give/RedeemYieldModal.tsx:83
+#~ msgid "in deposits remains"
+#~ msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:177
+#: src/components/GiveProject/ProjectCard.tsx:225
+#~ msgid "in your timezone"
+#~ msgstr ""
+
+#: src/views/33Together/PoolPrize.jsx:155
+msgid "min"
+msgstr "Nhỏ nhất"
+
+#: src/components/GiveProject/ProjectCard.tsx:236
+#~ msgid "of"
+#~ msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:242
+#~ msgid "of goal"
+#~ msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:242
+#~ msgid "remaining"
+#~ msgstr ""
+
+#: src/views/Give/RedeemYield.tsx:214
+#: src/views/Give/RedeemYield.tsx:226
+#: src/views/Give/RedeemYield.tsx:236
+#~ msgid "sSDOGE"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:532
+#~ msgid "sSDOGE Allocation"
+#~ msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:317
+#~ msgid "sSDOGE Donated"
+#~ msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:334
+#~ msgid "sSDOGE Goal"
+#~ msgstr ""
+
+#: src/views/33Together/PoolInfo.jsx:158
+msgid "sSDOGE Pool Details"
+msgstr "Chi tiết Nhóm Pool"
+
+#: src/views/33Together/PoolInfo.jsx:150
+msgid "sSDOGE Prize Pool"
+msgstr "Giải thướng sSDOGE"
+
+#: src/components/GiveProject/ProjectCard.tsx:236
+#~ msgid "sSDOGE raised"
+#~ msgstr ""
+
+#: src/views/33Together/PoolPrize.jsx:161
+msgid "sec"
+msgstr "số giây"
+
+#: src/components/RebaseTimer/RebaseTimer.jsx:77
+msgid "to next rebase"
+msgstr "Cho đến khi thay đổi tiếp theo"
+
+#: src/views/Give/WithdrawDepositModal.tsx:92
+#~ msgid "withdrawn"
+#~ msgstr ""
+
+#: src/views/TreasuryDashboard/components/Metric/Metric.js:84
+#~ msgid "wsSDOGE Price"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:314
+#~ msgid "{0} by {1}"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:569
+#~ msgid "{0} sSDOGE"
+#~ msgstr ""
+
+#: src/views/Give/RecipientModal.tsx:522
+#~ msgid "{depositAmount} sSDOGE"
+#~ msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:366
+#~ msgid "{details}"
+#~ msgstr ""
+
+#: src/components/EducationCard.tsx:75
+#: src/components/EducationCard.tsx:138
+#: src/components/EducationCard.tsx:235
+#~ msgid "{message}"
+#~ msgstr ""
+
+#: src/components/EducationCard.tsx:261
+#: src/components/EducationCard.tsx:281
+#~ msgid "{quantity} sSDOGE"
+#~ msgstr ""
+
+#: src/components/EducationCard.tsx:38
+#: src/components/EducationCard.tsx:101
+#~ msgid "{quantity} sSDOGE {verb}"
+#~ msgstr ""
+
+#: src/components/GiveProject/ProjectCard.tsx:366
+#~ msgid "{shortDescription}"
+#~ msgstr ""
