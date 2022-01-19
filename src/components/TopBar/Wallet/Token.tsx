@@ -1,4 +1,4 @@
-import { ElementType, useState } from "react";
+import { useState } from "react";
 import {
   Accordion as MuiAccordion,
   AccordionDetails,
@@ -18,8 +18,8 @@ import { addresses, NetworkId } from "src/constants";
 import { formatCurrency } from "src/helpers";
 
 import { ReactComponent as MoreIcon } from "src/assets/icons/more.svg";
-import { ReactComponent as SdogeImg } from "src/assets/tokens/token_SDOGE32.svg";
-import { ReactComponent as SSdogeImg } from "src/assets/tokens/token_SSDOGE32.svg";
+import { ReactComponent as SdaoImg } from "src/assets/tokens/token_SDOGE32.svg";
+import { ReactComponent as SSdaoImg } from "src/assets/tokens/token_SSDOGE32.svg";
 
 import { segmentUA } from "src/helpers/userAnalyticHelpers";
 import { t } from "@lingui/macro";
@@ -199,7 +199,7 @@ export const Token = ({
                   />
                 ),
             )}
-          <Box className="sdoge-pairs" style={{ width: "100%" }}>
+          <Box className="sdao-pairs" style={{ width: "100%" }}>
             <Button variant="contained" color="secondary" fullWidth onClick={onAddTokenToWallet}>
               <Typography>{t`Add to Wallet`}</Typography>
             </Button>
@@ -222,26 +222,26 @@ export const useWallet = (
   const networkId = providerInitialized ? chainId : NetworkId.MAINNET;
 
   const connectedChainBalances = useAppSelector(s => s.account.balances);
-  const sdogePrice = useAppSelector(s => s.app.marketPrice);
+  const sdaoPrice = useAppSelector(s => s.app.marketPrice);
   const currentIndex = useAppSelector(s => s.app.currentIndex);
 
-  // const { gsdoge, wssdoge, isLoading } = useCrossChainBalances(userAddress);
+  // const { gsdao, wssdao, isLoading } = useCrossChainBalances(userAddress);
 
   const tokens = {
-    sdoge: {
-      symbol: "SDOGE",
-      address: addresses[networkId].SDOGE_ADDRESS,
-      balance: connectedChainBalances.sdoge,
-      price: sdogePrice || 0,
-      icon: SdogeImg,
+    sdao: {
+      symbol: "SDAO",
+      address: addresses[networkId].SDAO_ADDRESS,
+      balance: connectedChainBalances.sdao,
+      price: sdaoPrice || 0,
+      icon: SdaoImg,
       decimals: 9,
     },
-    ssdoge: {
-      symbol: "SSDOGE",
-      address: addresses[networkId].SSDOGE_ADDRESS,
-      balance: connectedChainBalances.ssdoge,
-      price: sdogePrice || 0,
-      icon: SSdogeImg,
+    ssdao: {
+      symbol: "SSDAO",
+      address: addresses[networkId].SSDAO_ADDRESS,
+      balance: connectedChainBalances.ssdao,
+      price: sdaoPrice || 0,
+      icon: SSdaoImg,
       decimals: 9,
     },
   } as Record<string, Omit<IToken, "totalBalance">>;
@@ -266,7 +266,7 @@ export const Tokens = () => {
   const isLoading = useAppSelector(s => s.account.loading || s.app.loadingMarketPrice || s.app.loading);
   const [expanded, setExpanded] = useState<string | null>(null);
 
-  const alwaysShowTokens = [tokens.sdoge, tokens.ssdoge];
+  const alwaysShowTokens = [tokens.sdao, tokens.ssdao];
 
   const tokenProps = (token: IToken) => ({
     ...token,

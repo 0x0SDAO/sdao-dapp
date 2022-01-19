@@ -108,7 +108,7 @@ export class NodeHelper {
    * "intelligently" loadbalances production API Keys
    * @returns string
    */
-  static getBSCURI = (networkId: NetworkId): string => {
+  static getURI = (networkId: NetworkId): string => {
     // Shuffles the URIs for "intelligent" loadbalancing
     const allURIs = NodeHelper.getNodesUris(networkId);
 
@@ -125,11 +125,11 @@ export class NodeHelper {
    * @returns StaticJsonRpcProvider for querying
    */
   static getMainnetStaticProvider = () => {
-    return new StaticJsonRpcProvider(NodeHelper.getBSCURI(NetworkId.MAINNET));
+    return new StaticJsonRpcProvider(NodeHelper.getURI(NetworkId.MAINNET));
   };
 
-  static getBSCCurrentStaticProvider = (networkId: number) => {
-    return new StaticJsonRpcProvider(NodeHelper.getBSCURI(networkId));
+  static getCurrentStaticProvider = (networkId: number) => {
+    return new StaticJsonRpcProvider(NodeHelper.getURI(networkId));
   };
 
   /**
@@ -139,7 +139,7 @@ export class NodeHelper {
    * @returns StaticJsonRpcProvider for querying
    */
   static getAnynetStaticProvider = (chainId: NetworkId) => {
-    return new StaticJsonRpcProvider(NodeHelper.getBSCURI(chainId));
+    return new StaticJsonRpcProvider(NodeHelper.getURI(chainId));
   };
 
   /**

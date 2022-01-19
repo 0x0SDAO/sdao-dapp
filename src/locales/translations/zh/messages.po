@@ -83,8 +83,8 @@ msgstr "任何资产"
 #~ msgstr "接收者 ({0}) 仍可赎回任何剩余收益。"
 
 #: src/views/Give/RedeemYieldModal.tsx:88
-#~ msgid "Any sSDOGE directed towards you will continue to rebase and earn additional yield on your behalf."
-#~ msgstr "任何导向您的 sSDOGE 都将继续进行变基并为你赚取额外收益。"
+#~ msgid "Any sSDAO directed towards you will continue to rebase and earn additional yield on your behalf."
+#~ msgstr "任何导向您的 sSDAO 都将继续进行变基并为你赚取额外收益。"
 
 #: src/components/Migration/MigrationModal.jsx:253
 #: src/components/Migration/MigrationModal.jsx:341
@@ -107,8 +107,8 @@ msgstr "已被批准"
 #~ msgstr "资产"
 
 #: src/views/Zap/ZapStakeHeader.jsx:63
-msgid "Auto staked for sSDOGE"
-msgstr "自动以 sSDOGE 进行质押"
+msgid "Auto staked for sSDAO"
+msgstr "自动以 sSDAO 进行质押"
 
 #: src/views/33Together/PoolPrize.jsx:114
 msgid "Award Balance will grow at 1st rebase."
@@ -123,8 +123,8 @@ msgid "Award period has finished, you can navigate to Pool Together's UI to comp
 msgstr "奖励阶段已结束，您可以至一起彩池的使用者介面完成分发"
 
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:57
-msgid "Backing per SDOGE"
-msgstr "支持每个 SDOGE "
+msgid "Backing per SDAO"
+msgstr "支持每个 SDAO "
 
 #: src/views/Stake/ExternalStakePool.jsx:97
 #: src/views/Stake/ExternalStakePool.jsx:196
@@ -228,8 +228,8 @@ msgstr "点击 Migrate 按钮完成升级至 v2。"
 #~ msgstr "完成 "
 
 #: src/views/Give/RecipientModal.tsx:617
-#~ msgid "Confirm sSDOGE"
-#~ msgstr "确认 sSDOGE"
+#~ msgid "Confirm sSDAO"
+#~ msgstr "确认 sSDAO"
 
 #: src/components/ConnectButton.jsx:9
 #: src/components/TopBar/ConnectMenu.jsx:20
@@ -239,13 +239,13 @@ msgid "Connect Wallet"
 msgstr "连接钱包"
 
 #: src/views/Give/Give.tsx:31
-#~ msgid "Connect your wallet to give or redeem SDOGE"
-#~ msgstr "连接您的钱包以赠予或赎回 SDOGE"
+#~ msgid "Connect your wallet to give or redeem SDAO"
+#~ msgstr "连接您的钱包以赠予或赎回 SDAO"
 
 #: src/views/Stake/Stake.tsx:336
 #: src/views/V1-Stake/V1-Stake.jsx:271
-msgid "Connect your wallet to stake SDOGE"
-msgstr "连接您的钱包以质押 SDOGE"
+msgid "Connect your wallet to stake SDAO"
+msgstr "连接您的钱包以质押 SDAO"
 
 #: src/views/Zap/Zap.jsx:42
 msgid "Connect your wallet to use Zap"
@@ -297,20 +297,20 @@ msgstr "负债比率"
 #~ msgstr "存入 LP"
 
 #: src/views/33Together/PoolDeposit.jsx:164
-msgid "Deposit sSDOGE"
-msgstr "存入 sSDOGE"
+msgid "Deposit sSDAO"
+msgstr "存入 sSDAO"
 
 #: src/views/Give/GiveInfo.jsx:12
-#~ msgid "Deposit sSDOGE from wallet"
-#~ msgstr "从钱包存入 sSDOGE"
+#~ msgid "Deposit sSDAO from wallet"
+#~ msgstr "从钱包存入 sSDAO"
 
 #: src/views/33Together/PoolDeposit.jsx:101
-msgid "Deposit sSDOGE to win! Once deposited, you will receive a corresponding amount of 33T and be entered to win until your sSDOGE is withdrawn."
-msgstr "存入 sSDOGE 即可获胜！存入后，您将收到相对应数量的 33T 并将参与游戏直到您的 sSDOGE 被提取。"
+msgid "Deposit sSDAO to win! Once deposited, you will receive a corresponding amount of 33T and be entered to win until your sSDAO is withdrawn."
+msgstr "存入 sSDAO 即可获胜！存入后，您将收到相对应数量的 33T 并将参与游戏直到您的 sSDAO 被提取。"
 
 #: src/views/33Together/PoolDeposit.jsx:182
-msgid "Depositing {quantity} sSDOGE will increase odds of winning to 1 in {newOdds}"
-msgstr "存入 {quantity} sSDOGE 将在 {newOdds} 中将获胜几率增加到 1"
+msgid "Depositing {quantity} sSDAO will increase odds of winning to 1 in {newOdds}"
+msgstr "存入 {quantity} sSDAO 将在 {newOdds} 中将获胜几率增加到 1"
 
 #: src/views/Give/DepositYield.tsx:43
 #~ msgid "Deposits Dashboard"
@@ -329,8 +329,8 @@ msgid "Dialing Zapper..."
 msgstr "正在拨号给 Zapper..."
 
 #: src/views/Give/DepositYield.tsx:58
-#~ msgid "Direct yield from your deposited sSDOGE to other recipients. Your sSDOGE is deposited in a vault, but you can withdraw it or change the deposited amount at any time."
-#~ msgstr "从您存入的 sSDOGE 直接r将收益法发送给其他接收者。您的 sSDOGE 存放在保险库中，但您可以随时提取或更改存款金额。"
+#~ msgid "Direct yield from your deposited sSDAO to other recipients. Your sSDAO is deposited in a vault, but you can withdraw it or change the deposited amount at any time."
+#~ msgstr "从您存入的 sSDAO 直接r将收益法发送给其他接收者。您的 sSDAO 存放在保险库中，但您可以随时提取或更改存款金额。"
 
 #: src/components/TopBar/ConnectMenu.jsx:28
 #: src/components/TopBar/ConnectMenu.jsx:125
@@ -352,8 +352,8 @@ msgstr "文档"
 #~ msgstr "已捐赠 "
 
 #: src/views/Give/RedeemYield.tsx:211
-#~ msgid "Donated sSDOGE Generating Yield"
-#~ msgstr "捐赠 sSDOGE 产生的收益"
+#~ msgid "Donated sSDAO Generating Yield"
+#~ msgstr "捐赠 sSDAO 产生的收益"
 
 #: src/components/GiveProject/ProjectCard.tsx:581
 #~ msgid "Donations"
@@ -384,8 +384,8 @@ msgstr "为了公平起见，提前提款将产生 {exitFee} 的费用。"
 #~ msgstr "编辑收益"
 
 #: src/slices/PendingTxnsSlice.ts:36
-#~ msgid "Editing sSDOGE donation amount"
-#~ msgstr "编辑 sSDOGE 捐赠金额"
+#~ msgid "Editing sSDAO donation amount"
+#~ msgstr "编辑 sSDAO 捐赠金额"
 
 #: src/views/Zap/ZapStakeAction.jsx:397
 #: src/views/Zap/ZapStakeAction.jsx:451
@@ -427,12 +427,12 @@ msgid "First time bonding"
 msgstr "第一次买债券"
 
 #: src/views/Give/RecipientModal.tsx:472
-#~ msgid "First time donating <0>sSDOGE</0>?<1/>Please approve Olympus DAO to use your <2>sSDOGE</2> for donating."
-#~ msgstr "第一次捐赠 <0>sSDOGE</0>？<1/>请批准 Olympus DAO 使用您的 <2>sSDOGE</2> 进行捐赠。"
+#~ msgid "First time donating <0>sSDAO</0>?<1/>Please approve Olympus DAO to use your <2>sSDAO</2> for donating."
+#~ msgstr "第一次捐赠 <0>sSDAO</0>？<1/>请批准 Olympus DAO 使用您的 <2>sSDAO</2> 进行捐赠。"
 
 #: src/views/Give/RecipientModal.tsx:386
-#~ msgid "First time giving <0>sSDOGE</0>?<1/>Please approve Olympus DAO to use your <2>sSDOGE</2> for giving."
-#~ msgstr "第一次给予 <0>sSDOGE</0>？<1/>请批准 Olympus DAO 使用您的 <2>sSDOGE</2> 进行给予。"
+#~ msgid "First time giving <0>sSDAO</0>?<1/>Please approve Olympus DAO to use your <2>sSDAO</2> for giving."
+#~ msgstr "第一次给予 <0>sSDAO</0>？<1/>请批准 Olympus DAO 使用您的 <2>sSDAO</2> 进行给予。"
 
 #: src/views/Stake/Stake.tsx:373
 msgid "First time staking"
@@ -469,8 +469,8 @@ msgstr "开始"
 #~ msgstr "给予收益"
 
 #: src/slices/PendingTxnsSlice.ts:34
-#~ msgid "Giving sSDOGE"
-#~ msgstr "给予 sSDOGE"
+#~ msgid "Giving sSDAO"
+#~ msgstr "给予 sSDAO"
 
 #: src/views/Give/RecipientModal.tsx:612
 #: src/views/Give/RecipientModal.tsx:648
@@ -494,8 +494,8 @@ msgid "Governance"
 msgstr "治理"
 
 #: src/views/Give/RedeemYield.tsx:192
-#~ msgid "If other wallets have directed their sSDOGE rebases to you, you can transfer that yield into your wallet."
-#~ msgstr "如果其他钱包将他们的 sSDOGE 分配给您，您可以将该收益转移至您的钱包中。"
+#~ msgid "If other wallets have directed their sSDAO rebases to you, you can transfer that yield into your wallet."
+#~ msgstr "如果其他钱包将他们的 sSDAO 分配给您，您可以将该收益转移至您的钱包中。"
 
 #: src/components/TopBar/ConnectMenu.jsx:33
 msgid "In progress"
@@ -516,8 +516,8 @@ msgid "Less than a minute"
 msgstr "不到一分钟"
 
 #: src/views/Give/GiveInfo.jsx:15
-#~ msgid "Lock sSDOGE in vault"
-#~ msgstr "将 sSDOGE 锁定在保险库中"
+#~ msgid "Lock sSDAO in vault"
+#~ msgstr "将 sSDAO 锁定在保险库中"
 
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:16
 msgid "Market Cap"
@@ -547,8 +547,8 @@ msgid "Migrate"
 msgstr "迁移"
 
 #: src/views/Stake/Stake.tsx:210
-#~ msgid "Migrate sSDOGE!"
-#~ msgstr "迁移 sSDOGE！"
+#~ msgid "Migrate sSDAO!"
+#~ msgstr "迁移 sSDAO！"
 
 #: src/components/Migration/MigrationModal.jsx:234
 #: src/components/Migration/MigrationModal.jsx:322
@@ -584,8 +584,8 @@ msgstr "下一次奖励收获量"
 
 #: src/views/ChooseBond/ChooseBond.tsx:105
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:29
-msgid "SDOGE Price"
-msgstr "SDOGE 价格"
+msgid "SDAO Price"
+msgstr "SDAO 价格"
 
 #: src/views/Zap/ZapInfo.jsx:106
 msgid "OlyZap reduces complexity, saves you time and keeps you here on Olympus."
@@ -593,12 +593,12 @@ msgstr "OlyZap 降低了复杂性，节省了您的时间，并让您留在 Olym
 
 #: src/components/EducationCard.tsx:81
 #: src/components/EducationCard.tsx:119
-#~ msgid "Olympus Give is a means of directing the yield that is accrued on your sSDOGE to another wallet. The first step is depositing your sSDOGE and specifying a recipient."
-#~ msgstr "Olympus Give 是一种将你从 sSDOGE 上获取的收益导向到另一个钱包的方法。第一步是存入您的 sSDOGE 并指定接收者。"
+#~ msgid "Olympus Give is a means of directing the yield that is accrued on your sSDAO to another wallet. The first step is depositing your sSDAO and specifying a recipient."
+#~ msgstr "Olympus Give 是一种将你从 sSDAO 上获取的收益导向到另一个钱包的方法。第一步是存入您的 sSDAO 并指定接收者。"
 
 #: src/views/V1-Stake/V1-Stake.jsx:296
-msgid "Once your current bonds have been claimed, you can migrate your assets to stake more SDOGE"
-msgstr "一旦您当前的债券被索取，您就可以迁移您的资产以质押更多的 SDOGE"
+msgid "Once your current bonds have been claimed, you can migrate your assets to stake more SDAO"
+msgstr "一旦您当前的债券被索取，您就可以迁移您的资产以质押更多的 SDAO"
 
 #: src/views/404/NotFound.tsx:14
 msgid "Page not found"
@@ -730,8 +730,8 @@ msgstr "阅读更多有关公平性的信息"
 #~ msgstr "获得收益自"
 
 #: src/components/EducationCard.tsx:172
-#~ msgid "Receives yield from {quantity} sSDOGE"
-#~ msgstr "从 {quantity} sSDOGE 获得收益 "
+#~ msgid "Receives yield from {quantity} sSDAO"
+#~ msgstr "从 {quantity} sSDAO 获得收益 "
 
 #: src/views/Bond/BondPurchase.jsx:289
 msgid "Recipient"
@@ -742,8 +742,8 @@ msgid "Recipient Address"
 msgstr "接收者地址"
 
 #: src/views/Give/GiveInfo.jsx:18
-#~ msgid "Recipient earns sSDOGE rebases"
-#~ msgstr "接收者将获得 sSDOGE 变基"
+#~ msgid "Recipient earns sSDAO rebases"
+#~ msgstr "接收者将获得 sSDAO 变基"
 
 #: src/views/Bond/Bond.tsx:112
 msgid "Redeem"
@@ -758,8 +758,8 @@ msgstr "赎回"
 #~ msgstr "赎回收益？"
 
 #: src/components/EducationCard.tsx:200
-#~ msgid "Redeem {quantity} sSDOGE in yield"
-#~ msgstr "赎回 {数量} sSDOGE 的收益"
+#~ msgid "Redeem {quantity} sSDAO in yield"
+#~ msgstr "赎回 {数量} sSDAO 的收益"
 
 #: src/views/Give/RedeemYield.tsx:219
 #~ msgid "Redeemable Amount"
@@ -828,8 +828,8 @@ msgid "Stake"
 msgstr "质押"
 
 #: src/views/Stake/Stake.tsx:428
-msgid "Stake SDOGE"
-msgstr "质押 SDOGE"
+msgid "Stake SDAO"
+msgstr "质押 SDAO"
 
 #: src/views/Stake/ExternalStakePool.jsx:144
 #: src/views/Stake/ExternalStakePool.jsx:212
@@ -860,28 +860,28 @@ msgid "Staking"
 msgstr "质押中"
 
 #: src/slices/PendingTxnsSlice.ts:28
-msgid "Staking SDOGE"
-msgstr "正在质押 SDOGE"
+msgid "Staking SDAO"
+msgstr "正在质押 SDAO"
 
 #: src/views/Zap/ZapInfo.jsx:132
-msgid "Staking is the primary value accrual strategy of Olympus. When you stake, you lock SDOGE and receive an equal amount of sSDOGE."
-msgstr "质押是 Olympus 主要积累价值的策略。当您质押时，您将锁定 SDOGE 并获得等量的 sSDOGE。"
+msgid "Staking is the primary value accrual strategy of Olympus. When you stake, you lock SDAO and receive an equal amount of sSDAO."
+msgstr "质押是 Olympus 主要积累价值的策略。当您质押时，您将锁定 SDAO 并获得等量的 sSDAO。"
 
 #: src/views/Dashboard/Dashboard.jsx:66
 #~ msgid "Supply (circulating/total)"
 #~ msgstr "供应（流通/总量）"
 
 #: src/views/Zap/ZapStakeHeader.jsx:50
-msgid "Swap for SDOGE"
-msgstr "换 SDOGE"
+msgid "Swap for SDAO"
+msgstr "换 SDAO"
 
 #: src/views/Zap/ZapStakeHeader.jsx:40
-msgid "Swap for sSDOGE"
-msgstr "换 sSDOGE"
+msgid "Swap for sSDAO"
+msgstr "换 sSDAO"
 
 #: src/views/Zap/ZapCta.jsx:58
-msgid "Swap into sSDOGE"
-msgstr "换取 SDOGE"
+msgid "Swap into sSDAO"
+msgstr "换取 SDAO"
 
 #: src/views/Stake/ExternalStakePool.jsx:91
 #: src/views/Stake/ExternalStakePool.jsx:176
@@ -893,8 +893,8 @@ msgid "TVL"
 msgstr "总锁仓价值"
 
 #: src/views/Give/YieldRecipients.tsx:193
-#~ msgid "The amount of sSDOGE deposited"
-#~ msgstr "已存入的 sSDOGE"
+#~ msgid "The amount of sSDAO deposited"
+#~ msgstr "已存入的 sSDAO"
 
 #: src/views/33Together/PoolWithdraw.jsx:118
 msgid "The pool has been temporarily disabled for V2 Migration. Please withdraw your 33T"
@@ -902,8 +902,8 @@ msgstr "该矿池已被临时禁用以进行 V2 迁移。请提取您的 33T"
 
 #: src/components/EducationCard.tsx:331
 #: src/components/EducationCard.tsx:369
-#~ msgid "The recipient you specified, or the project you selected, will then receive the rebases associated with your sSDOGE deposit until you withdraw your sSDOGE principal from the vault."
-#~ msgstr "您指定的接收者或您选择的项目将收到与您的 sSDOGE 存款产生的变基奖励，直到您从保险库中提取您的 sSDOGE 本金。"
+#~ msgid "The recipient you specified, or the project you selected, will then receive the rebases associated with your sSDAO deposit until you withdraw your sSDAO principal from the vault."
+#~ msgstr "您指定的接收者或您选择的项目将收到与您的 sSDAO 存款产生的变基奖励，直到您从保险库中提取您的 sSDAO 本金。"
 
 #: src/views/Give/RecipientModal.tsx:396
 #~ msgid "The specified wallet address will receive the rebase yield from the amount that you deposit."
@@ -911,8 +911,8 @@ msgstr "该矿池已被临时禁用以进行 V2 迁移。请提取您的 33T"
 
 #: src/components/EducationCard.tsx:188
 #: src/components/EducationCard.tsx:232
-#~ msgid "Then, your deposited sSDOGE is kept in a vault smart contract that will send your rebases to the recipient. You can withdraw or edit your principal sSDOGE amount at any time."
-#~ msgstr "然后，您存入的 sSDOGE 会保存在保险库智能合约中，该合约会将您的变基收益发送给接收者。您可以随时提取或编辑您的 sSDOGE 本金金额。"
+#~ msgid "Then, your deposited sSDAO is kept in a vault smart contract that will send your rebases to the recipient. You can withdraw or edit your principal sSDAO amount at any time."
+#~ msgstr "然后，您存入的 sSDAO 会保存在保险库智能合约中，该合约会将您的变基收益发送给接收者。您可以随时提取或编辑您的 sSDAO 本金金额。"
 
 #: src/views/33Together/PoolDeposit.jsx:110
 msgid "This Prize Pool is unable to accept deposits at this time."
@@ -927,8 +927,8 @@ msgid "This is the current balance of v1 assets in your wallet."
 msgstr "这是您钱包中 v1 资产的当前余额。"
 
 #: src/components/Migration/MigrationModal.jsx:287
-msgid "This is the equivalent amount of gSDOGE you will have in your wallet once migration is complete."
-msgstr "这将与迁移完成后您钱包中的 gSDOGE 数量相等。"
+msgid "This is the equivalent amount of gSDAO you will have in your wallet once migration is complete."
+msgstr "这将与迁移完成后您钱包中的 gSDAO 数量相等。"
 
 #: src/views/Bond/BondRedeem.jsx:113
 msgid "Time until fully vested"
@@ -969,8 +969,8 @@ msgid "Unstake Legacy LP Token"
 msgstr "取消质押旧的 LP 代币"
 
 #: src/views/V1-Stake/V1-Stake.jsx:400
-msgid "Unstake SDOGE"
-msgstr "取消质押 SDOGE"
+msgid "Unstake SDAO"
+msgstr "取消质押 SDAO"
 
 #: src/views/Stake/Stake.tsx:483
 #: src/views/V1-Stake/V1-Stake.jsx:420
@@ -982,20 +982,20 @@ msgstr "取消质押余额"
 #~ msgstr "未质押余额 (v1)"
 
 #: src/slices/PendingTxnsSlice.ts:28
-msgid "Unstaking sSDOGE"
-msgstr "正在取消质押 sSDOGE"
+msgid "Unstaking sSDAO"
+msgstr "正在取消质押 sSDAO"
 
 #: src/slices/PendingTxnsSlice.ts:32
-msgid "Unwrapping sSDOGE"
-msgstr "去包装 sSDOGE"
+msgid "Unwrapping sSDAO"
+msgstr "去包装 sSDAO"
 
 #: src/components/EducationCard.tsx:404
 #~ msgid "Updated Deposit"
 #~ msgstr "更新存款"
 
 #: src/views/Give/RecipientModal.tsx:203
-#~ msgid "Value cannot be more than your sSDOGE balance of"
-#~ msgstr "价值不能超过您的 sSDOGE 余额"
+#~ msgid "Value cannot be more than your sSDAO balance of"
+#~ msgstr "价值不能超过您的 sSDAO 余额"
 
 #: src/views/Give/RecipientModal.tsx:192
 #~ msgid "Value must be positive"
@@ -1045,20 +1045,20 @@ msgid "Withdraw Early & pay"
 msgstr "提早取款并付款"
 
 #: src/views/33Together/PoolWithdraw.jsx:163
-msgid "Withdraw sSDOGE"
-msgstr "提取 sSDOGE"
+msgid "Withdraw sSDAO"
+msgstr "提取 sSDAO"
 
 #: src/views/33Together/PoolWithdraw.jsx:106
 msgid "Withdrawals can be made once the prize has been awarded."
 msgstr "中奖后可以进行提款"
 
 #: src/slices/PendingTxnsSlice.ts:37
-#~ msgid "Withdrawing sSDOGE donation"
-#~ msgstr "提取 sSDOGE 捐款"
+#~ msgid "Withdrawing sSDAO donation"
+#~ msgstr "提取 sSDAO 捐款"
 
 #: src/views/33Together/PoolWithdraw.jsx:170
-msgid "Withdrawing {quantity} sSDOGE reduces your odds of winning to 1 in {newOdds}"
-msgstr "提取 {quantity} sSDOGE 会将您获胜的几率从 {newOdds} 降低到 1"
+msgid "Withdrawing {quantity} sSDAO reduces your odds of winning to 1 in {newOdds}"
+msgstr "提取 {quantity} sSDAO 会将您获胜的几率从 {newOdds} 降低到 1"
 
 #: src/views/Stake/Stake.tsx:505
 #: src/views/V1-Stake/V1-Stake.jsx:448
@@ -1088,8 +1088,8 @@ msgstr "于 FiatDAO 中的打包代币余额"
 #~ msgstr "于 Fuse 中的打包代币余额"
 
 #: src/slices/PendingTxnsSlice.ts:32
-msgid "Wrapping SDOGE"
-msgstr "包装 SDOGE"
+msgid "Wrapping SDAO"
+msgstr "包装 SDAO"
 
 #: src/views/33Together/PoolInfo.jsx:107
 msgid "Yield Source"
@@ -1104,8 +1104,8 @@ msgid "You Get"
 msgstr "你获得"
 
 #: src/views/Zap/ZapInfo.jsx:124
-msgid "You Get sSDOGE"
-msgstr "你获得 sSDOGE"
+msgid "You Get sSDAO"
+msgstr "你获得 sSDAO"
 
 #: src/views/Zap/ZapInfo.jsx:73
 msgid "You Give"
@@ -1129,13 +1129,13 @@ msgstr "您可以随时提取存入的资金。由于提取资金，您将减少
 
 #: src/views/Stake/Stake.tsx:157
 #: src/views/Stake/Stake.tsx:157
-msgid "You cannot stake more than your SDOGE balance."
-msgstr "您不能质押超过您的 SDOGE 余额。"
+msgid "You cannot stake more than your SDAO balance."
+msgstr "您不能质押超过您的 SDAO 余额。"
 
 #: src/views/Stake/Stake.tsx:140
 #: src/views/Stake/Stake.tsx:140
-#~ msgid "You cannot unstake more than your sSDOGE balance."
-#~ msgstr "您不能取消质押超过您的 sSDOGE 余额。"
+#~ msgid "You cannot unstake more than your sSDAO balance."
+#~ msgstr "您不能取消质押超过您的 sSDAO 余额。"
 
 #: src/views/33Together/PoolWithdraw.jsx:87
 msgid "You cannot withdraw more than your pool balance"
@@ -1143,8 +1143,8 @@ msgstr "您的提款金额不能超过您的矿池余额"
 
 #: src/views/Stake/Stake.tsx:163
 #: src/views/Stake/Stake.tsx:163
-msgid "You do not have enough sSDOGE to complete this transaction.  To unstake from gSDOGE, please check the box."
-msgstr "您没有足够的 sSDOGE 来完成此交易。要从 gSDOGE 取消质押，请点选此框格。"
+msgid "You do not have enough sSDAO to complete this transaction.  To unstake from gSDAO, please check the box."
+msgstr "您没有足够的 sSDAO 来完成此交易。要从 gSDAO 取消质押，请点选此框格。"
 
 #: src/views/Bond/BondPurchase.jsx:56
 msgid "You have an existing bond. Bonding will reset your vesting period and forfeit rewards. We recommend claiming rewards first or using a fresh wallet. Do you still want to proceed?"
@@ -1170,12 +1170,12 @@ msgstr "您有准备好迁移至 v2 的资产"
 #~ msgstr "您必须登录您的钱包才能使用此功能。点击 “连接钱包” 按钮并重试。"
 
 #: src/views/V1-Stake/V1-Stake.jsx:299
-msgid "You must complete the migration of your assets to stake additional SDOGE"
-msgstr "您必须完成资产迁移才能质押额外的 SDOGE"
+msgid "You must complete the migration of your assets to stake additional SDAO"
+msgstr "您必须完成资产迁移才能质押额外的 SDAO"
 
 #: src/views/Give/RecipientModal.tsx:198
-#~ msgid "You must have a balance of sSDOGE (staked SDOGE) to continue"
-#~ msgstr "您必须拥有 sSDOGE（质押 SDOGE）余额才能继续"
+#~ msgid "You must have a balance of sSDAO (staked SDAO) to continue"
+#~ msgstr "您必须拥有 sSDAO（质押 SDAO）余额才能继续"
 
 #: src/views/Bond/BondPurchase.jsx:222
 msgid "Your Balance"
@@ -1206,8 +1206,8 @@ msgid "Your pool deposits"
 msgstr "您的矿池存款"
 
 #: src/views/Give/RecipientModal.tsx:535
-#~ msgid "Your sSDOGE will be tansferred into the vault when you submit. You will need to approve the transaction and pay for gas fees."
-#~ msgstr "当您提交时，您的 sSDOGE 将被转移到保险库中。 您需要批准交易并支付汽油费。"
+#~ msgid "Your sSDAO will be tansferred into the vault when you submit. You will need to approve the transaction and pay for gas fees."
+#~ msgstr "当您提交时，您的 sSDAO 将被转移到保险库中。 您需要批准交易并支付汽油费。"
 
 #: src/views/33Together/PoolInfo.jsx:49
 msgid "Your total awards"
@@ -1222,8 +1222,8 @@ msgid "Zap is a swap"
 msgstr "Zap 提供换币"
 
 #: src/views/Zap/ZapCta.jsx:40
-msgid "Zap with more assets and stake <0>SDOGE</0>"
-msgstr "使用 Zap 换取更多资产并质押 <0>SDOGE</0>"
+msgid "Zap with more assets and stake <0>SDAO</0>"
+msgstr "使用 Zap 换取更多资产并质押 <0>SDAO</0>"
 
 #: src/views/Zap/ZapStakeAction.jsx:399
 #: src/views/Zap/ZapStakeAction.jsx:451
@@ -1263,8 +1263,8 @@ msgid "for unstaking"
 msgstr "用于取消质押"
 
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:84
-msgid "gSDOGE Price"
-msgstr "gSDOGE 价格"
+msgid "gSDAO Price"
+msgstr "gSDAO 价格"
 
 #: src/views/33Together/PoolPrize.jsx:148
 msgid "hrs"
@@ -1299,32 +1299,32 @@ msgstr "分钟"
 #: src/views/Give/RedeemYield.tsx:214
 #: src/views/Give/RedeemYield.tsx:226
 #: src/views/Give/RedeemYield.tsx:236
-#~ msgid "sSDOGE"
-#~ msgstr "sSDOGE"
+#~ msgid "sSDAO"
+#~ msgstr "sSDAO"
 
 #: src/views/Give/RecipientModal.tsx:532
-#~ msgid "sSDOGE Allocation"
-#~ msgstr "sSDOGE 分配"
+#~ msgid "sSDAO Allocation"
+#~ msgstr "sSDAO 分配"
 
 #: src/components/GiveProject/ProjectCard.tsx:317
-#~ msgid "sSDOGE Donated"
-#~ msgstr "已捐赠的 sSDOGE"
+#~ msgid "sSDAO Donated"
+#~ msgstr "已捐赠的 sSDAO"
 
 #: src/components/GiveProject/ProjectCard.tsx:334
-#~ msgid "sSDOGE Goal"
-#~ msgstr "sSDOGE 目标"
+#~ msgid "sSDAO Goal"
+#~ msgstr "sSDAO 目标"
 
 #: src/views/33Together/PoolInfo.jsx:158
-msgid "sSDOGE Pool Details"
-msgstr "sSDOGE 矿池详情"
+msgid "sSDAO Pool Details"
+msgstr "sSDAO 矿池详情"
 
 #: src/views/33Together/PoolInfo.jsx:150
-msgid "sSDOGE Prize Pool"
-msgstr "sSDOGE 奖池"
+msgid "sSDAO Prize Pool"
+msgstr "sSDAO 奖池"
 
 #: src/components/GiveProject/ProjectCard.tsx:236
-#~ msgid "sSDOGE raised"
-#~ msgstr "已募集的 sSDOGE"
+#~ msgid "sSDAO raised"
+#~ msgstr "已募集的 sSDAO"
 
 #: src/views/33Together/PoolPrize.jsx:161
 msgid "sec"
@@ -1339,20 +1339,20 @@ msgstr "至下一次变基"
 #~ msgstr "提取"
 
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:84
-#~ msgid "wsSDOGE Price"
-#~ msgstr "wsSDOGE 价格"
+#~ msgid "wsSDAO Price"
+#~ msgstr "wsSDAO 价格"
 
 #: src/views/Give/RecipientModal.tsx:314
 #~ msgid "{0} by {1}"
 #~ msgstr "{1} 的 {0}"
 
 #: src/views/Give/RecipientModal.tsx:569
-#~ msgid "{0} sSDOGE"
-#~ msgstr "{0} sSDOGE"
+#~ msgid "{0} sSDAO"
+#~ msgstr "{0} sSDAO"
 
 #: src/views/Give/RecipientModal.tsx:522
-#~ msgid "{depositAmount} sSDOGE"
-#~ msgstr "{存款金额} sSDOGE"
+#~ msgid "{depositAmount} sSDAO"
+#~ msgstr "{存款金额} sSDAO"
 
 #: src/components/GiveProject/ProjectCard.tsx:366
 #~ msgid "{details}"
@@ -1366,13 +1366,13 @@ msgstr "至下一次变基"
 
 #: src/components/EducationCard.tsx:261
 #: src/components/EducationCard.tsx:281
-#~ msgid "{quantity} sSDOGE"
-#~ msgstr "{数量} sSDOGE"
+#~ msgid "{quantity} sSDAO"
+#~ msgstr "{数量} sSDAO"
 
 #: src/components/EducationCard.tsx:38
 #: src/components/EducationCard.tsx:101
-#~ msgid "{quantity} sSDOGE {verb}"
-#~ msgstr "{数量} sSDOGE {动词}"
+#~ msgid "{quantity} sSDAO {verb}"
+#~ msgstr "{数量} sSDAO {动词}"
 
 #: src/components/GiveProject/ProjectCard.tsx:366
 #~ msgid "{shortDescription}"

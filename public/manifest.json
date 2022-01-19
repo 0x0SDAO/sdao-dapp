@@ -1,8 +1,8 @@
 {
-  "short_name": "ScholarDoge",
+  "short_name": "ScholarDAO",
   "start_url": ".",
   "homepage": "./",
-  "name": "ScholarDoge",
+  "name": "ScholarDAO",
   "launch_path": "/public/index.html",
   "icons": [
     {

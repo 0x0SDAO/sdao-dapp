@@ -22,7 +22,7 @@ function InfoTooltip({ message, children }) {
         style={{ margin: "0 5px", fontSize: "1em" }}
         className="info-icon"/>
       <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom" className="tooltip">
-        <Paper className="info-tooltip sdoge-card">
+        <Paper className="info-tooltip sdao-card">
           <Typography variant="body2" className="info-tooltip-text">
             {children || message}
           </Typography>

@@ -100,18 +100,18 @@ export const ProtocolOwnedLiquidityGraph = () => {
       dataFormat="percent"
       itemNames={tooltipItems.pol}
       itemType={itemType.percentage}
-      dataKey={["treasurySdogeDaiPOL"]}
+      dataKey={["treasurySdaoDaiPOL"]}
       bulletpointColors={bulletpoints.pol}
       infoTooltipMessage={tooltipInfoMessages.pol}
-      headerText="Protocol Owned Liquidity SDOGE-BUSD"
+      headerText="Protocol Owned Liquidity SDAO-DAI"
       expandedGraphStrokeColor={theme.palette.graphStrokeColor}
-      headerSubText={`${data && trim(data[0].treasurySdogeDaiPOL, 2)}% `}
+      headerSubText={`${data && trim(data[0].treasurySdaoDaiPOL, 2)}% `}
       stopColor={[["rgba(128, 204, 131, 1)", "rgba(128, 204, 131, 0)"]]}
     />
   );
 };
 
-export const SDOGEStakedGraph = () => {
+export const SDAOStakedGraph = () => {
   const theme = useTheme();
   const { data } = useTreasuryMetrics({ refetchOnMount: false });
 
@@ -119,7 +119,7 @@ export const SDOGEStakedGraph = () => {
     data &&
     data
       .map(metric => ({
-        staked: (metric.sSdogeCirculatingSupply / metric.sdogeCirculatingSupply) * 100,
+        staked: (metric.sSdaoCirculatingSupply / metric.sdaoCirculatingSupply) * 100,
         timestamp: metric.timestamp,
       }))
       .filter(metric => metric.staked < 100);
@@ -131,7 +131,7 @@ export const SDOGEStakedGraph = () => {
       data={staked}
       dataKey={["staked"]}
       dataFormat="percent"
-      headerText="SDOGE Staked"
+      headerText="SDAO Staked"
       stopColor={[["#55EBC7", "#47ACEB"]]}
       bulletpointColors={bulletpoints.staked}
       infoTooltipMessage={tooltipInfoMessages.staked}

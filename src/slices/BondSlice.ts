@@ -17,8 +17,6 @@ import {
 } from "./interfaces";
 import { segmentUA } from "../helpers/userAnalyticHelpers";
 import ReactGA from "react-ga";
-import { IBEP20__factory } from "../typechain";
-import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers";
 
 export const changeApproval = createAsyncThunk(
   "bonding/changeApproval",
@@ -29,7 +27,7 @@ export const changeApproval = createAsyncThunk(
     }
 
     const signer = provider.getSigner();
-    const reserveContract = bond.getBEP20ContractForReserve(networkID, signer);
+    const reserveContract = bond.getERC20ContractForReserve(networkID, signer);
     const bondAddr = bond.getAddressForBond(networkID);
 
     let approveTx;
@@ -103,6 +101,7 @@ export const calcBondDetails = createAsyncThunk(
     }
 
     let marketPrice = 0;
+
     try {
       const originalPromiseResult = await dispatch(
         findOrLoadMarketPrice({ networkID: networkID, provider: provider }),
@@ -115,7 +114,6 @@ export const calcBondDetails = createAsyncThunk(
 
     try {
       // TODO (appleseed): improve this logic
-
       bondPrice = await bondContract.bondPriceInUSD();
 
       if (bondPrice.eq(BigNumber.from("0"))) {
@@ -166,10 +164,9 @@ export const calcBondDetails = createAsyncThunk(
       const errorString =
         "You're trying to bond more than the maximum payout available! The maximum bond payout is " +
         (Number(maxBondPrice.toString()) / Math.pow(10, 9)).toFixed(2).toString() +
-        " SDOGE.";
+        " SDAO.";
       dispatch(error(errorString));
     }
-
     // Calculate bonds purchased
     const purchased = await bond.getTreasuryBalance(networkID, provider);
 
@@ -211,6 +208,7 @@ export const bondAsset = createAsyncThunk(
       approved: true,
       txHash: "",
     };
+
     try {
       bondTx = await bondContract.deposit(valueInWei, maxPremium, depositorAddress);
       dispatch(

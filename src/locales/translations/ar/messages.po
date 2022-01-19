@@ -427,11 +427,11 @@ msgid "First time bonding"
 msgstr "الإسناد لأول مرة"
 
 #: src/views/Give/RecipientModal.tsx:472
-#~ msgid "First time donating <0>sSDOGE</0>?<1/>Please approve ScholarDoge DAO to use your <2>sSDOGE</2> for donating."
+#~ msgid "First time donating <0>sSDOGE</0>?<1/>Please approve ScholarDAO DAO to use your <2>sSDOGE</2> for donating."
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:386
-#~ msgid "First time giving <0>sSDOGE</0>?<1/>Please approve ScholarDoge DAO to use your <2>sSDOGE</2> for giving."
+#~ msgid "First time giving <0>sSDOGE</0>?<1/>Please approve ScholarDAO DAO to use your <2>sSDOGE</2> for giving."
 #~ msgstr ""
 
 #: src/views/Stake/Stake.tsx:373
@@ -588,12 +588,12 @@ msgid "SDOGE Price"
 msgstr "سعر SDOGE"
 
 #: src/views/Zap/ZapInfo.jsx:106
-msgid "OlyZap reduces complexity, saves you time and keeps you here on ScholarDoge."
-msgstr "يقلل OlyZap من التعقيد ويوفر لك الوقت ويبقيك هنا على ScholarDoge."
+msgid "OlyZap reduces complexity, saves you time and keeps you here on ScholarDAO."
+msgstr "يقلل OlyZap من التعقيد ويوفر لك الوقت ويبقيك هنا على ScholarDAO."
 
 #: src/components/EducationCard.tsx:81
 #: src/components/EducationCard.tsx:119
-#~ msgid "ScholarDoge Give is a means of directing the yield that is accrued on your sSDOGE to another wallet. The first step is depositing your sSDOGE and specifying a recipient."
+#~ msgid "ScholarDAO Give is a means of directing the yield that is accrued on your sSDOGE to another wallet. The first step is depositing your sSDOGE and specifying a recipient."
 #~ msgstr ""
 
 #: src/views/V1-Stake/V1-Stake.jsx:296
@@ -624,8 +624,8 @@ msgstr "معلق..."
 #: src/views/Stake/Stake.tsx:375
 #: src/views/Stake/Stake.tsx:382
 #: src/views/V1-Stake/V1-Stake.jsx:315
-msgid "Please approve ScholarDoge Dao to use your"
-msgstr "الرجاء الموافقة لScholarDoge Dao لاستخدام"
+msgid "Please approve ScholarDAO Dao to use your"
+msgstr "الرجاء الموافقة لScholarDAO Dao لاستخدام"
 
 #: src/slices/RedeemThunk.ts:25
 #~ msgid "Please conenect your wallet!"
@@ -864,8 +864,8 @@ msgid "Staking SDOGE"
 msgstr "يتم ربط حصة SDOGE"
 
 #: src/views/Zap/ZapInfo.jsx:132
-msgid "Staking is the primary value accrual strategy of ScholarDoge. When you stake, you lock SDOGE and receive an equal amount of sSDOGE."
-msgstr "ربط الحصة هي إستراتيجية تراكم القيمة الأساسية لScholarDoge. عندما تقوم بربط الحصة، فإنك تعلق SDOGE وتتلقى مقدارًا مساويًا من sSDOGE."
+msgid "Staking is the primary value accrual strategy of ScholarDAO. When you stake, you lock SDOGE and receive an equal amount of sSDOGE."
+msgstr "ربط الحصة هي إستراتيجية تراكم القيمة الأساسية لScholarDAO. عندما تقوم بربط الحصة، فإنك تعلق SDOGE وتتلقى مقدارًا مساويًا من sSDOGE."
 
 #: src/views/Dashboard/Dashboard.jsx:66
 #~ msgid "Supply (circulating/total)"

@@ -92,14 +92,14 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
 
   const setMax = () => {
     let maxQ;
+
     if (bond.maxBondPrice * bond.bondPrice < Number(bond.balance)) {
       // there is precision loss here on Number(bond.balance)
       maxQ = bond.maxBondPrice * bond.bondPrice.toString();
     } else {
       maxQ = bond.balance;
     }
-    console.log(maxQ);
-    console.log(bond);
+
     setQuantity(maxQ);
   };
 
@@ -149,13 +149,13 @@ function BondPurchase({ bond, slippage, recipientAddress }) {
                     <em>
                       <Typography variant="body1" align="center" color="textSecondary">
                         <Trans>First time bonding</Trans> <b>{bond.displayName}</b>? <br />{" "}
-                        <Trans>Please approve ScholarDoge to use your</Trans> <b>{bond.displayName}</b>{" "}
+                        <Trans>Please approve ScholarDAO to use your</Trans> <b>{bond.displayName}</b>{" "}
                         <Trans>for bonding</Trans>.
                       </Typography>
                     </em>
                   </div>
                 ) : (
-                  <FormControl className="sdoge-input" variant="outlined" color="primary" fullWidth>
+                  <FormControl className="sdao-input" variant="outlined" color="primary" fullWidth>
                     <InputLabel htmlFor="outlined-adornment-amount">
                       <Trans>Amount</Trans>
                     </InputLabel>

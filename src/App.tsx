@@ -23,7 +23,7 @@ import {
 import { calculateUserBondDetails, loadAccountDetails } from "./slices/AccountSlice";
 import { info } from "./slices/MessagesSlice";
 
-import { Bond, ChooseBond, TreasuryDashboard, V1Stake } from "./views";
+import { Bond, ChooseBond, TreasuryDashboard } from "./views";
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import TopBar from "./components/TopBar/TopBar.jsx";
 import NavDrawer from "./components/Sidebar/NavDrawer.jsx";
@@ -36,14 +36,15 @@ import { girth as gTheme } from "./themes/girth.js";
 import "./style.scss";
 import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
 import Announcement from "./components/Announcement/Announcement";
-import { NetworkId } from "./constants";
+import { IS_PRIVATE_SALE_ENABLED, NetworkId } from "./constants";
 import Stake from "./views/Stake/Stake";
+import PrivateSale from "./views/PrivateSale/PrivateSale";
 
 // 😬 Sorry for all the console logging
 const DEBUG = false;
 
 // 🛰 providers
-if (DEBUG) console.log("📡 Connecting to BSC mainnet");
+if (DEBUG) console.log("📡 Connecting to Fantom mainnet");
 // 🔭 block explorer URL
 // const blockExplorer = targetNetwork.blockExplorer;
 
@@ -192,7 +193,7 @@ function App() {
       setWalletChecked(true);
     }
     if (shouldTriggerSafetyCheck()) {
-      dispatch(info("Safety Check: Always verify you're on dapp.scholardoge.org!"));
+      dispatch(info("Safety Check: Always verify you're on dapp.scholardao.net !"));
     }
   }, []);
 
@@ -259,32 +260,35 @@ function App() {
               </Route>
 
               <Route exact path="/">
-                <Redirect to="/stake" />
+                <Redirect to={!IS_PRIVATE_SALE_ENABLED ? "/dashboard" : "/private-sale"} />
               </Route>
 
-              <Route path="/stake">
-                <Stake />
-                {/*/!* if newAssets or 0 assets *!/*/}
-                {/*{newAssetsDetected || (!newAssetsDetected && !oldAssetsDetected) ? (*/}
-                {/*  <Stake />*/}
-                {/*) : (*/}
-                {/*  <V1Stake*/}
-                {/*    hasActiveV1Bonds={hasActiveV1Bonds}*/}
-                {/*    oldAssetsDetected={oldAssetsDetected}*/}
-                {/*  />*/}
-                {/*)}*/}
-              </Route>
-
-              <Route path="/bonds">
-                {(bonds as IAllBondData[]).map(bond => {
-                  return (
-                    <Route exact key={bond.name} path={`/bonds/${bond.name}`}>
-                      <Bond bond={bond} />
+              {
+                !IS_PRIVATE_SALE_ENABLED ? (
+                  <>
+                    <Route path="/stake">
+                      <Stake />
                     </Route>
-                  );
-                })}
-                <ChooseBond />
-              </Route>
+
+                    <Route path="/bonds">
+                      {(bonds as IAllBondData[]).map(bond => {
+                        return (
+                          <Route exact key={bond.name} path={`/bonds/${bond.name}`}>
+                            <Bond bond={bond} />
+                          </Route>
+                        );
+                      })}
+                      <ChooseBond />
+                    </Route>
+                  </>
+                ) : (
+                  <>
+                    <Route path="/private-sale">
+                      <PrivateSale />
+                    </Route>
+                  </>
+                )
+              }
 
               <Route path="/network">
                 <ChangeNetwork />

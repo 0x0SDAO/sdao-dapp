@@ -5,15 +5,15 @@ import { ReactComponent as Discord } from "../../assets/icons/telegram.svg";
 export default function Social() {
   return (
     <div className="social-row">
-      {/*<Link href="https://github.com/ScholarDoge" target="_blank">*/}
+      {/*<Link href="https://github.com/ScholarDAO" target="_blank">*/}
       {/*  <SvgIcon color="primary" component={GitHub} />*/}
       {/*</Link>*/}
 
-      {/*<Link href="https://ScholarDoge.medium.com/" target="_blank">*/}
+      {/*<Link href="https://ScholarDAO.medium.com/" target="_blank">*/}
       {/*  <SvgIcon color="primary" component={Medium} />*/}
       {/*</Link>*/}
 
-      <Link href="https://twitter.com/ScholarDoge" target="_blank">
+      <Link href="https://twitter.com/ScholarDAO" target="_blank">
         <SvgIcon color="primary" component={Twitter} />
       </Link>
 

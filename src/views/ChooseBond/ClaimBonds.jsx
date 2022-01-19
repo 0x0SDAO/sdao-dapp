@@ -62,7 +62,7 @@ function ClaimBonds({ activeBonds }) {
     <>
       {numberOfBonds > 0 && (
         <Zoom in={true}>
-          <Paper className="sdoge-card claim-bonds-card">
+          <Paper className="sdao-card claim-bonds-card">
             <CardHeader title="Your Bonds" />
             <Box>
               {!isSmallScreen && (

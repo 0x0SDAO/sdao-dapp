@@ -2,165 +2,131 @@ import { BondType, CustomBond, LPBond, StableBond } from "src/lib/Bond";
 import { addresses, NetworkId } from "src/constants";
 
 // TODO: Set correct images below
-import { ReactComponent as BusdImg } from "src/assets/tokens/BUSD.svg";
-import { ReactComponent as SdogeBusdImg } from "src/assets/tokens/SDOGE-BUSD.svg";
-import { ReactComponent as wBNBImg } from "src/assets/tokens/wBNB.svg";
+import { ReactComponent as DaiImg } from "src/assets/tokens/DAI.svg";
+import { ReactComponent as SdaoDaiImg } from "src/assets/tokens/SDOGE-BUSD.svg";
+import { ReactComponent as wFTMImg } from "src/assets/tokens/ftm32.svg";
 
 import { default as BondDepositoryContract } from "src/abi/BondDepository.json";
-import { default as BondDepositoryWBNBContract } from "src/abi/BondDepositoryWBNB.json";
-import { default as IBEP20Contract } from "src/abi/interfaces/IBEP20.json";
-import { default as PancakePairContract } from "src/abi/interfaces/IPancakePair.json";
+import { default as BondDepositoryWFTMContract } from "src/abi/BondDepositoryWFTM.json";
+import { default as IERC20Contract } from "src/abi/IERC20.json";
+import { default as UniswapV2PairContract } from "src/abi/IUniswapV2Pair.json";
 
 import { BigNumberish } from "ethers";
 
 // TODO(zx): Further modularize by splitting up reserveAssets into vendor token definitions
 //   and include that in the definition of a bond
-export const busd = new StableBond({
-  name: "busd",
-  displayName: "BUSD",
-  bondToken: "BUSD",
-  payoutToken: "SDOGE",
-  bondIconSvg: BusdImg,
+export const dai = new StableBond({
+  name: "dai",
+  displayName: "DAI",
+  bondToken: "DAI",
+  payoutToken: "SDAO",
+  bondIconSvg: DaiImg,
   bondContractABI: BondDepositoryContract.abi,
   isBondable: {
     [NetworkId.MAINNET]: true,
     [NetworkId.TESTNET]: true,
-    [NetworkId.ARBITRUM]: false,
-    [NetworkId.ARBITRUM_TESTNET]: false,
-    [NetworkId.AVALANCHE]: false,
-    [NetworkId.AVALANCHE_TESTNET]: false,
+    // [NetworkId.BSC]: false,
+    // [NetworkId.BSC_TESTNET]: false,
   },
   isLOLable: {
     [NetworkId.MAINNET]: false,
     [NetworkId.TESTNET]: false,
-    [NetworkId.ARBITRUM]: false,
-    [NetworkId.ARBITRUM_TESTNET]: false,
-    [NetworkId.AVALANCHE]: false,
-    [NetworkId.AVALANCHE_TESTNET]: false,
   },
   LOLmessage: "Sold Out",
   isClaimable: {
     [NetworkId.MAINNET]: true,
     [NetworkId.TESTNET]: true,
-    [NetworkId.ARBITRUM]: false,
-    [NetworkId.ARBITRUM_TESTNET]: false,
-    [NetworkId.AVALANCHE]: false,
-    [NetworkId.AVALANCHE_TESTNET]: false,
   },
   networkAddrs: {
     [NetworkId.MAINNET]: {
-      bondAddress: addresses[NetworkId.MAINNET].BUSD_BOND_ADDRESS,
-      reserveAddress: addresses[NetworkId.MAINNET].BUSD_ADDRESS,
+      bondAddress: addresses[NetworkId.MAINNET].DAI_BOND_ADDRESS,
+      reserveAddress: addresses[NetworkId.MAINNET].DAI_ADDRESS,
     },
     [NetworkId.TESTNET]: {
-      bondAddress: addresses[NetworkId.TESTNET].BUSD_BOND_ADDRESS,
-      reserveAddress: addresses[NetworkId.TESTNET].BUSD_ADDRESS,
+      bondAddress: addresses[NetworkId.TESTNET].DAI_BOND_ADDRESS,
+      reserveAddress: addresses[NetworkId.TESTNET].DAI_ADDRESS,
     },
   },
 });
 
-export const wbnb = new CustomBond({
-  name: "wbnb",
-  displayName: "WBNB",
+export const wftm = new CustomBond({
+  name: "wftm",
+  displayName: "WFTM",
   lpUrl: "",
   bondType: BondType.StableAsset,
-  bondToken: "WBNB",
-  payoutToken: "SDOGE",
-  bondIconSvg: wBNBImg,
-  bondContractABI: BondDepositoryWBNBContract.abi,
-  reserveContract: IBEP20Contract.abi, // The Standard BEP20 since they're normal tokens
+  bondToken: "WFTM",
+  payoutToken: "SDAO",
+  bondIconSvg: wFTMImg,
+  bondContractABI: BondDepositoryWFTMContract.abi,
+  reserveContract: IERC20Contract.abi, // The Standard ERC20 since they're normal tokens
   isBondable: {
     [NetworkId.MAINNET]: true,
     [NetworkId.TESTNET]: true,
-    [NetworkId.ARBITRUM]: false,
-    [NetworkId.ARBITRUM_TESTNET]: false,
-    [NetworkId.AVALANCHE]: false,
-    [NetworkId.AVALANCHE_TESTNET]: false,
   },
   isLOLable: {
     [NetworkId.MAINNET]: false,
     [NetworkId.TESTNET]: false,
-    [NetworkId.ARBITRUM]: false,
-    [NetworkId.ARBITRUM_TESTNET]: false,
-    [NetworkId.AVALANCHE]: false,
-    [NetworkId.AVALANCHE_TESTNET]: false,
   },
   LOLmessage: "Taking a Spa Day",
   isClaimable: {
     [NetworkId.MAINNET]: true,
     [NetworkId.TESTNET]: true,
-    [NetworkId.ARBITRUM]: false,
-    [NetworkId.ARBITRUM_TESTNET]: false,
-    [NetworkId.AVALANCHE]: false,
-    [NetworkId.AVALANCHE_TESTNET]: false,
   },
   networkAddrs: {
     [NetworkId.MAINNET]: {
-      bondAddress: addresses[NetworkId.MAINNET].WBNB_BOND_ADDRESS,
-      reserveAddress: addresses[NetworkId.MAINNET].WBNB_ADDRESS,
+      bondAddress: addresses[NetworkId.MAINNET].WFTM_BOND_ADDRESS,
+      reserveAddress: addresses[NetworkId.MAINNET].WFTM_ADDRESS,
     },
     [NetworkId.TESTNET]: {
-      bondAddress: addresses[NetworkId.TESTNET].WBNB_BOND_ADDRESS,
-      reserveAddress: addresses[NetworkId.TESTNET].WBNB_ADDRESS,
+      bondAddress: addresses[NetworkId.TESTNET].WFTM_BOND_ADDRESS,
+      reserveAddress: addresses[NetworkId.TESTNET].WFTM_ADDRESS,
     },
   },
   customTreasuryBalanceFunc: async function (this: CustomBond, NetworkId, provider) {
-    const wbnbBondContract = this.getContractForBond(NetworkId, provider);
-    let wbnbPrice: BigNumberish = await wbnbBondContract.assetPrice();
-    wbnbPrice = Number(wbnbPrice.toString()) / Math.pow(10, 8);
-    const token = this.getBEP20ContractForReserve(NetworkId, provider);
-    let wbnbAmount: BigNumberish = await token.balanceOf(addresses[NetworkId].TREASURY_ADDRESS);
-    wbnbAmount = Number(wbnbAmount.toString()) / Math.pow(10, 18);
-    return wbnbAmount * wbnbPrice;
+    const wftmBondContract = this.getContractForBond(NetworkId, provider);
+    let wftmPrice: BigNumberish = await wftmBondContract.assetPrice();
+    wftmPrice = Number(wftmPrice.toString()) / Math.pow(10, 8);
+    const token = this.getERC20ContractForReserve(NetworkId, provider);
+    let wftmAmount: BigNumberish = await token.balanceOf(addresses[NetworkId].TREASURY_ADDRESS);
+    wftmAmount = Number(wftmAmount.toString()) / Math.pow(10, 18);
+    return wftmAmount * wftmPrice;
   },
 });
 
-export const sdoge_busd = new LPBond({
-  name: "sdoge_busd_lp",
-  displayName: "SDOGE-BUSD LP",
-  bondToken: "BUSD",
-  payoutToken: "SDOGE",
-  bondIconSvg: SdogeBusdImg,
+export const sdao_dai = new LPBond({
+  name: "sdao_dai_lp",
+  displayName: "SDAO-DAI LP",
+  bondToken: "DAI",
+  payoutToken: "SDAO",
+  bondIconSvg: SdaoDaiImg,
   bondContractABI: BondDepositoryContract.abi,
-  reserveContract: PancakePairContract.abi,
+  reserveContract: UniswapV2PairContract.abi,
   isBondable: {
     [NetworkId.MAINNET]: true,
     [NetworkId.TESTNET]: true,
-    [NetworkId.ARBITRUM]: false,
-    [NetworkId.ARBITRUM_TESTNET]: false,
-    [NetworkId.AVALANCHE]: false,
-    [NetworkId.AVALANCHE_TESTNET]: false,
   },
   isLOLable: {
     [NetworkId.MAINNET]: false,
     [NetworkId.TESTNET]: false,
-    [NetworkId.ARBITRUM]: false,
-    [NetworkId.ARBITRUM_TESTNET]: false,
-    [NetworkId.AVALANCHE]: false,
-    [NetworkId.AVALANCHE_TESTNET]: false,
   },
   LOLmessage: "",
   isClaimable: {
     [NetworkId.MAINNET]: true,
     [NetworkId.TESTNET]: true,
-    [NetworkId.ARBITRUM]: false,
-    [NetworkId.ARBITRUM_TESTNET]: false,
-    [NetworkId.AVALANCHE]: false,
-    [NetworkId.AVALANCHE_TESTNET]: false,
   },
   networkAddrs: {
     [NetworkId.MAINNET]: {
-      bondAddress: addresses[NetworkId.MAINNET].SDOGE_BUSD_BOND_ADDRESS,
-      reserveAddress: addresses[NetworkId.MAINNET].SDOGE_BUSD_LP_ADDRESS,
+      bondAddress: addresses[NetworkId.MAINNET].SDAO_DAI_BOND_ADDRESS,
+      reserveAddress: addresses[NetworkId.MAINNET].SDAO_DAI_LP_ADDRESS,
     },
     [NetworkId.TESTNET]: {
-      bondAddress: addresses[NetworkId.TESTNET].SDOGE_BUSD_BOND_ADDRESS,
-      reserveAddress: addresses[NetworkId.TESTNET].SDOGE_BUSD_LP_ADDRESS,
+      bondAddress: addresses[NetworkId.TESTNET].SDAO_DAI_BOND_ADDRESS,
+      reserveAddress: addresses[NetworkId.TESTNET].SDAO_DAI_LP_ADDRESS,
     },
   },
   // TODO: Set lp URL below when set
   lpUrl:
-    "https://https://pancakeswap.finance/add/" + addresses[NetworkId.MAINNET].SDOGE_ADDRESS + "/" + addresses[NetworkId.MAINNET].BUSD_ADDRESS,
+    "https://https://spookyswap.finance/add/" + addresses[NetworkId.MAINNET].SDAO_ADDRESS + "/" + addresses[NetworkId.MAINNET].DAI_ADDRESS,
 });
 
 // export const ohm_weth = new CustomBond({
@@ -246,9 +212,9 @@ export const sdoge_busd = new LPBond({
 // Is it an LP Bond? use `new LPBond`
 // Add new bonds to this array!!
 export const allBonds = [
-  busd,
-  sdoge_busd,
-  wbnb
+  dai,
+  sdao_dai,
+  wftm
 ];
 // TODO (appleseed-expiredBonds): there may be a smarter way to refactor this
 export const allExpiredBonds = [];

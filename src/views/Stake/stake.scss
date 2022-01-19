@@ -1,5 +1,4 @@
-#stake-view,
-#v1-stake-view {
+#stake-view {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +10,7 @@
     line-height: 110% !important;
   }
 
-  .stake-to-sdoge-checkbox {
+  .stake-to-sdao-checkbox {
     svg {
       font-size: 0.8em;
     }
@@ -34,13 +33,13 @@
     width: 100%;
   }
 
-  .sdoge-card .card-header {
+  .sdao-card .card-header {
     position: relative;
   }
-  .sdoge-card .header {
+  .sdao-card .header {
     min-height: 3em;
   }
-  .sdoge-card.secondary .card-header {
+  .sdao-card.secondary .card-header {
     min-height: 33px !important;
     height: 20px;
   }
@@ -101,7 +100,7 @@
   }
 }
 
-.migrate-ssdoge-button {
+.migrate-ssdao-button {
   position: absolute;
   right: 0px;
   top: 0px;
@@ -116,7 +115,7 @@
   }
 }
 
-.migrate-ssdoge-button.complete {
+.migrate-ssdao-button.complete {
   color: #35ee66 !important;
 }
 
@@ -154,7 +153,7 @@
   text-align: left;
 }
 
-.sdoge-logo-tiny {
+.sdao-logo-tiny {
   height: 14px;
   width: 14px;
   vertical-align: middle;
@@ -213,7 +212,7 @@
   }
 }
 
-.sdoge-input {
+.sdao-input {
   max-width: 542px;
   width: 100%;
   margin: 4px !important;
@@ -300,7 +299,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    .sdoge-pairs p {
+    .sdao-pairs p {
       margin-bottom: 0 !important;
     }
   }

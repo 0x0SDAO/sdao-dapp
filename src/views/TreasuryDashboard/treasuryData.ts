@@ -6,19 +6,19 @@ query {
   protocolMetrics(first: 100, orderBy: timestamp, orderDirection: desc) {
     id
     timestamp
-    sdogeCirculatingSupply
-    sSdogeCirculatingSupply
+    sdaoCirculatingSupply
+    sSdaoCirculatingSupply
     totalSupply
-    sdogePrice
+    sdaoPrice
     marketCap
     totalValueLocked
     treasuryRiskFreeValue
     treasuryMarketValue
     nextEpochRebase
-    nextDistributedSdoge
-    treasuryBUSDRiskFreeValue
-    treasuryBUSDMarketValue
-    treasuryWBNBMarketValue
+    nextDistributedSdao
+    treasuryDAIRiskFreeValue
+    treasuryDAIMarketValue
+    treasuryWFTMMarketValue
     currentAPY
     runway10k
     runway20k
@@ -27,7 +27,7 @@ query {
     runway5k
     runway2dot5k
     runwayCurrent
-    treasurySdogeBUSDPOL
+    treasurySdaoDAIPOL
   }
 }
 `;
@@ -161,23 +161,23 @@ export const bulletpoints = {
 
 export const tooltipItems = {
   tvl: ["Total Value Deposited"],
-  coin: ["BUSD", "WBNB"],
-  rfv: ["BUSD"],
-  holder: ["SDOGEies"],
+  coin: ["DAI", "WFTM"],
+  rfv: ["DAI"],
+  holder: ["SDAOies"],
   apy: ["APY"],
   runway: ["Current", "7.5K APY", "5K APY", "2.5K APY"],
   pol: ["SLP Treasury", "Market SLP"],
 };
 
 export const tooltipInfoMessages = {
-  tvl: "Total Value Deposited, is the dollar amount of all SDOGE staked in the protocol. This metric is often used as growth or health indicator in DeFi projects.",
+  tvl: "Total Value Deposited, is the dollar amount of all SDAO staked in the protocol. This metric is often used as growth or health indicator in DeFi projects.",
   mvt: "Market Value of Treasury Assets, is the sum of the value (in dollars) of all assets held by the treasury.",
-  rfv: "Risk Free Value, is the amount of funds the treasury guarantees to use for backing SDOGE.",
+  rfv: "Risk Free Value, is the amount of funds the treasury guarantees to use for backing SDAO.",
   pol: "Protocol Owned Liquidity, is the amount of LP the treasury owns and controls. The more POL the better for the protocol and its users.",
-  holder: "Holders, represents the total number of SDOGEies (SSDOGE holders)",
-  staked: "SDOGE Staked, is the ratio of SSDOGE to SDOGE (staked vs unstaked)",
+  holder: "Holders, represents the total number of SDAOies (SSDAO holders)",
+  staked: "SDAO Staked, is the ratio of SSDAO to SDAO (staked vs unstaked)",
   apy: "Annual Percentage Yield, is the normalized representation of an interest rate, based on a compounding period over one year. Note that APYs provided are rather ballpark level indicators and not so much precise future results.",
-  runway: "Runway, is the number of days SSDOGE emissions can be sustained at a given rate. Lower APY = longer runway",
+  runway: "Runway, is the number of days SSDAO emissions can be sustained at a given rate. Lower APY = longer runway",
 };
 
 export const itemType = {

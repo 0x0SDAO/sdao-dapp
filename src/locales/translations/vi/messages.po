@@ -83,7 +83,7 @@ msgstr "Tài sản"
 #~ msgstr ""
 
 #: src/views/Give/RedeemYieldModal.tsx:88
-#~ msgid "Any sSDOGE directed towards you will continue to rebase and earn additional yield on your behalf."
+#~ msgid "Any sSDAO directed towards you will continue to rebase and earn additional yield on your behalf."
 #~ msgstr ""
 
 #: src/components/Migration/MigrationModal.jsx:253
@@ -103,8 +103,8 @@ msgid "Approved"
 msgstr "Chấp thuận"
 
 #: src/views/Zap/ZapStakeHeader.jsx:63
-msgid "Auto staked for sSDOGE"
-msgstr "Tự động đặt cọc cho SDOGE"
+msgid "Auto staked for sSDAO"
+msgstr "Tự động đặt cọc cho SDAO"
 
 #: src/views/33Together/PoolPrize.jsx:114
 msgid "Award Balance will grow at 1st rebase."
@@ -119,7 +119,7 @@ msgid "Award period has finished, you can navigate to Pool Together's UI to comp
 msgstr "Thời gian trao thưởng đã kết thúc, bạn có thể điều hướng đến giao diện người dùng của Pool Together để hoàn thành việc phân phối"
 
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:57
-msgid "Backing per SDOGE"
+msgid "Backing per SDAO"
 msgstr ""
 
 #: src/components/Sidebar/NavContent.jsx:152
@@ -215,7 +215,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:617
-#~ msgid "Confirm sSDOGE"
+#~ msgid "Confirm sSDAO"
 #~ msgstr ""
 
 #: src/components/ConnectButton.jsx:9
@@ -226,13 +226,13 @@ msgid "Connect Wallet"
 msgstr "Kết nối ví"
 
 #: src/views/Give/Give.tsx:31
-#~ msgid "Connect your wallet to give or redeem SDOGE"
+#~ msgid "Connect your wallet to give or redeem SDAO"
 #~ msgstr ""
 
 #: src/views/Stake/Stake.tsx:336
 #: src/views/V1-Stake/V1-Stake.jsx:271
-msgid "Connect your wallet to stake SDOGE"
-msgstr "Kết nối ví của bạn để đặt cọc cho SDOGE"
+msgid "Connect your wallet to stake SDAO"
+msgstr "Kết nối ví của bạn để đặt cọc cho SDAO"
 
 #: src/views/Zap/Zap.jsx:42
 msgid "Connect your wallet to use Zap"
@@ -284,20 +284,20 @@ msgstr "Tỷ lệ nợ"
 #~ msgstr ""
 
 #: src/views/33Together/PoolDeposit.jsx:164
-msgid "Deposit sSDOGE"
-msgstr "Đặt cọc SDOGE"
+msgid "Deposit sSDAO"
+msgstr "Đặt cọc SDAO"
 
 #: src/views/Give/GiveInfo.jsx:12
-#~ msgid "Deposit sSDOGE from wallet"
+#~ msgid "Deposit sSDAO from wallet"
 #~ msgstr ""
 
 #: src/views/33Together/PoolDeposit.jsx:101
-msgid "Deposit sSDOGE to win! Once deposited, you will receive a corresponding amount of 33T and be entered to win until your sSDOGE is withdrawn."
-msgstr "Đặt cọc SDOGE để giành chiến thắng! Sau khi tạm ứng, bạn sẽ nhận được số tiền tương ứng là 33T và được tham gia để giành chiến thắng cho đến khi sSDOGE của bạn được rút."
+msgid "Deposit sSDAO to win! Once deposited, you will receive a corresponding amount of 33T and be entered to win until your sSDAO is withdrawn."
+msgstr "Đặt cọc SDAO để giành chiến thắng! Sau khi tạm ứng, bạn sẽ nhận được số tiền tương ứng là 33T và được tham gia để giành chiến thắng cho đến khi sSDAO của bạn được rút."
 
 #: src/views/33Together/PoolDeposit.jsx:182
-msgid "Depositing {quantity} sSDOGE will increase odds of winning to 1 in {newOdds}"
-msgstr "Tiền đặt cọc {quantity} vào sSDOGE sẽ tăng tỷ lệ đạt được lên 1 trong {newOdds}"
+msgid "Depositing {quantity} sSDAO will increase odds of winning to 1 in {newOdds}"
+msgstr "Tiền đặt cọc {quantity} vào sSDAO sẽ tăng tỷ lệ đạt được lên 1 trong {newOdds}"
 
 #: src/views/Give/DepositYield.tsx:43
 #~ msgid "Deposits Dashboard"
@@ -316,7 +316,7 @@ msgid "Dialing Zapper..."
 msgstr "Quay lại Zapper"
 
 #: src/views/Give/DepositYield.tsx:58
-#~ msgid "Direct yield from your deposited sSDOGE to other recipients. Your sSDOGE is deposited in a vault, but you can withdraw it or change the deposited amount at any time."
+#~ msgid "Direct yield from your deposited sSDAO to other recipients. Your sSDAO is deposited in a vault, but you can withdraw it or change the deposited amount at any time."
 #~ msgstr ""
 
 #: src/components/TopBar/ConnectMenu.jsx:28
@@ -339,7 +339,7 @@ msgstr "Tài liệu"
 #~ msgstr ""
 
 #: src/views/Give/RedeemYield.tsx:211
-#~ msgid "Donated sSDOGE Generating Yield"
+#~ msgid "Donated sSDAO Generating Yield"
 #~ msgstr ""
 
 #: src/components/GiveProject/ProjectCard.tsx:581
@@ -371,7 +371,7 @@ msgstr "Rút tiền trước hạn sẽ phải chịu một khoản phí là {ex
 #~ msgstr ""
 
 #: src/slices/PendingTxnsSlice.ts:36
-#~ msgid "Editing sSDOGE donation amount"
+#~ msgid "Editing sSDAO donation amount"
 #~ msgstr ""
 
 #: src/views/Zap/ZapStakeAction.jsx:397
@@ -409,11 +409,11 @@ msgid "First time bonding"
 msgstr "Liên kết đầu tiên"
 
 #: src/views/Give/RecipientModal.tsx:472
-#~ msgid "First time donating <0>sSDOGE</0>?<1/>Please approve Olympus DAO to use your <2>sSDOGE</2> for donating."
+#~ msgid "First time donating <0>sSDAO</0>?<1/>Please approve Olympus DAO to use your <2>sSDAO</2> for donating."
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:386
-#~ msgid "First time giving <0>sSDOGE</0>?<1/>Please approve Olympus DAO to use your <2>sSDOGE</2> for giving."
+#~ msgid "First time giving <0>sSDAO</0>?<1/>Please approve Olympus DAO to use your <2>sSDAO</2> for giving."
 #~ msgstr ""
 
 #: src/views/Stake/Stake.tsx:373
@@ -451,7 +451,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/slices/PendingTxnsSlice.ts:34
-#~ msgid "Giving sSDOGE"
+#~ msgid "Giving sSDAO"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:612
@@ -476,7 +476,7 @@ msgid "Governance"
 msgstr "Quản trị"
 
 #: src/views/Give/RedeemYield.tsx:192
-#~ msgid "If other wallets have directed their sSDOGE rebases to you, you can transfer that yield into your wallet."
+#~ msgid "If other wallets have directed their sSDAO rebases to you, you can transfer that yield into your wallet."
 #~ msgstr ""
 
 #: src/components/TopBar/ConnectMenu.jsx:33
@@ -498,7 +498,7 @@ msgid "Less than a minute"
 msgstr "Ít hơn một phút"
 
 #: src/views/Give/GiveInfo.jsx:15
-#~ msgid "Lock sSDOGE in vault"
+#~ msgid "Lock sSDAO in vault"
 #~ msgstr ""
 
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:16
@@ -529,8 +529,8 @@ msgid "Migrate"
 msgstr ""
 
 #: src/views/Stake/Stake.tsx:210
-#~ msgid "Migrate sSDOGE!"
-#~ msgstr "Di chuyển sSDOGE"
+#~ msgid "Migrate sSDAO!"
+#~ msgstr "Di chuyển sSDAO"
 
 #: src/components/Migration/MigrationModal.jsx:234
 #: src/components/Migration/MigrationModal.jsx:322
@@ -566,8 +566,8 @@ msgstr "Lợi nhuận tiếp theo"
 
 #: src/views/ChooseBond/ChooseBond.tsx:105
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:29
-msgid "SDOGE Price"
-msgstr "Giá bán SDOGE"
+msgid "SDAO Price"
+msgstr "Giá bán SDAO"
 
 #: src/views/Zap/ZapInfo.jsx:106
 msgid "OlyZap reduces complexity, saves you time and keeps you here on Olympus."
@@ -575,11 +575,11 @@ msgstr "OlyZap giảm độ phức tạp, tiết kiệm thời gian và giúp b�
 
 #: src/components/EducationCard.tsx:81
 #: src/components/EducationCard.tsx:119
-#~ msgid "Olympus Give is a means of directing the yield that is accrued on your sSDOGE to another wallet. The first step is depositing your sSDOGE and specifying a recipient."
+#~ msgid "Olympus Give is a means of directing the yield that is accrued on your sSDAO to another wallet. The first step is depositing your sSDAO and specifying a recipient."
 #~ msgstr ""
 
 #: src/views/V1-Stake/V1-Stake.jsx:296
-msgid "Once your current bonds have been claimed, you can migrate your assets to stake more SDOGE"
+msgid "Once your current bonds have been claimed, you can migrate your assets to stake more SDAO"
 msgstr ""
 
 #: src/views/404/NotFound.tsx:14
@@ -708,7 +708,7 @@ msgstr "Vốn chủ sở hữu"
 #~ msgstr ""
 
 #: src/components/EducationCard.tsx:172
-#~ msgid "Receives yield from {quantity} sSDOGE"
+#~ msgid "Receives yield from {quantity} sSDAO"
 #~ msgstr ""
 
 #: src/views/Bond/BondPurchase.jsx:289
@@ -720,7 +720,7 @@ msgid "Recipient Address"
 msgstr "Địa chỉ người nhận"
 
 #: src/views/Give/GiveInfo.jsx:18
-#~ msgid "Recipient earns sSDOGE rebases"
+#~ msgid "Recipient earns sSDAO rebases"
 #~ msgstr ""
 
 #: src/views/Bond/Bond.tsx:112
@@ -736,7 +736,7 @@ msgstr "Mua lại"
 #~ msgstr ""
 
 #: src/components/EducationCard.tsx:200
-#~ msgid "Redeem {quantity} sSDOGE in yield"
+#~ msgid "Redeem {quantity} sSDAO in yield"
 #~ msgstr ""
 
 #: src/views/Give/RedeemYield.tsx:219
@@ -806,8 +806,8 @@ msgid "Stake"
 msgstr "Đặt cọc"
 
 #: src/views/Stake/Stake.tsx:428
-msgid "Stake SDOGE"
-msgstr "Đặt cọc cho SDOGE"
+msgid "Stake SDAO"
+msgstr "Đặt cọc cho SDAO"
 
 #: src/views/Stake/ExternalStakePool.tsx:87
 #: src/views/Stake/ExternalStakePool.tsx:115
@@ -833,35 +833,35 @@ msgid "Staking"
 msgstr "Tiền cọc trong ví"
 
 #: src/slices/PendingTxnsSlice.ts:28
-msgid "Staking SDOGE"
-msgstr "Đang đặt cọc SDOGE"
+msgid "Staking SDAO"
+msgstr "Đang đặt cọc SDAO"
 
 #: src/views/Zap/ZapInfo.jsx:132
-msgid "Staking is the primary value accrual strategy of Olympus. When you stake, you lock SDOGE and receive an equal amount of sSDOGE."
-msgstr "Đặt cọc là chiến lược tích lũy giá trị chính của Olympus. Khi bạn đặt cọc, bạn khóa SDOGE và nhận được một lượng sSDOGE tương đương"
+msgid "Staking is the primary value accrual strategy of Olympus. When you stake, you lock SDAO and receive an equal amount of sSDAO."
+msgstr "Đặt cọc là chiến lược tích lũy giá trị chính của Olympus. Khi bạn đặt cọc, bạn khóa SDAO và nhận được một lượng sSDAO tương đương"
 
 #: src/views/Dashboard/Dashboard.jsx:66
 #~ msgid "Supply (circulating/total)"
 #~ msgstr "Cung cấp (xoay vòng/ tất cả)"
 
 #: src/views/Zap/ZapStakeHeader.jsx:50
-msgid "Swap for SDOGE"
-msgstr "Hoán đổi lấy SDOGE"
+msgid "Swap for SDAO"
+msgstr "Hoán đổi lấy SDAO"
 
 #: src/views/Zap/ZapStakeHeader.jsx:40
-msgid "Swap for sSDOGE"
-msgstr "Hoán đổi lấy sSDOGE"
+msgid "Swap for sSDAO"
+msgstr "Hoán đổi lấy sSDAO"
 
 #: src/views/Zap/ZapCta.jsx:58
-msgid "Swap into sSDOGE"
-msgstr "Chuyển đổi thành sSDOGE"
+msgid "Swap into sSDAO"
+msgstr "Chuyển đổi thành sSDAO"
 
 #: src/views/V1-Stake/V1-Stake.jsx:233
 msgid "TVL"
 msgstr ""
 
 #: src/views/Give/YieldRecipients.tsx:193
-#~ msgid "The amount of sSDOGE deposited"
+#~ msgid "The amount of sSDAO deposited"
 #~ msgstr ""
 
 #: src/views/33Together/PoolWithdraw.jsx:118
@@ -870,7 +870,7 @@ msgstr ""
 
 #: src/components/EducationCard.tsx:331
 #: src/components/EducationCard.tsx:369
-#~ msgid "The recipient you specified, or the project you selected, will then receive the rebases associated with your sSDOGE deposit until you withdraw your sSDOGE principal from the vault."
+#~ msgid "The recipient you specified, or the project you selected, will then receive the rebases associated with your sSDAO deposit until you withdraw your sSDAO principal from the vault."
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:396
@@ -879,7 +879,7 @@ msgstr ""
 
 #: src/components/EducationCard.tsx:188
 #: src/components/EducationCard.tsx:232
-#~ msgid "Then, your deposited sSDOGE is kept in a vault smart contract that will send your rebases to the recipient. You can withdraw or edit your principal sSDOGE amount at any time."
+#~ msgid "Then, your deposited sSDAO is kept in a vault smart contract that will send your rebases to the recipient. You can withdraw or edit your principal sSDAO amount at any time."
 #~ msgstr ""
 
 #: src/views/33Together/PoolDeposit.jsx:110
@@ -895,7 +895,7 @@ msgid "This is the current balance of v1 assets in your wallet."
 msgstr ""
 
 #: src/components/Migration/MigrationModal.jsx:287
-msgid "This is the equivalent amount of gSDOGE you will have in your wallet once migration is complete."
+msgid "This is the equivalent amount of gSDAO you will have in your wallet once migration is complete."
 msgstr ""
 
 #: src/views/Bond/BondRedeem.jsx:113
@@ -937,8 +937,8 @@ msgid "Unstake Legacy LP Token"
 msgstr "Rút mã thông báo LP Token"
 
 #: src/views/V1-Stake/V1-Stake.jsx:400
-msgid "Unstake SDOGE"
-msgstr "Hoàn cọc SDOGE"
+msgid "Unstake SDAO"
+msgstr "Hoàn cọc SDAO"
 
 #: src/views/Stake/Stake.tsx:483
 #: src/views/V1-Stake/V1-Stake.jsx:420
@@ -950,19 +950,19 @@ msgstr "Số dư hoàn cọc"
 #~ msgstr ""
 
 #: src/slices/PendingTxnsSlice.ts:28
-msgid "Unstaking sSDOGE"
-msgstr "Đang hoàn cọc sSDOGE"
+msgid "Unstaking sSDAO"
+msgstr "Đang hoàn cọc sSDAO"
 
 #: src/slices/PendingTxnsSlice.ts:32
-msgid "Unwrapping sSDOGE"
-msgstr "Mở gói sSDOGE"
+msgid "Unwrapping sSDAO"
+msgstr "Mở gói sSDAO"
 
 #: src/components/EducationCard.tsx:404
 #~ msgid "Updated Deposit"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:203
-#~ msgid "Value cannot be more than your sSDOGE balance of"
+#~ msgid "Value cannot be more than your sSDAO balance of"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:192
@@ -1013,20 +1013,20 @@ msgid "Withdraw Early & pay"
 msgstr "Rút tiền sớm và thanh toán"
 
 #: src/views/33Together/PoolWithdraw.jsx:163
-msgid "Withdraw sSDOGE"
-msgstr "Rút sSDOGE"
+msgid "Withdraw sSDAO"
+msgstr "Rút sSDAO"
 
 #: src/views/33Together/PoolWithdraw.jsx:106
 msgid "Withdrawals can be made once the prize has been awarded."
 msgstr "Rút tiền có thể được thực hiện sau khi giải thưởng đã được trao"
 
 #: src/slices/PendingTxnsSlice.ts:37
-#~ msgid "Withdrawing sSDOGE donation"
+#~ msgid "Withdrawing sSDAO donation"
 #~ msgstr ""
 
 #: src/views/33Together/PoolWithdraw.jsx:170
-msgid "Withdrawing {quantity} sSDOGE reduces your odds of winning to 1 in {newOdds}"
-msgstr "Rút {quantity} sSDOGE giảm tỷ lệ chiến thắng của bạn xuống còn 1 trong {newOdds}"
+msgid "Withdrawing {quantity} sSDAO reduces your odds of winning to 1 in {newOdds}"
+msgstr "Rút {quantity} sSDAO giảm tỷ lệ chiến thắng của bạn xuống còn 1 trong {newOdds}"
 
 #: src/views/Stake/Stake.tsx:505
 #: src/views/V1-Stake/V1-Stake.jsx:448
@@ -1056,8 +1056,8 @@ msgstr "Số dư được rút trên FiatDAO"
 #~ msgstr ""
 
 #: src/slices/PendingTxnsSlice.ts:32
-msgid "Wrapping SDOGE"
-msgstr "Đang rút SDOGE"
+msgid "Wrapping SDAO"
+msgstr "Đang rút SDAO"
 
 #: src/views/33Together/PoolInfo.jsx:107
 msgid "Yield Source"
@@ -1072,8 +1072,8 @@ msgid "You Get"
 msgstr "Bạn nhận được"
 
 #: src/views/Zap/ZapInfo.jsx:124
-msgid "You Get sSDOGE"
-msgstr "Bạn nhận được sSDOGE"
+msgid "You Get sSDAO"
+msgstr "Bạn nhận được sSDAO"
 
 #: src/views/Zap/ZapInfo.jsx:73
 msgid "You Give"
@@ -1097,13 +1097,13 @@ msgstr "Bạn có thể chọn rút tiền đã ký gửi bất kỳ lúc nào. 
 
 #: src/views/Stake/Stake.tsx:157
 #: src/views/Stake/Stake.tsx:157
-msgid "You cannot stake more than your SDOGE balance."
-msgstr "Bạn không thể cọc nhiều hơn số dư SDOGE của mình"
+msgid "You cannot stake more than your SDAO balance."
+msgstr "Bạn không thể cọc nhiều hơn số dư SDAO của mình"
 
 #: src/views/Stake/Stake.tsx:140
 #: src/views/Stake/Stake.tsx:140
-#~ msgid "You cannot unstake more than your sSDOGE balance."
-#~ msgstr "Bạn không thể hoàn cọc nhiều hơn số dư trong sSDOGE"
+#~ msgid "You cannot unstake more than your sSDAO balance."
+#~ msgstr "Bạn không thể hoàn cọc nhiều hơn số dư trong sSDAO"
 
 #: src/views/33Together/PoolWithdraw.jsx:87
 msgid "You cannot withdraw more than your pool balance"
@@ -1111,7 +1111,7 @@ msgstr "Bạn không thể rút nhiều hơn số dư nhóm của mình"
 
 #: src/views/Stake/Stake.tsx:163
 #: src/views/Stake/Stake.tsx:163
-msgid "You do not have enough sSDOGE to complete this transaction.  To unstake from gSDOGE, please check the box."
+msgid "You do not have enough sSDAO to complete this transaction.  To unstake from gSDAO, please check the box."
 msgstr ""
 
 #: src/views/Bond/BondPurchase.jsx:56
@@ -1138,11 +1138,11 @@ msgstr ""
 #~ msgstr ""
 
 #: src/views/V1-Stake/V1-Stake.jsx:299
-msgid "You must complete the migration of your assets to stake additional SDOGE"
+msgid "You must complete the migration of your assets to stake additional SDAO"
 msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:198
-#~ msgid "You must have a balance of sSDOGE (staked SDOGE) to continue"
+#~ msgid "You must have a balance of sSDAO (staked SDAO) to continue"
 #~ msgstr ""
 
 #: src/views/Bond/BondPurchase.jsx:222
@@ -1174,7 +1174,7 @@ msgid "Your pool deposits"
 msgstr "Tiền gửi của bạn"
 
 #: src/views/Give/RecipientModal.tsx:535
-#~ msgid "Your sSDOGE will be tansferred into the vault when you submit. You will need to approve the transaction and pay for gas fees."
+#~ msgid "Your sSDAO will be tansferred into the vault when you submit. You will need to approve the transaction and pay for gas fees."
 #~ msgstr ""
 
 #: src/views/33Together/PoolInfo.jsx:49
@@ -1190,8 +1190,8 @@ msgid "Zap is a swap"
 msgstr "Zap là 1 hoán đổi"
 
 #: src/views/Zap/ZapCta.jsx:40
-msgid "Zap with more assets and stake <0>SDOGE</0>"
-msgstr "Zap với nhiều tài sản và đặt cọc <0>SDOGE</0"
+msgid "Zap with more assets and stake <0>SDAO</0>"
+msgstr "Zap với nhiều tài sản và đặt cọc <0>SDAO</0"
 
 #: src/views/Zap/ZapStakeAction.jsx:399
 #: src/views/Zap/ZapStakeAction.jsx:451
@@ -1231,7 +1231,7 @@ msgid "for unstaking"
 msgstr "Đang hoàn cọc"
 
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:84
-msgid "gSDOGE Price"
+msgid "gSDAO Price"
 msgstr ""
 
 #: src/views/33Together/PoolPrize.jsx:148
@@ -1267,31 +1267,31 @@ msgstr "Nhỏ nhất"
 #: src/views/Give/RedeemYield.tsx:214
 #: src/views/Give/RedeemYield.tsx:226
 #: src/views/Give/RedeemYield.tsx:236
-#~ msgid "sSDOGE"
+#~ msgid "sSDAO"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:532
-#~ msgid "sSDOGE Allocation"
+#~ msgid "sSDAO Allocation"
 #~ msgstr ""
 
 #: src/components/GiveProject/ProjectCard.tsx:317
-#~ msgid "sSDOGE Donated"
+#~ msgid "sSDAO Donated"
 #~ msgstr ""
 
 #: src/components/GiveProject/ProjectCard.tsx:334
-#~ msgid "sSDOGE Goal"
+#~ msgid "sSDAO Goal"
 #~ msgstr ""
 
 #: src/views/33Together/PoolInfo.jsx:158
-msgid "sSDOGE Pool Details"
+msgid "sSDAO Pool Details"
 msgstr "Chi tiết Nhóm Pool"
 
 #: src/views/33Together/PoolInfo.jsx:150
-msgid "sSDOGE Prize Pool"
-msgstr "Giải thướng sSDOGE"
+msgid "sSDAO Prize Pool"
+msgstr "Giải thướng sSDAO"
 
 #: src/components/GiveProject/ProjectCard.tsx:236
-#~ msgid "sSDOGE raised"
+#~ msgid "sSDAO raised"
 #~ msgstr ""
 
 #: src/views/33Together/PoolPrize.jsx:161
@@ -1307,7 +1307,7 @@ msgstr "Cho đến khi thay đổi tiếp theo"
 #~ msgstr ""
 
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:84
-#~ msgid "wsSDOGE Price"
+#~ msgid "wsSDAO Price"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:314
@@ -1315,11 +1315,11 @@ msgstr "Cho đến khi thay đổi tiếp theo"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:569
-#~ msgid "{0} sSDOGE"
+#~ msgid "{0} sSDAO"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:522
-#~ msgid "{depositAmount} sSDOGE"
+#~ msgid "{depositAmount} sSDAO"
 #~ msgstr ""
 
 #: src/components/GiveProject/ProjectCard.tsx:366
@@ -1334,12 +1334,12 @@ msgstr "Cho đến khi thay đổi tiếp theo"
 
 #: src/components/EducationCard.tsx:261
 #: src/components/EducationCard.tsx:281
-#~ msgid "{quantity} sSDOGE"
+#~ msgid "{quantity} sSDAO"
 #~ msgstr ""
 
 #: src/components/EducationCard.tsx:38
 #: src/components/EducationCard.tsx:101
-#~ msgid "{quantity} sSDOGE {verb}"
+#~ msgid "{quantity} sSDAO {verb}"
 #~ msgstr ""
 
 #: src/components/GiveProject/ProjectCard.tsx:366

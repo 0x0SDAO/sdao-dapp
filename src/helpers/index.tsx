@@ -2,58 +2,49 @@ import { addresses, BLOCK_RATE_SECONDS, EPOCH_INTERVAL, NetworkId } from "../con
 import { BigNumber, ethers } from "ethers";
 import axios from "axios";
 
-import { default as PancakePairContract } from "../abi/libraries/PancakePair.json";
-import { default as PancakeFactoryContract } from "../abi/libraries/PancakeFactory.json";
-import { default as ScholarDogeCirculatingSupplyContract } from "../abi/ScholarDogeCirculatingSupply.json";
-import { default as BEP20Contract } from "../abi/libraries/BEP20.json";
+import { default as UniswapV2PairContract } from "../abi/UniswapV2Pair.json";
+import { default as UniswapV2FactoryContract } from "../abi/UniswapV2Factory.json";
+import { default as ScholarDAOCirculatingSupplyContract } from "../abi/ScholarDAOCirculatingSupply.json";
+import { default as ERC20Contract } from "../abi/ERC20.json";
 import { default as RedeemHelperContract } from "../abi/RedeemHelper.json";
 
 import { SvgIcon } from "@material-ui/core";
-import { ReactComponent as SdogeImg } from "../assets/tokens/token_SDOGE.svg";
-import { ReactComponent as SSdogeImg } from "../assets/tokens/token_sSDOGE.svg";
+import { ReactComponent as SdaoImg } from "../assets/tokens/token_SDOGE.svg";
+import { ReactComponent as SSdaoImg } from "../assets/tokens/token_sSDOGE.svg";
 
-import { sdoge_busd } from "./AllBonds";
+import { sdao_dai } from "./AllBonds";
 import { JsonRpcSigner, StaticJsonRpcProvider } from "@ethersproject/providers";
 import { IBaseAsyncThunk } from "src/slices/interfaces";
-import {
-  BEP20, BUSD__factory,
-  PancakeFactory,
-  PancakePair,
-  PancakePair__factory,
-  RedeemHelper,
-  ScholarDogeCirculatingSupply, ScholarDogeCirculatingSupply__factory, ScholarDogeToken__factory,
-} from "../typechain";
-// import { GOHM__factory } from "src/typechain/factories/GOHM__factory";
+import { ERC20, RedeemHelper, ScholarDAOCirculatingSupply, UniswapV2Factory, UniswapV2Pair } from "../typechain";
 import { EnvHelper } from "./Environment";
 import { NodeHelper } from "./NodeHelper";
 
 /**
- * gets marketPrice from SDOGE-BUSD v2
+ * gets marketPrice from SDAO-DAI v2
  * @returns Number like 333.33
  */
 export async function getMarketPrice(networkId: number) {
-  const provider = NodeHelper.getBSCCurrentStaticProvider(networkId);
-  const sdoge_busd_address = sdoge_busd.getAddressForReserve(networkId);
-  const pairContract = new ethers.Contract(sdoge_busd_address || "", PancakePairContract.abi, provider) as PancakePair;
+  const provider = NodeHelper.getCurrentStaticProvider(networkId);
+  const sdao_dai_address = sdao_dai.getAddressForReserve(networkId);
+  const pairContract = new ethers.Contract(sdao_dai_address || "", UniswapV2PairContract.abi, provider) as UniswapV2Pair;
 
-  const sdoge_address = addresses[networkId].SDOGE_ADDRESS;
+  const sdao_address = addresses[networkId].SDAO_ADDRESS;
   const reserves = await pairContract.getReserves();
   const token0 = await pairContract.token0();
 
-  const sdogeReserve = BigNumber.from((sdoge_address == token0) ? reserves[0] : reserves[1]);
-  const busdReserve = BigNumber.from((sdoge_address == token0) ? reserves[1] : reserves[0]);
-  const priceWithDecimals = busdReserve.div(sdogeReserve);
-
-  return priceWithDecimals.div(10 ** 9).toNumber();
+  const sdaoReserve = BigNumber.from((sdao_address == token0) ? reserves[0] : reserves[1]);
+  const daiReserve = BigNumber.from((sdao_address == token0) ? reserves[1] : reserves[0]);
+  // Hardcoded decimals
+  return bigNumberToDecimal(daiReserve, 18) / bigNumberToDecimal(sdaoReserve, 9);
 }
 
 export async function getMarketPriceFromPair(networkId: number, token0: string, token1: string) {
-  const provider = NodeHelper.getBSCCurrentStaticProvider(networkId);
-  const factoryContract = new ethers.Contract(addresses[networkId].FACTORY_ADDRESS || "", PancakeFactoryContract.abi, provider) as PancakeFactory;
+  const provider = NodeHelper.getCurrentStaticProvider(networkId);
+  const factoryContract = new ethers.Contract(addresses[networkId].FACTORY_ADDRESS || "", UniswapV2FactoryContract.abi, provider) as UniswapV2Factory;
   const pair_address = await factoryContract.getPair(token0, token1);
-  const pairContract = new ethers.Contract(pair_address || "", PancakePairContract.abi, provider) as PancakePair;
-  const token0Contract = new ethers.Contract(token0 || "", BEP20Contract.abi, provider) as BEP20;
-  const token1Contract = new ethers.Contract(token1 || "", BEP20Contract.abi, provider) as BEP20;
+  const pairContract = new ethers.Contract(pair_address || "", UniswapV2PairContract.abi, provider) as UniswapV2Pair;
+  const token0Contract = new ethers.Contract(token0 || "", ERC20Contract.abi, provider) as ERC20;
+  const token1Contract = new ethers.Contract(token1 || "", ERC20Contract.abi, provider) as ERC20;
 
   const reserves = await pairContract.getReserves();
   const pairToken0 = await pairContract.token0();
@@ -78,11 +69,11 @@ export function bigNumberToDecimal(nb: BigNumber, decimals: number) {
  * @returns Number
  */
 export async function getCirculatingSupply(networkId: number) {
-  const provider = NodeHelper.getBSCCurrentStaticProvider(networkId);
-  const sdogeCirculatingSupplyAddress = addresses[networkId].CIRCULATING_SUPPLY_ADDRESS;
-  const circulatingSupplyContract = new ethers.Contract(sdogeCirculatingSupplyAddress || "", ScholarDogeCirculatingSupplyContract.abi, provider) as ScholarDogeCirculatingSupply;
+  const provider = NodeHelper.getCurrentStaticProvider(networkId);
+  const sdaoCirculatingSupplyAddress = addresses[networkId].CIRCULATING_SUPPLY_ADDRESS;
+  const circulatingSupplyContract = new ethers.Contract(sdaoCirculatingSupplyAddress || "", ScholarDAOCirculatingSupplyContract.abi, provider) as ScholarDAOCirculatingSupply;
 
-  return (await circulatingSupplyContract.SDOGECirculatingSupply()).div(10 ** 9).toNumber();
+  return bigNumberToDecimal(await circulatingSupplyContract.sdaoCirculatingSupply(), 9);
 }
 
 /**
@@ -90,11 +81,11 @@ export async function getCirculatingSupply(networkId: number) {
  * @returns Number
  */
 export async function getTotalSupply(networkId: number) {
-  const provider = NodeHelper.getBSCCurrentStaticProvider(networkId);
-  const sdogeAddress = addresses[networkId].SDOGE_ADDRESS;
-  const sdogeContract = new ethers.Contract(sdogeAddress || "", BEP20Contract.abi, provider) as BEP20;
+  const provider = NodeHelper.getCurrentStaticProvider(networkId);
+  const sdaoAddress = addresses[networkId].SDAO_ADDRESS;
+  const sdaoContract = new ethers.Contract(sdaoAddress || "", ERC20Contract.abi, provider) as ERC20;
 
-  return bigNumberToDecimal(await sdogeContract.totalSupply(), 9);
+  return bigNumberToDecimal(await sdaoContract.totalSupply(), 9);
 }
 
 /**
@@ -113,10 +104,10 @@ export async function getMarketCap(networkId: number) {
  * @returns Number
  */
 export async function getStakingTVL(networkId: number) {
-  const provider = NodeHelper.getBSCCurrentStaticProvider(networkId);
-  const sdogeAddress = addresses[networkId].SDOGE_ADDRESS;
-  const sdogeContract = new ethers.Contract(sdogeAddress || "", BEP20Contract.abi, provider) as BEP20;
-  const stakedSupply = (await sdogeContract.balanceOf(addresses[networkId].STAKING_ADDRESS)).div(10 ** 9).toNumber();
+  const provider = NodeHelper.getCurrentStaticProvider(networkId);
+  const sdaoAddress = addresses[networkId].SDAO_ADDRESS;
+  const sdaoContract = new ethers.Contract(sdaoAddress || "", ERC20Contract.abi, provider) as ERC20;
+  const stakedSupply = bigNumberToDecimal(await sdaoContract.balanceOf(addresses[networkId].STAKING_ADDRESS), 9);
   const marketPrice = await getMarketPrice(networkId);
 
   return marketPrice * stakedSupply;
@@ -127,10 +118,10 @@ export async function getStakingTVL(networkId: number) {
  * @returns Number
  */
 export async function getStakingPercentage(networkId: number) {
-  const provider = NodeHelper.getBSCCurrentStaticProvider(networkId);
-  const sdogeAddress = addresses[networkId].SDOGE_ADDRESS;
-  const sdogeContract = new ethers.Contract(sdogeAddress || "", BEP20Contract.abi, provider) as BEP20;
-  const stakedSupply = (await sdogeContract.balanceOf(addresses[networkId].STAKING_ADDRESS)).div(10 ** 9).toNumber();
+  const provider = NodeHelper.getCurrentStaticProvider(networkId);
+  const sdaoAddress = addresses[networkId].SDAO_ADDRESS;
+  const sdaoContract = new ethers.Contract(sdaoAddress || "", ERC20Contract.abi, provider) as ERC20;
+  const stakedSupply = bigNumberToDecimal(await sdaoContract.balanceOf(addresses[networkId].STAKING_ADDRESS), 9);
   const circulatingSupply = await getCirculatingSupply(networkId);
 
   return stakedSupply / circulatingSupply * 100;
@@ -141,23 +132,23 @@ export async function getStakingPercentage(networkId: number) {
  * @returns Number
  */
 export async function getTreasuryMarketValue(networkId: number) {
-  const provider = NodeHelper.getBSCCurrentStaticProvider(networkId);
+  const provider = NodeHelper.getCurrentStaticProvider(networkId);
   const treasuryAddress = addresses[networkId].TREASURY_ADDRESS;
-  const sdogeAddress = addresses[networkId].SDOGE_ADDRESS;
-  const busdAddress = addresses[networkId].BUSD_ADDRESS;
-  const sdogeContract = new ethers.Contract(sdogeAddress || "", BEP20Contract.abi, provider) as BEP20;
-  const busdContract = new ethers.Contract(busdAddress || "", BEP20Contract.abi, provider) as BEP20;
-  const sdogeAmount = bigNumberToDecimal((await sdogeContract.balanceOf(treasuryAddress)), 9);
-  const busdAmount = bigNumberToDecimal((await busdContract.balanceOf(treasuryAddress)), 18);
+  const sdaoAddress = addresses[networkId].SDAO_ADDRESS;
+  const daiAddress = addresses[networkId].DAI_ADDRESS;
+  const sdaoContract = new ethers.Contract(sdaoAddress || "", ERC20Contract.abi, provider) as ERC20;
+  const daiContract = new ethers.Contract(daiAddress || "", ERC20Contract.abi, provider) as ERC20;
+  const sdaoAmount = bigNumberToDecimal((await sdaoContract.balanceOf(treasuryAddress)), 9);
+  const daiAmount = bigNumberToDecimal((await daiContract.balanceOf(treasuryAddress)), 18);
 
-  // TODO: Handle other tokens
+  // TODO: Handle other tokens / lp...
 
-  return (sdogeAmount * (await getMarketPrice(networkId))) + busdAmount;
+  return (sdaoAmount * (await getMarketPrice(networkId))) + daiAmount;
 }
 
-export function getPcsBuyLinkURL(networkId: number) {
+export function getSWBuyLinkURL(networkId: number) {
   if (networkId == NetworkId.MAINNET || networkId == NetworkId.TESTNET) {
-    return "https://pancakeswap.finance/#/swap?outputCurrency=" + addresses[networkId].SDOGE_ADDRESS;
+    return "https://spookyswap.finance/#/swap?outputCurrency=" + addresses[networkId].SDAO_ADDRESS;
   }
 }
 
@@ -181,7 +172,7 @@ export function getPcsBuyLinkURL(networkId: number) {
  * @param tokenId STRING taken from https://www.coingecko.com/api/documentations/v3#/coins/get_coins_list
  * @returns INTEGER usd value
  */
-export async function getTokenPrice(tokenId = "olympus") {
+export async function getTokenPrice(tokenId = "sdao") {
   let resp;
   try {
     resp = await axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=${tokenId}&vs_currencies=usd`);
@@ -201,7 +192,7 @@ export function shortenString(str: string, length: number) {
 }
 
 export function formatCurrency(c: number, precision = 0, currency = "USD") {
-  if (currency === "SDOGE") return `${trim(c, precision)} SDOGE`;
+  if (currency === "SDAO") return `${trim(c, precision)} SDAO`;
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency,
@@ -270,19 +261,19 @@ export function prettifySeconds(seconds: number, resolution?: string) {
   return result;
 }
 
-function getSSDOGETokenImage() {
-  return <SvgIcon component={SSdogeImg} viewBox="0 0 100 100" style={{ height: "1rem", width: "1rem" }} />;
+function getSSDAOTokenImage() {
+  return <SvgIcon component={SSdaoImg} viewBox="0 0 100 100" style={{ height: "1rem", width: "1rem" }} />;
 }
 
-export function getSDOGETokenImage(w?: number, h?: number) {
+export function getSDAOTokenImage(w?: number, h?: number) {
   const height = h == null ? "32px" : `${h}px`;
   const width = w == null ? "32px" : `${w}px`;
-  return <SvgIcon component={SdogeImg} viewBox="0 0 32 32" style={{ height, width }} />;
+  return <SvgIcon component={SdaoImg} viewBox="0 0 32 32" style={{ height, width }} />;
 }
 
 export function getTokenImage(name: string) {
-  if (name === "sdoge") return getSDOGETokenImage();
-  if (name === "ssdoge") return getSSDOGETokenImage();
+  if (name === "sdao") return getSDAOTokenImage();
+  if (name === "ssdao") return getSSDAOTokenImage();
 }
 
 // TS-REFACTOR-NOTE - Used for:
@@ -392,7 +383,7 @@ export const handleContractError = (e: any) => {
 };
 
 interface ICheckBalance extends IBaseAsyncThunk {
-  readonly ssdogebalance: string;
+  readonly ssdaobalance: string;
 }
 
 // export const getGohmBalFromSohm = async ({ provider, networkID, sOHMbalance }: ICheckBalance) => {

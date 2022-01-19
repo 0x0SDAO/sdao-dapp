@@ -35,7 +35,7 @@ function InfoTooltipMulti({ messagesArray }) {
         style={{ margin: "0 5px", fontSize: 16 }}
         className="info-icon"/>
       <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom" className="tooltip">
-        <Paper className="info-tooltip sdoge-card" style={{ padding: "1.33rem" }}>
+        <Paper className="info-tooltip sdao-card" style={{ padding: "1.33rem" }}>
           {messagesRender}
         </Paper>
       </Popper>

@@ -18,11 +18,11 @@ export function ConfirmDialog({ quantity, currentIndex, view, onConfirm }: Confi
   };
 
   return (
-    <Paper className="sdoge-card confirm-dialog">
+    <Paper className="sdao-card confirm-dialog">
       <Box className="dialog-container" display="flex" alignItems="center" justifyContent="space-between">
         {/* <Typography variant="body2"> */}
         <Grid component="label" container alignItems="center" spacing={1} wrap="nowrap">
-          <Grid item>SSDOGE</Grid>
+          <Grid item>SSDAO</Grid>
         </Grid>
       </Box>
     </Paper>

@@ -29,7 +29,7 @@ msgstr "3, 3 Together"
 msgid "A zap swap is a series of smart contracts that deploys one asset to another protocol to handle a trusted transaction."
 msgstr "Zap swap to seria smart kontraktów, która rozlokowuje aktywo do innego protokołu aby przeprowadzić zaufaną transakcje."
 
-#: src/components/TopBar/SdogeMenu.jsx:185
+#: src/components/TopBar/Menu.jsx:185
 msgid "ADD TOKEN TO WALLET"
 msgstr "DODAJ TOKEN DO PORTFELA"
 
@@ -75,7 +75,7 @@ msgstr "Jakiekolwiek aktywo"
 #~ msgstr ""
 
 #: src/views/Give/RedeemYieldModal.tsx:88
-#~ msgid "Any SSDOGE directed towards you will continue to rebase and earn additional yield on your behalf."
+#~ msgid "Any SSDAO directed towards you will continue to rebase and earn additional yield on your behalf."
 #~ msgstr ""
 
 #: src/components/Migration/MigrationModal.jsx:253
@@ -95,8 +95,8 @@ msgid "Approved"
 msgstr "Potwierdzone"
 
 #: src/views/Zap/ZapStakeHeader.jsx:63
-msgid "Auto staked for SSDOGE"
-msgstr "Automatycznie zestakowany do SSDOGE"
+msgid "Auto staked for SSDAO"
+msgstr "Automatycznie zestakowany do SSDAO"
 
 #: src/views/33Together/PoolPrize.jsx:114
 msgid "Award Balance will grow at 1st rebase."
@@ -111,8 +111,8 @@ msgid "Award period has finished, you can navigate to Pool Together's UI to comp
 msgstr "Okres nagród się zakończył, możesz przejść do Pool Together aby zakończyć dystrybucje"
 
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:57
-msgid "Backing per SDOGE"
-msgstr "Poparcie na 1 SDOGE"
+msgid "Backing per SDAO"
+msgstr "Poparcie na 1 SDAO"
 
 #: src/components/Sidebar/NavContent.jsx:152
 #: src/views/ChooseBond/ChooseBond.tsx:75
@@ -138,12 +138,12 @@ msgstr "Bond {0}"
 msgid "Bridge"
 msgstr "Bridge"
 
-#: src/components/TopBar/SdogeMenu.jsx:267
+#: src/components/TopBar/Menu.jsx:267
 msgid "Bridge Tokens"
 msgstr "zBridguj tokeny"
 
-#: src/components/TopBar/SdogeMenu.jsx:135
-#: src/components/TopBar/SdogeMenu.jsx:148
+#: src/components/TopBar/Menu.jsx:135
+#: src/components/TopBar/Menu.jsx:148
 msgid "Buy on {0}"
 msgstr "Kup na {0}"
 
@@ -207,7 +207,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:617
-#~ msgid "Confirm SSDOGE"
+#~ msgid "Confirm SSDAO"
 #~ msgstr ""
 
 #: src/components/ConnectButton.jsx:9
@@ -218,13 +218,13 @@ msgid "Connect Wallet"
 msgstr "Połącz Portfel"
 
 #: src/views/Give/Give.tsx:31
-#~ msgid "Connect your wallet to give or redeem SDOGE"
+#~ msgid "Connect your wallet to give or redeem SDAO"
 #~ msgstr ""
 
 #: src/views/Stake/Stake.tsx:336
 #: src/views/V1-Stake/V1-Stake.jsx:271
-msgid "Connect your wallet to stake SDOGE"
-msgstr "Połącz portfel, aby stakować SDOGE"
+msgid "Connect your wallet to stake SDAO"
+msgstr "Połącz portfel, aby stakować SDAO"
 
 #: src/views/Zap/Zap.jsx:42
 msgid "Connect your wallet to use Zap"
@@ -276,20 +276,20 @@ msgstr "Wskaźnik zadłużenia"
 #~ msgstr ""
 
 #: src/views/33Together/PoolDeposit.jsx:164
-msgid "Deposit SSDOGE"
-msgstr "Zdeponuj SSDOGE"
+msgid "Deposit SSDAO"
+msgstr "Zdeponuj SSDAO"
 
 #: src/views/Give/GiveInfo.jsx:12
-#~ msgid "Deposit SSDOGE from wallet"
+#~ msgid "Deposit SSDAO from wallet"
 #~ msgstr ""
 
 #: src/views/33Together/PoolDeposit.jsx:101
-msgid "Deposit SSDOGE to win! Once deposited, you will receive a corresponding amount of 33T and be entered to win until your SSDOGE is withdrawn."
-msgstr "Zdeponuj SSDOGE, aby wygrać! Po zdeponowaniu otrzymasz odpowiadającą ilość w 33T i dołączysz do puli dopóki nie wybierzesz SSDOGE."
+msgid "Deposit SSDAO to win! Once deposited, you will receive a corresponding amount of 33T and be entered to win until your SSDAO is withdrawn."
+msgstr "Zdeponuj SSDAO, aby wygrać! Po zdeponowaniu otrzymasz odpowiadającą ilość w 33T i dołączysz do puli dopóki nie wybierzesz SSDAO."
 
 #: src/views/33Together/PoolDeposit.jsx:182
-msgid "Depositing {quantity} SSDOGE will increase odds of winning to 1 in {newOdds}"
-msgstr "Deponując {quantity} SSDOGE podwyższysz szansę wygrania o 1 do {newOdds}"
+msgid "Depositing {quantity} SSDAO will increase odds of winning to 1 in {newOdds}"
+msgstr "Deponując {quantity} SSDAO podwyższysz szansę wygrania o 1 do {newOdds}"
 
 #: src/views/33Together/PoolDeposit.jsx:113
 msgid "Deposits can be made once the prize has been awarded."
@@ -304,7 +304,7 @@ msgid "Dialing Zapper..."
 msgstr "Wybieranie Zappera..."
 
 #: src/views/Give/DepositYield.tsx:58
-#~ msgid "Direct yield from your deposited SSDOGE to other recipients. Your SSDOGE is deposited in a vault, but you can withdraw it or change the deposited amount at any time."
+#~ msgid "Direct yield from your deposited SSDAO to other recipients. Your SSDAO is deposited in a vault, but you can withdraw it or change the deposited amount at any time."
 #~ msgstr ""
 
 #: src/components/TopBar/ConnectMenu.jsx:28
@@ -323,7 +323,7 @@ msgstr "Dokumentacja"
 #~ msgstr ""
 
 #: src/views/Give/RedeemYield.tsx:211
-#~ msgid "Donated SSDOGE Generating Yield"
+#~ msgid "Donated SSDAO Generating Yield"
 #~ msgstr ""
 
 #: src/components/GiveProject/ProjectCard.tsx:581
@@ -355,7 +355,7 @@ msgstr "Wczesne wybranie środków poskutkuje opłatą w wysokości {exitFee}."
 #~ msgstr ""
 
 #: src/slices/PendingTxnsSlice.ts:36
-#~ msgid "Editing SSDOGE donation amount"
+#~ msgid "Editing SSDAO donation amount"
 #~ msgstr ""
 
 #: src/views/Zap/ZapStakeAction.jsx:397
@@ -393,7 +393,7 @@ msgid "First time bonding"
 msgstr "Pierwszy bonding"
 
 #: src/views/Give/RecipientModal.tsx:472
-#~ msgid "First time donating <0>SSDOGE</0>?<1/>Please approve ScholarDoge DAO to use your <2>SSDOGE</2> for donating."
+#~ msgid "First time donating <0>SSDAO</0>?<1/>Please approve ScholarDAO DAO to use your <2>SSDAO</2> for donating."
 #~ msgstr ""
 
 #: src/views/Stake/Stake.tsx:373
@@ -427,7 +427,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/slices/PendingTxnsSlice.ts:34
-#~ msgid "Giving SSDOGE"
+#~ msgid "Giving SSDAO"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:612
@@ -448,7 +448,7 @@ msgid "Governance"
 msgstr "Governance"
 
 #: src/views/Give/RedeemYield.tsx:192
-#~ msgid "If other wallets have directed their SSDOGE rebases to you, you can transfer that yield into your wallet."
+#~ msgid "If other wallets have directed their SSDAO rebases to you, you can transfer that yield into your wallet."
 #~ msgstr ""
 
 #: src/components/TopBar/ConnectMenu.jsx:33
@@ -470,7 +470,7 @@ msgid "Less than a minute"
 msgstr "Poniżej minuty"
 
 #: src/views/Give/GiveInfo.jsx:15
-#~ msgid "Lock SSDOGE in vault"
+#~ msgid "Lock SSDAO in vault"
 #~ msgstr ""
 
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:16
@@ -526,20 +526,20 @@ msgstr "Yield następnej nagrody"
 
 #: src/views/ChooseBond/ChooseBond.tsx:105
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:29
-msgid "SDOGE Price"
-msgstr "Cena SDOGE"
+msgid "SDAO Price"
+msgstr "Cena SDAO"
 
 #: src/views/Zap/ZapInfo.jsx:106
-msgid "OlyZap reduces complexity, saves you time and keeps you here on ScholarDoge."
-msgstr "OlyZap redukuje złożoność, oszczędza Twój czas i trzyma Cię tutaj, w ScholarDogeie."
+msgid "OlyZap reduces complexity, saves you time and keeps you here on ScholarDAO."
+msgstr "OlyZap redukuje złożoność, oszczędza Twój czas i trzyma Cię tutaj, w ScholarDAOie."
 
 #: src/components/EducationCard.tsx:81
 #: src/components/EducationCard.tsx:119
-#~ msgid "ScholarDoge Give is a means of directing the yield that is accrued on your SSDOGE to another wallet. The first step is depositing your SSDOGE and specifying a recipient."
+#~ msgid "ScholarDAO Give is a means of directing the yield that is accrued on your SSDAO to another wallet. The first step is depositing your SSDAO and specifying a recipient."
 #~ msgstr ""
 
 #: src/views/V1-Stake/V1-Stake.jsx:296
-msgid "Once your current bonds have been claimed, you can migrate your assets to stake more SDOGE"
+msgid "Once your current bonds have been claimed, you can migrate your assets to stake more SDAO"
 msgstr ""
 
 #: src/views/404/NotFound.tsx:14
@@ -566,8 +566,8 @@ msgstr "W trakcie..."
 #: src/views/Stake/Stake.tsx:375
 #: src/views/Stake/Stake.tsx:382
 #: src/views/V1-Stake/V1-Stake.jsx:315
-msgid "Please approve ScholarDoge Dao to use your"
-msgstr "Zatwierdź ScholarDoge Dao, aby używał Twojego"
+msgid "Please approve ScholarDAO Dao to use your"
+msgstr "Zatwierdź ScholarDAO Dao, aby używał Twojego"
 
 #: src/slices/RedeemThunk.ts:25
 #~ msgid "Please conenect your wallet!"
@@ -590,7 +590,7 @@ msgstr "Zatwierdź ScholarDoge Dao, aby używał Twojego"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:228
-#~ msgid "Please enter a valid BSC address"
+#~ msgid "Please enter a valid FTM address"
 #~ msgstr ""
 
 #: src/views/Bond/BondPurchase.jsx:53
@@ -676,7 +676,7 @@ msgid "Recipient Address"
 msgstr "Adres Odbiorcy"
 
 #: src/views/Give/GiveInfo.jsx:18
-#~ msgid "Recipient earns SSDOGE rebases"
+#~ msgid "Recipient earns SSDAO rebases"
 #~ msgstr ""
 
 #: src/views/Bond/Bond.tsx:112
@@ -752,8 +752,8 @@ msgid "Stake"
 msgstr "Stakuj"
 
 #: src/views/Stake/Stake.tsx:428
-msgid "Stake SDOGE"
-msgstr "Stakuj SDOGE"
+msgid "Stake SDAO"
+msgstr "Stakuj SDAO"
 
 #: src/views/Stake/ExternalStakePool.tsx:87
 #: src/views/Stake/ExternalStakePool.tsx:115
@@ -779,31 +779,31 @@ msgid "Staking"
 msgstr "Staking"
 
 #: src/slices/PendingTxnsSlice.ts:28
-msgid "Staking SDOGE"
-msgstr "Staking SDOGE"
+msgid "Staking SDAO"
+msgstr "Staking SDAO"
 
 #: src/views/Zap/ZapInfo.jsx:132
-msgid "Staking is the primary value accrual strategy of ScholarDoge. When you stake, you lock SDOGE and receive an equal amount of SSDOGE."
-msgstr "Staking to pierwszorzędna strategia kumulacji wartości w ScholarDogeie. Kiedy stakujesz, lokujesz swoje SDOGE i otrzymujesz ekwiwalent w SSDOGE."
+msgid "Staking is the primary value accrual strategy of ScholarDAO. When you stake, you lock SDAO and receive an equal amount of SSDAO."
+msgstr "Staking to pierwszorzędna strategia kumulacji wartości w ScholarDAOie. Kiedy stakujesz, lokujesz swoje SDAO i otrzymujesz ekwiwalent w SSDAO."
 
 #: src/views/Zap/ZapStakeHeader.jsx:50
-msgid "Swap for SDOGE"
-msgstr "Zamień na SDOGE"
+msgid "Swap for SDAO"
+msgstr "Zamień na SDAO"
 
 #: src/views/Zap/ZapStakeHeader.jsx:40
-msgid "Swap for SSDOGE"
-msgstr "Zamień na SSDOGE"
+msgid "Swap for SSDAO"
+msgstr "Zamień na SSDAO"
 
 #: src/views/Zap/ZapCta.jsx:58
-msgid "Swap into SSDOGE"
-msgstr "Zamień w SSDOGE"
+msgid "Swap into SSDAO"
+msgstr "Zamień w SSDAO"
 
 #: src/views/V1-Stake/V1-Stake.jsx:233
 msgid "TVL"
 msgstr ""
 
 #: src/views/Give/YieldRecipients.tsx:193
-#~ msgid "The amount of SSDOGE deposited"
+#~ msgid "The amount of SSDAO deposited"
 #~ msgstr ""
 
 #: src/views/33Together/PoolWithdraw.jsx:118
@@ -812,7 +812,7 @@ msgstr "Pula została tymczasowo wyłączona w związku z migracją na V2. Prosz
 
 #: src/components/EducationCard.tsx:331
 #: src/components/EducationCard.tsx:369
-#~ msgid "The recipient you specified, or the project you selected, will then receive the rebases associated with your SSDOGE deposit until you withdraw your SSDOGE principal from the vault."
+#~ msgid "The recipient you specified, or the project you selected, will then receive the rebases associated with your SSDAO deposit until you withdraw your SSDAO principal from the vault."
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:396
@@ -821,7 +821,7 @@ msgstr "Pula została tymczasowo wyłączona w związku z migracją na V2. Prosz
 
 #: src/components/EducationCard.tsx:188
 #: src/components/EducationCard.tsx:232
-#~ msgid "Then, your deposited SSDOGE is kept in a vault smart contract that will send your rebases to the recipient. You can withdraw or edit your principal SSDOGE amount at any time."
+#~ msgid "Then, your deposited SSDAO is kept in a vault smart contract that will send your rebases to the recipient. You can withdraw or edit your principal SSDAO amount at any time."
 #~ msgstr ""
 
 #: src/views/33Together/PoolDeposit.jsx:110
@@ -837,7 +837,7 @@ msgid "This is the current balance of v1 assets in your wallet."
 msgstr ""
 
 #: src/components/Migration/MigrationModal.jsx:287
-msgid "This is the equivalent amount of gSDOGE you will have in your wallet once migration is complete."
+msgid "This is the equivalent amount of gSDAO you will have in your wallet once migration is complete."
 msgstr ""
 
 #: src/views/Bond/BondRedeem.jsx:113
@@ -874,12 +874,12 @@ msgstr "Saldo Skarbca"
 msgid "Unstake"
 msgstr "Odstakuj"
 
-#: src/components/TopBar/SdogeMenu.jsx:256
+#: src/components/TopBar/Menu.jsx:256
 msgid "Unstake Legacy LP Token"
 msgstr "Odstakuj przestarzałe Tokeny LP"
 
 #: src/views/V1-Stake/V1-Stake.jsx:400
-msgid "Unstake SDOGE"
+msgid "Unstake SDAO"
 msgstr ""
 
 #: src/views/Stake/Stake.tsx:483
@@ -892,19 +892,19 @@ msgstr "Odstakowana wartość"
 #~ msgstr "Odstakowana wartość (v1)"
 
 #: src/slices/PendingTxnsSlice.ts:28
-msgid "Unstaking SSDOGE"
-msgstr "Odstakowanie SSDOGE"
+msgid "Unstaking SSDAO"
+msgstr "Odstakowanie SSDAO"
 
 #: src/slices/PendingTxnsSlice.ts:32
-msgid "Unwrapping SSDOGE"
-msgstr "Odwrappowanie SSDOGE"
+msgid "Unwrapping SSDAO"
+msgstr "Odwrappowanie SSDAO"
 
 #: src/components/EducationCard.tsx:404
 #~ msgid "Updated Deposit"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:203
-#~ msgid "Value cannot be more than your SSDOGE balance of"
+#~ msgid "Value cannot be more than your SSDAO balance of"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:192
@@ -955,20 +955,20 @@ msgid "Withdraw Early & pay"
 msgstr "Odbierz wcześnie i zapłać"
 
 #: src/views/33Together/PoolWithdraw.jsx:163
-msgid "Withdraw SSDOGE"
-msgstr "Odbierz SSDOGE"
+msgid "Withdraw SSDAO"
+msgstr "Odbierz SSDAO"
 
 #: src/views/33Together/PoolWithdraw.jsx:106
 msgid "Withdrawals can be made once the prize has been awarded."
 msgstr "Odbiory możliwe po tym jak nagroda zostanie przyznana."
 
 #: src/slices/PendingTxnsSlice.ts:37
-#~ msgid "Withdrawing SSDOGE donation"
+#~ msgid "Withdrawing SSDAO donation"
 #~ msgstr ""
 
 #: src/views/33Together/PoolWithdraw.jsx:170
-msgid "Withdrawing {quantity} SSDOGE reduces your odds of winning to 1 in {newOdds}"
-msgstr "Odbieranie {quantity} SSDOGE redukuje szanse wygrania do 1 do {newOdds}"
+msgid "Withdrawing {quantity} SSDAO reduces your odds of winning to 1 in {newOdds}"
+msgstr "Odbieranie {quantity} SSDAO redukuje szanse wygrania do 1 do {newOdds}"
 
 #: src/views/Stake/Stake.tsx:505
 #: src/views/V1-Stake/V1-Stake.jsx:448
@@ -998,8 +998,8 @@ msgstr "Zwrappowana wartość w FiatDAO"
 #~ msgstr ""
 
 #: src/slices/PendingTxnsSlice.ts:32
-msgid "Wrapping SDOGE"
-msgstr "Wrappowanie SDOGE"
+msgid "Wrapping SDAO"
+msgstr "Wrappowanie SDAO"
 
 #: src/views/33Together/PoolInfo.jsx:107
 msgid "Yield Source"
@@ -1014,8 +1014,8 @@ msgid "You Get"
 msgstr "Otrzymujesz"
 
 #: src/views/Zap/ZapInfo.jsx:124
-msgid "You Get SSDOGE"
-msgstr "Otrzymujesz SSDOGE"
+msgid "You Get SSDAO"
+msgstr "Otrzymujesz SSDAO"
 
 #: src/views/Zap/ZapInfo.jsx:73
 msgid "You Give"
@@ -1039,8 +1039,8 @@ msgstr "Możesz wybrać odebranie środków z depozytu w każdej chwili. Odbiera
 
 #: src/views/Stake/Stake.tsx:157
 #: src/views/Stake/Stake.tsx:157
-msgid "You cannot stake more than your SDOGE balance."
-msgstr "Nie możesz zastakować więcej niż Twoje dostępne środki w SDOGE."
+msgid "You cannot stake more than your SDAO balance."
+msgstr "Nie możesz zastakować więcej niż Twoje dostępne środki w SDAO."
 
 #: src/views/33Together/PoolWithdraw.jsx:87
 msgid "You cannot withdraw more than your pool balance"
@@ -1048,8 +1048,8 @@ msgstr "Nie możesz wybrać więcej niż wartość Twoich środków w puli"
 
 #: src/views/Stake/Stake.tsx:163
 #: src/views/Stake/Stake.tsx:163
-msgid "You do not have enough SSDOGE to complete this transaction.  To unstake from gSDOGE, please check the box."
-msgstr "Nie posiadasz wystarczająco SSDOGE, aby zakończyć transakcje. Aby odstakować gSDOGE, zaznacz pole wyboru."
+msgid "You do not have enough SSDAO to complete this transaction.  To unstake from gSDAO, please check the box."
+msgstr "Nie posiadasz wystarczająco SSDAO, aby zakończyć transakcje. Aby odstakować gSDAO, zaznacz pole wyboru."
 
 #: src/views/Bond/BondPurchase.jsx:56
 msgid "You have an existing bond. Bonding will reset your vesting period and forfeit rewards. We recommend claiming rewards first or using a fresh wallet. Do you still want to proceed?"
@@ -1075,11 +1075,11 @@ msgstr ""
 #~ msgstr ""
 
 #: src/views/V1-Stake/V1-Stake.jsx:299
-msgid "You must complete the migration of your assets to stake additional SDOGE"
+msgid "You must complete the migration of your assets to stake additional SDAO"
 msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:198
-#~ msgid "You must have a balance of SSDOGE (staked SDOGE) to continue"
+#~ msgid "You must have a balance of SSDAO (staked SDAO) to continue"
 #~ msgstr ""
 
 #: src/views/Bond/BondPurchase.jsx:222
@@ -1111,7 +1111,7 @@ msgid "Your pool deposits"
 msgstr "Twoje depozyty w puli"
 
 #: src/views/Give/RecipientModal.tsx:535
-#~ msgid "Your SSDOGE will be tansferred into the vault when you submit. You will need to approve the transaction and pay for gas fees."
+#~ msgid "Your SSDAO will be tansferred into the vault when you submit. You will need to approve the transaction and pay for gas fees."
 #~ msgstr ""
 
 #: src/views/33Together/PoolInfo.jsx:49
@@ -1127,8 +1127,8 @@ msgid "Zap is a swap"
 msgstr "Zap to zamiana"
 
 #: src/views/Zap/ZapCta.jsx:40
-msgid "Zap with more assets and stake <0>SDOGE</0>"
-msgstr "Zappuj z większą ilością aktywów i stakuj <0>SDOGE<0>"
+msgid "Zap with more assets and stake <0>SDAO</0>"
+msgstr "Zappuj z większą ilością aktywów i stakuj <0>SDAO<0>"
 
 #: src/views/Zap/ZapStakeAction.jsx:399
 #: src/views/Zap/ZapStakeAction.jsx:451
@@ -1168,8 +1168,8 @@ msgid "for unstaking"
 msgstr "do odstakowania"
 
 #: src/views/TreasuryDashboard/components/Metric/Metric.js:84
-msgid "gSDOGE Price"
-msgstr "Cena gSDOGE"
+msgid "gSDAO Price"
+msgstr "Cena gSDAO"
 
 #: src/views/33Together/PoolPrize.jsx:148
 msgid "hrs"
@@ -1196,28 +1196,28 @@ msgstr "min"
 #: src/views/Give/RedeemYield.tsx:214
 #: src/views/Give/RedeemYield.tsx:226
 #: src/views/Give/RedeemYield.tsx:236
-#~ msgid "SSDOGE"
+#~ msgid "SSDAO"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:532
-#~ msgid "SSDOGE Allocation"
+#~ msgid "SSDAO Allocation"
 #~ msgstr ""
 
 #: src/components/GiveProject/ProjectCard.tsx:317
-#~ msgid "SSDOGE Donated"
+#~ msgid "SSDAO Donated"
 #~ msgstr ""
 
 #: src/components/GiveProject/ProjectCard.tsx:334
-#~ msgid "SSDOGE Goal"
+#~ msgid "SSDAO Goal"
 #~ msgstr ""
 
 #: src/views/33Together/PoolInfo.jsx:158
-msgid "SSDOGE Pool Details"
-msgstr "Szczegóły puli SSDOGE"
+msgid "SSDAO Pool Details"
+msgstr "Szczegóły puli SSDAO"
 
 #: src/views/33Together/PoolInfo.jsx:150
-msgid "SSDOGE Prize Pool"
-msgstr "Nagrody puli SSDOGE"
+msgid "SSDAO Prize Pool"
+msgstr "Nagrody puli SSDAO"
 
 #: src/views/33Together/PoolPrize.jsx:161
 msgid "sec"
@@ -1232,9 +1232,9 @@ msgstr "do następnego rebase"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:569
-#~ msgid "{0} SSDOGE"
+#~ msgid "{0} SSDAO"
 #~ msgstr ""
 
 #: src/views/Give/RecipientModal.tsx:522
-#~ msgid "{depositAmount} SSDOGE"
+#~ msgid "{depositAmount} SSDAO"
 #~ msgstr ""

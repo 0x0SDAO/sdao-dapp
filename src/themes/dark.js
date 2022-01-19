@@ -7,13 +7,14 @@ import commonSettings, { handleBackdropFilter } from "./global.js";
 
 const darkTheme = {
   color: "#000000",
-  gold: "#F8CC82",
+  blue: "#1C67F6",
+  dark_blue: "#0C3176",
   gray: "#A3A3A3",
-  textHighlightColor: "#D9B35F",
-  backgroundColor: "#715B2F",
-  background: "linear-gradient(0deg, #715B2F 1%, #000000 100%)",
-  paperBg: "#715B2F",
-  modalBg: "#715B2F",
+  textHighlightColor: "#1C67F6",
+  backgroundColor: "#0C3176",
+  background: "linear-gradient(0deg, #0C3176 1%, #000000 100%)",
+  paperBg: "#0C3176",
+  modalBg: "#0C3176",
   popoverBg: "rgba(54, 56, 64, 0.99)",
   menuBg: handleBackdropFilter("rgba(54, 56, 64, 0.5)"),
   backdropBg: "rgba(54, 56, 64, 0.5)",
@@ -22,13 +23,14 @@ const darkTheme = {
   activeLinkSvgColor:
     "brightness(0) saturate(100%) invert(84%) sepia(49%) saturate(307%) hue-rotate(326deg) brightness(106%) contrast(92%)",
   primaryButtonColor: "#333333",
-  primaryButtonBG: "#F4D092",
-  primaryButtonHoverBG: "#EDD8B4",
+  primaryButtonBG: "#1C67F6",
+  primaryButtonHoverColor: "#0C3176",
+  primaryButtonHoverBG: "#000000",
   secondaryButtonHoverBG: "rgba(54, 56, 64, 1)",
-  outlinedPrimaryButtonHoverBG: "#F8CC82",
-  outlinedPrimaryButtonHoverColor: "#333333",
+  outlinedPrimaryButtonHoverBG: "#1C67F6",
+  outlinedPrimaryButtonHoverColor: "#0C3176",
   outlinedSecondaryButtonHoverBG: "transparent",
-  outlinedSecondaryButtonHoverColor: "#F8CC82", //gold
+  outlinedSecondaryButtonHoverColor: "#1C67F6", //gold
   containedSecondaryButtonHoverBG: "rgba(255, 255, 255, 0.15)",
   graphStrokeColor: "rgba(255, 255, 255, .1)",
   gridButtonHoverBackground: "rgba(255, 255, 255, 0.6)",
@@ -102,23 +104,23 @@ export const dark = responsiveFontSizes(
         },
         MuiSelect: {
           select: {
-            color: "#F8CC82",
+            color: "#1C67F6",
           },
         },
         MuiPaper: {
           root: {
             backgroundColor: darkTheme.paperBg,
-            "&.sdoge-card": {
+            "&.sdao-card": {
               backgroundColor: darkTheme.paperBg,
             },
-            "&.sdoge-modal": {
+            "&.sdao-modal": {
               backgroundColor: darkTheme.modalBg,
             },
-            "&.sdoge-menu": {
+            "&.sdao-menu": {
               backgroundColor: darkTheme.menuBg,
               backdropFilter: "blur(33px)",
             },
-            "&.sdoge-popover": {
+            "&.sdao-popover": {
               backgroundColor: darkTheme.popoverBg,
               color: darkTheme.color,
               // backdropFilter: "blur(15px)",
@@ -169,15 +171,15 @@ export const dark = responsiveFontSizes(
         },
         MuiTab: {
           textColorPrimary: {
-            color: darkTheme.gold,
+            color: darkTheme.color,
             "&$selected": {
-              color: darkTheme.gold,
+              color: darkTheme.color,
             },
           },
         },
         PrivateTabIndicator: {
           colorPrimary: {
-            backgroundColor: darkTheme.gold,
+            backgroundColor: darkTheme.color,
           },
         },
         MuiToggleButton: {
@@ -206,8 +208,8 @@ export const dark = responsiveFontSizes(
         },
         MuiButton: {
           containedPrimary: {
-            color: darkTheme.primaryButtonColor,
-            backgroundColor: darkTheme.gold,
+            color: darkTheme.color,
+            backgroundColor: darkTheme.primaryButtonBG,
             "&:hover": {
               backgroundColor: darkTheme.primaryButtonHoverBG,
               color: darkTheme.primaryButtonHoverColor,
@@ -218,7 +220,7 @@ export const dark = responsiveFontSizes(
             },
             "@media (hover:none)": {
               color: darkTheme.primaryButtonColor,
-              backgroundColor: darkTheme.gold,
+              backgroundColor: darkTheme.color,
               "&:hover": {
                 backgroundColor: darkTheme.primaryButtonHoverBG,
               },
@@ -245,15 +247,15 @@ export const dark = responsiveFontSizes(
             },
           },
           outlinedPrimary: {
-            color: darkTheme.gold,
-            borderColor: darkTheme.gold,
+            color: darkTheme.color,
+            borderColor: darkTheme.color,
             "&:hover": {
               color: darkTheme.outlinedPrimaryButtonHoverColor,
               backgroundColor: darkTheme.primaryButtonHoverBG,
             },
             "@media (hover:none)": {
-              color: darkTheme.gold,
-              borderColor: darkTheme.gold,
+              color: darkTheme.color,
+              borderColor: darkTheme.color,
               "&:hover": {
                 color: darkTheme.outlinedPrimaryButtonHoverColor,
                 backgroundColor: `${darkTheme.primaryButtonHoverBG} !important`,
@@ -278,7 +280,7 @@ export const dark = responsiveFontSizes(
             },
             "&:active": {
               color: darkTheme.gold,
-              borderBottom: "#F8CC82",
+              borderBottom: "#1C67F6",
             },
           },
           textSecondary: {

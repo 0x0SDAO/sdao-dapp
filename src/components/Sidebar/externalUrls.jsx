@@ -6,12 +6,12 @@ import { Trans } from "@lingui/macro";
 const externalUrls = [
   {
     title: <Trans>Governance</Trans>,
-    url: "https://vote.scholardoge.org/",
+    url: "https://vote.scholardao.net/",
     icon: <SvgIcon color="primary" component={GovIcon} />,
   },
   {
     title: <Trans>Docs</Trans>,
-    url: "https://docs.scholardoge.org/",
+    url: "https://docs.scholardao.net/",
     icon: <SvgIcon color="primary" component={DocsIcon} />,
   },
   // {

@@ -1,7 +1,6 @@
 import { JsonRpcProvider, StaticJsonRpcProvider } from "@ethersproject/providers";
-import { EnvHelper } from "./Environment";
 import { NodeHelper } from "./NodeHelper";
-import { NETWORKS } from "../constants";
+import { NetworkId, NETWORKS } from "../constants";
 
 interface IGetCurrentNetwork {
   provider: StaticJsonRpcProvider | JsonRpcProvider;
@@ -10,34 +9,22 @@ interface IGetCurrentNetwork {
 export const initNetworkFunc = async ({ provider }: IGetCurrentNetwork) => {
   try {
     let networkName: string;
-    let uri: string;
     let supported = true;
     const id: number = await provider.getNetwork().then(network => network.chainId);
+    let uri = NodeHelper.getURI(id);
     switch (id) {
-      case 56:
-        networkName = "BSC mainnet";
-        uri = NodeHelper.getBSCURI(id);
+      case NetworkId.FANTOM:
+        networkName = "Fantom mainnet";
         break;
-      case 97:
-        networkName = "BSC testnet";
-        uri = NodeHelper.getBSCURI(id);
+      case NetworkId.FANTOM_TESTNET:
+        networkName = "Fantom testnet";
         break;
-      case 42161:
-        networkName = "Arbitrum";
-        uri = NodeHelper.getBSCURI(id);
-        break;
-      case 421611:
-        networkName = "Arbitrum Testnet";
-        uri = EnvHelper.alchemyArbitrumTestnetURI;
-        break;
-      case 43113:
-        networkName = "Avalanche Fuji Testnet";
-        uri = EnvHelper.alchemyAvalancheTestnetURI;
-        break;
-      case 43114:
-        networkName = "Avalanche";
-        uri = NodeHelper.getBSCURI(id);
-        break;
+      // case NetworkId.BSC:
+      //   networkName = "BSC mainnet";
+      //   break;
+      // case NetworkId.BSC_TESTNET:
+      //   networkName = "BSC testnet";
+      //   break;
       default:
         supported = false;
         networkName = "Unsupported Network";

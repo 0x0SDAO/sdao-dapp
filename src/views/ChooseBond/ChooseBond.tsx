@@ -75,7 +75,7 @@ function ChooseBond() {
       {!isAccountLoading && !isEmpty(accountBonds) && <ClaimBonds activeBonds={accountBonds} />}
 
       <Zoom in={true}>
-        <Paper className="sdoge-card">
+        <Paper className="sdao-card">
           <Box className="card-header">
             <Typography variant="h5" data-testid="t">
               <Trans>Bond</Trans>
@@ -89,7 +89,7 @@ function ChooseBond() {
               isLoading={!treasuryBalance}
             />
             <Metric
-              label={t`SDOGE Price`}
+              label={t`SDAO Price`}
               metric={formatCurrency(Number(marketPrice), 2)}
               isLoading={!marketPrice}
             />
@@ -133,7 +133,7 @@ function ChooseBond() {
       </Zoom>
 
       {isSmallScreen && (
-        <Box className="sdoge-card-container">
+        <Box className="sdao-card-container">
           <Grid container item spacing={2}>
             {bonds.map(bond => {
               // NOTE (appleseed): temporary for ONHOLD MIGRATION

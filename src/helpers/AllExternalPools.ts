@@ -1,6 +1,4 @@
 // import { ExternalPool } from "src/lib/ExternalPool";
-// import { ReactComponent as avaxImage } from "src/assets/tokens/AVAX.svg";
-// import { ReactComponent as wEthImage } from "src/assets/tokens/wETH.svg";
 // import { addresses, NetworkId } from "src/constants";
 // import { NodeHelper } from "./NodeHelper";
 // import { BigNumber, ethers } from "ethers";

@@ -1,10 +1,10 @@
 import { JsonRpcSigner, StaticJsonRpcProvider } from "@ethersproject/providers";
 import { ethers } from "ethers";
 
-import { default as BEP20Contract } from "src/abi/interfaces/IBEP20.json";
-import { getTokenPrice } from "src/helpers";
+import { default as ERC20Contract } from "src/abi/IERC20.json";
+import { bigNumberToDecimal, getTokenPrice } from "src/helpers";
 import { getBondCalculator } from "src/helpers/BondCalculator";
-import { BEP20, BSCContract, PancakePair } from "src/typechain";
+import { ERC20, FTMContract, UniswapV2Pair } from "src/typechain";
 import { addresses, NetworkId } from "src/constants";
 import React from "react";
 
@@ -33,7 +33,7 @@ interface BondOpts {
   bondContractABI: ethers.ContractInterface; // ABI for contract
   networkAddrs: NetworkAddresses; // Mapping of network --> Addresses
   bondToken: string; // Unused, but native token to buy the bond.
-  payoutToken: string; // Token the user will receive - currently SDOGE on bsc
+  payoutToken: string; // Token the user will receive - currently SDAO on bsc
 }
 
 // Technically only exporting for the interface
@@ -99,7 +99,7 @@ export abstract class Bond {
 
   getContractForBond(NetworkId: NetworkId, provider: StaticJsonRpcProvider | JsonRpcSigner) {
     const bondAddress = this.getAddressForBond(NetworkId) || "";
-    return new ethers.Contract(bondAddress, this.bondContractABI, provider) as BSCContract;
+    return new ethers.Contract(bondAddress, this.bondContractABI, provider) as FTMContract;
   }
 
   getAddressForReserve(NetworkId: NetworkId) {
@@ -107,24 +107,27 @@ export abstract class Bond {
   }
   getContractForReserve(NetworkId: NetworkId, provider: StaticJsonRpcProvider | JsonRpcSigner) {
     const bondAddress = this.getAddressForReserve(NetworkId) || "";
-    return new ethers.Contract(bondAddress, this.reserveContract, provider) as BSCContract;
+    return new ethers.Contract(bondAddress, this.reserveContract, provider) as FTMContract;
   }
   getPairContractForReserve(NetworkId: NetworkId, provider: StaticJsonRpcProvider | JsonRpcSigner) {
     const bondAddress = this.getAddressForReserve(NetworkId) || "";
-    return new ethers.Contract(bondAddress, this.reserveContract, provider) as PancakePair;
+    return new ethers.Contract(bondAddress, this.reserveContract, provider) as UniswapV2Pair;
   }
-  getBEP20ContractForReserve(NetworkId: NetworkId, provider: StaticJsonRpcProvider | JsonRpcSigner) {
+  getERC20ContractForReserve(NetworkId: NetworkId, provider: StaticJsonRpcProvider | JsonRpcSigner) {
     const bondAddress = this.getAddressForReserve(NetworkId) || "";
-    return new ethers.Contract(bondAddress, this.reserveContract, provider) as BEP20;
+    return new ethers.Contract(bondAddress, this.reserveContract, provider) as ERC20;
   }
 
-  // TODO (appleseed): improve this logic
+  // TODO (appleseed): improve this logic / Make able to work with other pairs than sdao
   async getBondReservePrice(NetworkId: NetworkId, provider: StaticJsonRpcProvider | JsonRpcSigner) {
     let marketPrice: number;
     if (this.isLP) {
       const pairContract = this.getPairContractForReserve(NetworkId, provider);
       const reserves = await pairContract.getReserves();
-      marketPrice = Number(reserves[1].toString()) / Number(reserves[0].toString()) / 10 ** 9;
+      const token0 = await pairContract.token0();
+      const reserveSDAO = (addresses[NetworkId].SDAO_ADDRESS == token0) ? reserves[0] : reserves[1];
+      const reserveOther = (addresses[NetworkId].SDAO_ADDRESS == token0) ? reserves[1] : reserves[0];
+      marketPrice = Number(reserveOther.toString()) / Number(reserveSDAO.toString()) / 10 ** 9;
     } else {
       // TODO: Update here ? see logic
       marketPrice = await getTokenPrice("convex-finance");
@@ -153,7 +156,7 @@ export class LPBond extends Bond {
     this.displayUnits = "LP";
   }
   async getTreasuryBalance(NetworkId: NetworkId, provider: StaticJsonRpcProvider) {
-    const token = this.getBEP20ContractForReserve(NetworkId, provider);
+    const token = this.getERC20ContractForReserve(NetworkId, provider);
     const tokenAddress = this.getAddressForReserve(NetworkId);
     const bondCalculator = getBondCalculator(NetworkId, provider);
     const tokenAmount = await token.balanceOf(addresses[NetworkId].TREASURY_ADDRESS);
@@ -176,13 +179,14 @@ export class StableBond extends Bond {
     super(BondType.StableAsset, stableBondOpts);
     // For stable bonds the display units are the same as the actual token
     this.displayUnits = stableBondOpts.displayName;
-    this.reserveContract = BEP20Contract.abi; // The Standard IBEP20 since they're normal tokens
+    this.reserveContract = ERC20Contract.abi; // The Standard IERC20 since they're normal tokens
   }
 
   async getTreasuryBalance(NetworkId: NetworkId, provider: StaticJsonRpcProvider) {
-    const token = this.getBEP20ContractForReserve(NetworkId, provider);
+    const token = this.getERC20ContractForReserve(NetworkId, provider);
     const tokenAmount = await token.balanceOf(addresses[NetworkId].TREASURY_ADDRESS);
-    return Number(tokenAmount.toString()) / Math.pow(10, 18);
+    const tokenDecimals = await token.decimals();
+    return bigNumberToDecimal(tokenAmount, tokenDecimals);
   }
 }
 

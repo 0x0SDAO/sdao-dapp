@@ -11,7 +11,7 @@ function Announcement() {
   };
 
   return (
-    <div className="announcement-banner sdoge-card">
+    <div className="announcement-banner sdao-card">
       {newNetworkVisible && (
         <>
           {/*<Paper className="new-network" style={isMobileScreen ? { borderRadius: 0 } : { width: "100%" }}>*/}

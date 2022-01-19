@@ -6,13 +6,14 @@ import { ReactComponent as StakeIcon } from "../../assets/icons/stake.svg";
 import { ReactComponent as WalletIcon } from "../../assets/icons/wallet.svg";
 import { ReactComponent as BondIcon } from "../../assets/icons/bond.svg";
 import { ReactComponent as DashboardIcon } from "../../assets/icons/dashboard.svg";
-import { ReactComponent as SDOGEIcon } from "../../assets/icons/sdoge-logo-100.svg";
+import { ReactComponent as PresaleIcon } from "../../assets/icons/wallet.svg";
+import { ReactComponent as SDAOIcon } from "../../assets/icons/sdoge-logo-100.svg";
 import { ReactComponent as ArrowUpIcon } from "../../assets/icons/arrow-up.svg";
 import { Trans } from "@lingui/macro";
-import { getPcsBuyLinkURL, trim } from "../../helpers";
+import { getSWBuyLinkURL, trim } from "../../helpers";
 import { useWeb3Context } from "src/hooks/web3Context";
 import useBonds from "../../hooks/Bonds";
-import { NetworkId } from "src/constants";
+import { IS_PRIVATE_SALE_ENABLED, NetworkId } from "src/constants";
 import {
   Accordion,
   AccordionDetails,
@@ -32,7 +33,7 @@ function NavContent({ handleDrawerToggle }) {
   const [isActive] = useState();
   const { networkId } = useWeb3Context();
   const { bonds } = useBonds(networkId);
-  const pcsLink = getPcsBuyLinkURL(networkId);
+  const swLink = getSWBuyLinkURL(networkId);
 
   const checkPage = useCallback((match, location, page) => {
     const currentPath = location.pathname.replace("/", "");
@@ -53,10 +54,10 @@ function NavContent({ handleDrawerToggle }) {
       <Box className="dapp-sidebar-inner" display="flex" justifyContent="space-between" flexDirection="column">
         <div className="dapp-menu-top">
           <Box className="branding-header">
-            <Link href="https://scholardoge.org" target="_blank">
+            <Link href="https://scholardao.net" target="_blank">
               <SvgIcon
                 color="primary"
-                component={SDOGEIcon}
+                component={SDAOIcon}
                 viewBox="0 0 100 100"
                 style={{ minWdth: "100px", minHeight: "98px", width: "100px" }}
               />
@@ -67,67 +68,69 @@ function NavContent({ handleDrawerToggle }) {
             <div className="dapp-nav" id="navbarNav">
               {networkId === NetworkId.MAINNET || networkId === NetworkId.TESTNET ? (
                 <>
-                  <Link
-                    component={NavLink}
-                    id="dash-nav"
-                    to="/dashboard"
-                    isActive={(match, location) => {
-                      return checkPage(match, location, "dashboard");
-                    }}
-                    className={`button-dapp-menu ${isActive ? "active" : ""}`}
-                    onClick={handleDrawerToggle}
-                  >
-                    <Typography variant="h6">
-                      <SvgIcon color="primary" component={DashboardIcon} />
-                      <Trans>Dashboard</Trans>
-                    </Typography>
-                  </Link>
+                  {!IS_PRIVATE_SALE_ENABLED ? (
+                    <>
+                      <Link
+                        component={NavLink}
+                        id="dash-nav"
+                        to="/dashboard"
+                        isActive={(match, location) => {
+                          return checkPage(match, location, "dashboard");
+                        }}
+                        className={`button-dapp-menu ${isActive ? "active" : ""}`}
+                        onClick={handleDrawerToggle}
+                      >
+                        <Typography variant="h6">
+                          <SvgIcon color="primary" component={DashboardIcon} />
+                          <Trans>Dashboard</Trans>
+                        </Typography>
+                      </Link>
 
-                  <Link
-                    href={pcsLink}
-                    target="_blank"
-                    isActive={() => false}
-                    className={`button-dapp-menu`}
-                    onClick={handleDrawerToggle}
-                  >
-                    <Typography variant="h6">
-                      <SvgIcon color="primary" component={WalletIcon} />
-                      <Trans>Buy on PancakeSwap</Trans>
-                    </Typography>
-                  </Link>
+                      <Link
+                        href={swLink}
+                        target="_blank"
+                        isActive={() => false}
+                        className={`button-dapp-menu`}
+                        onClick={handleDrawerToggle}
+                      >
+                        <Typography variant="h6">
+                          <SvgIcon color="primary" component={WalletIcon} />
+                          <Trans>Buy on SpookySwap</Trans>
+                        </Typography>
+                      </Link>
 
-                  <Link
-                    component={NavLink}
-                    id="bond-nav"
-                    to="/bonds"
-                    isActive={(match, location) => {
-                      return checkPage(match, location, "bonds");
-                    }}
-                    className={`button-dapp-menu ${isActive ? "active" : ""}`}
-                    onClick={handleDrawerToggle}
-                  >
-                    <Typography variant="h6">
-                      <SvgIcon color="primary" component={BondIcon} />
-                      <Trans>Bond</Trans>
-                    </Typography>
-                  </Link>
+                      <Link
+                        component={NavLink}
+                        id="bond-nav"
+                        to="/bonds"
+                        isActive={(match, location) => {
+                        return checkPage(match, location, "bonds");
+                        }}
+                        className={`button-dapp-menu ${isActive ? "active" : ""}`}
+                        onClick={handleDrawerToggle}
+                      >
+                        <Typography variant="h6">
+                        <SvgIcon color="primary" component={BondIcon} />
+                        <Trans>Bond</Trans>
+                        </Typography>
+                      </Link>
 
-                  <div className="dapp-menu-data discounts">
-                    <div className="bond-discounts">
-                      <Accordion className="discounts-accordion" square defaultExpanded>
-                        <AccordionSummary
-                          expandIcon={
-                            <ExpandMore
-                              className="discounts-expand"
-                              viewbox="0 0 12 12"
-                              style={{ width: "18px", height: "18px" }}
-                            />
-                          }
-                        >
-                          <Typography variant="body2">
+                      <div className="dapp-menu-data discounts">
+                        <div className="bond-discounts">
+                        <Accordion className="discounts-accordion" square defaultExpanded>
+                          <AccordionSummary
+                            expandIcon={
+                              <ExpandMore
+                                className="discounts-expand"
+                                viewbox="0 0 12 12"
+                                style={{ width: "18px", height: "18px" }}
+                              />
+                            }
+                          >
+                            <Typography variant="body2">
                             <Trans>Bond discounts</Trans>
-                          </Typography>
-                        </AccordionSummary>
+                            </Typography>
+                          </AccordionSummary>
                         <AccordionDetails>
                           {bonds.map((bond, i) => {
                             // NOTE (appleseed): temporary for ONHOLD MIGRATION
@@ -135,11 +138,11 @@ function NavContent({ handleDrawerToggle }) {
                             if (bond.getBondability(networkId) || bond.getLOLability(networkId)) {
                               return (
                                 <Link
-                                  component={NavLink}
-                                  to={`/bonds/${bond.name}`}
-                                  key={i}
-                                  className={"bond"}
-                                  onClick={handleDrawerToggle}
+                                component={NavLink}
+                                to={`/bonds/${bond.name}`}
+                                key={i}
+                                className={"bond"}
+                                onClick={handleDrawerToggle}
                                 >
                                   {!bond.bondDiscount ? (
                                     <Skeleton variant="text" width={"150px"} />
@@ -154,49 +157,69 @@ function NavContent({ handleDrawerToggle }) {
                                           ? "Sold Out"
                                           : `${bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%`}
                                         {/* {!bond.isBondable[networkId]
-                                          ? "Sold Out"
-                                          : `${bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%`} */}
+                                                                ? "Sold Out"
+                                                                : `${bond.bondDiscount && trim(bond.bondDiscount * 100, 2)}%`} */}
                                       </span>
                                     </Typography>
                                   )}
                                 </Link>
-                              );
-                            }
-                          })}
-                        </AccordionDetails>
-                      </Accordion>
-                    </div>
-                  </div>
+                                );
+                              }
+                              })}
+                            </AccordionDetails>
+                          </Accordion>
+                        </div>
+                      </div>
 
-                  <Link
-                    component={NavLink}
-                    id="stake-nav"
-                    to="/"
-                    isActive={(match, location) => {
-                      return checkPage(match, location, "stake");
-                    }}
-                    className={`button-dapp-menu ${isActive ? "active" : ""}`}
-                    onClick={handleDrawerToggle}
-                  >
-                    <Typography variant="h6">
-                      <SvgIcon color="primary" component={StakeIcon} />
-                      <Trans>Stake</Trans>
-                    </Typography>
-                  </Link>
+                      <Link
+                        component={NavLink}
+                        id="stake-nav"
+                        to="/stake"
+                        isActive={(match, location) => {
+                          return checkPage(match, location, "stake");
+                        }}
+                        className={`button-dapp-menu ${isActive ? "active" : ""}`}
+                        onClick={handleDrawerToggle}
+                      >
+                        <Typography variant="h6">
+                          <SvgIcon color="primary" component={StakeIcon} />
+                          <Trans>Stake</Trans>
+                        </Typography>
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      <Link
+                        component={NavLink}
+                        id="private-sale-nav"
+                        to="/private-sale"
+                        isActive={(match, location) => {
+                        return checkPage(match, location, "private-sale");
+                        }}
+                        className={`button-dapp-menu ${isActive ? "active" : ""}`}
+                        onClick={handleDrawerToggle}
+                      >
+                        <Typography variant="h6">
+                        <SvgIcon color="primary" component={PresaleIcon} />
+                        <Trans>Private sale</Trans>
+                        </Typography>
+                      </Link>
+                    </>
+                    )}
 
                   {/*<Box className="menu-divider">*/}
                   {/*  <Divider />*/}
                   {/*</Box>*/}
 
                   {/*<Link*/}
-                  {/*  href="https://pro.scholardoge.org/"*/}
+                  {/*  href="https://pro.scholardao.net/"*/}
                   {/*  target="_blank"*/}
                   {/*  className="external-site-link"*/}
                   {/*  onClick={handleDrawerToggle}*/}
                   {/*>*/}
                   {/*  <Box display="flex" alignItems="center">*/}
                   {/*    <SvgIcon component={ProIcon} color="primary" color="primary" viewBox="0 0 50 50" />*/}
-                  {/*    <Typography variant="h6">ScholarDoge Pro</Typography>*/}
+                  {/*    <Typography variant="h6">ScholarDAO Pro</Typography>*/}
                   {/*    <SvgIcon component={ArrowUpIcon} className="external-site-link-icon" />*/}
                   {/*  </Box>*/}
                   {/*</Link>*/}

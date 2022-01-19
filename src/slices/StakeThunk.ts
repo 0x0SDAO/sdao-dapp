@@ -1,6 +1,6 @@
 import { BigNumber, ethers } from "ethers";
 import { addresses } from "../constants";
-import { default as IBEP20Contract } from "../abi/interfaces/IBEP20.json";
+import { default as IERC20Contract } from "../abi/IERC20.json";
 import { clearPendingTxn, fetchPendingTxns, getStakingTypeText } from "./PendingTxnsSlice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchAccountSuccess, getBalances } from "./AccountSlice";
@@ -8,7 +8,7 @@ import { loadStakedPercentage, loadAppDetails } from "./AppSlice";
 import { error, info } from "./MessagesSlice";
 import { IActionValueAsyncThunk, IChangeApprovalAsyncThunk, IJsonRPCError } from "./interfaces";
 import { segmentUA } from "../helpers/userAnalyticHelpers";
-import { IBEP20, Staking__factory } from "src/typechain";
+import { IERC20, Staking__factory } from "src/typechain";
 import ReactGA from "react-ga";
 
 interface IUAData {
@@ -28,9 +28,9 @@ function alreadyApprovedToken(
   const bigZero = BigNumber.from("0");
   let applicableAllowance = bigZero;
   // determine which allowance to check
-  if (token === "sdoge") {
+  if (token === "sdao") {
     applicableAllowance = stakeAllowance;
-  } else if (token === "ssdoge") {
+  } else if (token === "ssdao") {
     applicableAllowance = unstakeAllowance;
   }
 
@@ -46,39 +46,39 @@ export const changeApproval = createAsyncThunk(
       return;
     }
     const signer = provider.getSigner();
-    const sdogeContract = new ethers.Contract(addresses[networkID].SDOGE_ADDRESS as string, IBEP20Contract.abi, signer) as IBEP20;
-    const ssdogeContract = new ethers.Contract(addresses[networkID].SSDOGE_ADDRESS as string, IBEP20Contract.abi, signer) as IBEP20;
+    const sdaoContract = new ethers.Contract(addresses[networkID].SDAO_ADDRESS as string, IERC20Contract.abi, signer) as IERC20;
+    const ssdaoContract = new ethers.Contract(addresses[networkID].SSDAO_ADDRESS as string, IERC20Contract.abi, signer) as IERC20;
     let approveTx;
-    let stakeAllowance = await sdogeContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-    let unstakeAllowance = await ssdogeContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+    let stakeAllowance = await sdaoContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+    let unstakeAllowance = await ssdaoContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
     // return early if approval has already happened
     if (alreadyApprovedToken(token, stakeAllowance, unstakeAllowance)) {
       dispatch(info("Approval completed."));
       return dispatch(
         fetchAccountSuccess({
           staking: {
-            sdogeStake: +stakeAllowance,
-            sdogeUnstake: +unstakeAllowance,
+            sdaoStake: +stakeAllowance,
+            sdaoUnstake: +unstakeAllowance,
           },
         }),
       );
     }
 
     try {
-      if (token === "sdoge") {
-        approveTx = await sdogeContract.approve(
+      if (token === "sdao") {
+        approveTx = await sdaoContract.approve(
           addresses[networkID].STAKING_ADDRESS,
           ethers.utils.parseUnits("1000000000", "gwei").toString(),
         );
-      } else if (token === "ssdoge") {
-        approveTx = await ssdogeContract.approve(
+      } else if (token === "ssdao") {
+        approveTx = await ssdaoContract.approve(
           addresses[networkID].STAKING_ADDRESS,
           ethers.utils.parseUnits("1000000000", "gwei").toString(),
         );
       }
 
-      const text = "Approve " + (token === "sdoge" ? "Staking" : "Unstaking");
-      const pendingTxnType = token === "sdoge" ? "approve_staking" : "approve_unstaking";
+      const text = "Approve " + (token === "sdao" ? "Staking" : "Unstaking");
+      const pendingTxnType = token === "sdao" ? "approve_staking" : "approve_unstaking";
       if (approveTx) {
         dispatch(fetchPendingTxns({ txnHash: approveTx.hash, text, type: pendingTxnType }));
 
@@ -94,14 +94,14 @@ export const changeApproval = createAsyncThunk(
     }
 
     // go get fresh allowances
-    stakeAllowance = await sdogeContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-    unstakeAllowance = await ssdogeContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+    stakeAllowance = await sdaoContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+    unstakeAllowance = await ssdaoContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
 
     return dispatch(
       fetchAccountSuccess({
         staking: {
-          sdogeStake: +stakeAllowance,
-          sdogeUnstake: +unstakeAllowance,
+          sdaoStake: +stakeAllowance,
+          sdaoUnstake: +unstakeAllowance,
         },
       }),
     );

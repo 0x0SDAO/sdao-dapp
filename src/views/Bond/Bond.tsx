@@ -64,7 +64,7 @@ const Bond = ({ bond }: { bond: IAllBondData }) => {
       <Grid container id="bond-view">
         <Backdrop open={true} onClick={onClickAway}>
           <Fade in={true}>
-            <Paper className="sdoge-card sdoge-modal" onClick={onClickModal}>
+            <Paper className="sdao-card sdao-modal" onClick={onClickModal}>
               <BondHeader
                 bond={bond}
                 slippage={slippage}

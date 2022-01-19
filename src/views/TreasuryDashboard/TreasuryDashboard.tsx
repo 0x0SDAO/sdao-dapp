@@ -4,7 +4,7 @@ import { Box, Container, Grid, Paper, useMediaQuery, Zoom } from "@material-ui/c
 import {
   CircSupply,
   MarketCap,
-  SDOGEPrice,
+  SDAOPrice,
   StakedPercentage,
 } from "./components/Metric/Metric";
 import { MetricCollection } from "src/components/Metric";
@@ -22,14 +22,14 @@ const TreasuryDashboard = memo(() => {
         }}
       >
         <Box className="hero-metrics">
-          <Paper className="sdoge-card">
+          <Paper className="sdao-card">
             <MetricCollection>
               <MarketCap />
-              <SDOGEPrice />
+              <SDAOPrice />
               <StakedPercentage />
-              {/*<GSDOGEPrice />*/}
+              {/*<GSDAOPrice />*/}
               <CircSupply />
-              {/*<BackingPerSDOGE />*/}
+              {/*<BackingPerSDAO />*/}
               {/*<CurrentIndex />*/}
             </MetricCollection>
           </Paper>
@@ -37,32 +37,32 @@ const TreasuryDashboard = memo(() => {
         <Zoom in={true}>
           <Grid container spacing={2} className="data-grid">
             <Grid item lg={12} md={12} sm={12} xs={12}>
-              <Paper className="sdoge-card sdoge-chart-card">
+              <Paper className="sdao-card sdao-chart-card">
                 {/*TODO: Set content here*/}
               </Paper>
             </Grid>
 
             {/*<Grid item lg={6} md={6} sm={12} xs={12}>*/}
-            {/*  <Paper className="sdoge-card sdoge-chart-card">*/}
+            {/*  <Paper className="sdao-card sdao-chart-card">*/}
             {/*    <MarketValueGraph />*/}
             {/*  </Paper>*/}
             {/*</Grid>*/}
 
             {/*<Grid item lg={6} md={6} sm={12} xs={12}>*/}
-            {/*  <Paper className="sdoge-card sdoge-chart-card">*/}
+            {/*  <Paper className="sdao-card sdao-chart-card">*/}
             {/*    <RiskFreeValueGraph />*/}
             {/*  </Paper>*/}
             {/*</Grid>*/}
 
             {/*<Grid item lg={6} md={6} sm={12} xs={12}>*/}
-            {/*  <Paper className="sdoge-card sdoge-chart-card">*/}
+            {/*  <Paper className="sdao-card sdao-chart-card">*/}
             {/*    <ProtocolOwnedLiquidityGraph />*/}
             {/*  </Paper>*/}
             {/*</Grid>*/}
 
             {/*  Temporarily removed until correct data is in the graph */}
             {/* <Grid item lg={6} md={12} sm={12} xs={12}>
-              <Paper className="sdoge-card">
+              <Paper className="sdao-card">
                 <Chart
                   type="bar"
                   data={data}
@@ -86,13 +86,13 @@ const TreasuryDashboard = memo(() => {
             </Grid> */}
 
             {/*<Grid item lg={6} md={6} sm={12} xs={12}>*/}
-            {/*  <Paper className="sdoge-card sdoge-chart-card">*/}
-            {/*    <SDOGEStakedGraph />*/}
+            {/*  <Paper className="sdao-card sdao-chart-card">*/}
+            {/*    <SDAOStakedGraph />*/}
             {/*  </Paper>*/}
             {/*</Grid>*/}
 
             {/*<Grid item lg={6} md={6} sm={12} xs={12}>*/}
-            {/*  <Paper className="sdoge-card sdoge-chart-card">*/}
+            {/*  <Paper className="sdao-card sdao-chart-card">*/}
             {/*    <RunwayAvailableGraph />*/}
             {/*  </Paper>*/}
             {/*</Grid>*/}

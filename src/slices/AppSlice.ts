@@ -1,7 +1,8 @@
 import { ethers } from "ethers";
-import { addresses } from "../constants";
-import { default as SSDOGEContract } from "../abi/StakedScholarDogeToken.json";
+import { addresses, IS_PRIVATE_SALE_ENABLED } from "../constants";
+import { default as SSDAOContract } from "../abi/StakedScholarDAOToken.json";
 import {
+  bigNumberToDecimal,
   getCirculatingSupply, getMarketCap,
   getMarketPrice,
   getStakingPercentage, getStakingTVL,
@@ -11,129 +12,153 @@ import {
 import { createAsyncThunk, createSelector, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "src/store";
 import { IBaseAsyncThunk } from "./interfaces";
-import { StakedScholarDogeToken, Staking__factory } from "../typechain";
+import {
+  ERC20__factory,
+  PresaleScholarDAOToken__factory,
+  PrivateSale__factory,
+  StakedScholarDAOToken,
+  Staking__factory,
+} from "../typechain";
 
 interface IProtocolMetrics {
   readonly timestamp: string;
-  readonly sdogeCirculatingSupply: string;
-  readonly ssdogeCirculatingSupply: string;
+  readonly sdaoCirculatingSupply: string;
+  readonly ssdaoCirculatingSupply: string;
   readonly totalSupply: string;
-  readonly sdogePrice: string;
+  readonly sdaoPrice: string;
   readonly marketCap: string;
   readonly totalValueLocked: string;
   readonly treasuryMarketValue: string;
   readonly nextEpochRebase: string;
-  readonly nextDistributedSdoge: string;
+  readonly nextDistributedSdao: string;
 }
 
 export const loadAppDetails = createAsyncThunk(
   "app/loadAppDetails",
   async ({ networkID, provider }: IBaseAsyncThunk) => {
-    // let marketPrice;
-    // let marketCap;
-    // let stakingTVL;
-    // let circSupply;
-    // let totalSupply;
-    // let treasuryMarketValue;
+    if (IS_PRIVATE_SALE_ENABLED) {
+      const prvSaleAddr = addresses[networkID].PRIVATE_SALE_ADDRESS;
+      const prvSaleContract = PrivateSale__factory.connect(prvSaleAddr, provider);
+      const psdaoContract = PresaleScholarDAOToken__factory.connect(addresses[networkID].PSDAO_ADDRESS, provider);
+      const daiContract = ERC20__factory.connect(addresses[networkID].DAI_ADDRESS, provider);
 
-    // if (networkID == NetworkId.MAINNET) {
-    //   // TODO: Implement protocol metrics below
-    //   const protocolMetricsQuery = `
-    //     query {
-    //       _meta {
-    //         block {
-    //           number
-    //         }
-    //       }
-    //       protocolMetrics(first: 1, orderBy: timestamp, orderDirection: desc) {
-    //         timestamp
-    //         sdogeCirculatingSupply
-    //         ssdogeCirculatingSupply
-    //         totalSupply
-    //         sdogePrice
-    //         marketCap
-    //         totalValueLocked
-    //         treasuryMarketValue
-    //         nextEpochRebase
-    //         nextDistributedSdoge
-    //       }
-    //     }
-    //   `;
-    //
-    //   const graphData = await apollo<{ protocolMetrics: IProtocolMetrics[] }>(protocolMetricsQuery);
-    //
-    //   if (!graphData) {
-    //     console.error("Returned a null response when querying TheGraph");
-    //     return;
-    //   }
-    //
-    //   stakingTVL = parseFloat(graphData.data.protocolMetrics[0].totalValueLocked);
-    //   // NOTE (appleseed): marketPrice from Graph was delayed, so get CoinGecko price
-    //   // const marketPrice = parseFloat(graphData.data.protocolMetrics[0].sdogePrice);
-    //   try {
-    //     const originalPromiseResult = await dispatch(
-    //       loadMarketPrice({ networkID: networkID, provider: provider }),
-    //     ).unwrap();
-    //     marketPrice = originalPromiseResult?.marketPrice;
-    //   } catch (rejectedValueOrSerializedError) {
-    //     // handle error here
-    //     console.error("Returned a null response from dispatch(loadMarketPrice)");
-    //     return;
-    //   }
-    //
-    //   marketCap = parseFloat(graphData.data.protocolMetrics[0].marketCap);
-    //   circSupply = parseFloat(graphData.data.protocolMetrics[0].sdogeCirculatingSupply);
-    //   totalSupply = parseFloat(graphData.data.protocolMetrics[0].totalSupply);
-    //   treasuryMarketValue = parseFloat(graphData.data.protocolMetrics[0].treasuryMarketValue);
-    //   // const currentBlock = parseFloat(graphData.data._meta.block.number);
-    // } else if (provider) {
+      const psdaoAvailable = bigNumberToDecimal(await psdaoContract.balanceOf(prvSaleAddr), 9);
+      const psdaoInputTokenRate = (await prvSaleContract.psdaoRate()).toNumber();
+      const privateSaleInputTokenBalance = await daiContract.balanceOf(prvSaleAddr);
+      const psdaoPurchased = bigNumberToDecimal((await prvSaleContract.calcAmountRaised(privateSaleInputTokenBalance)), 18);
+      return {
+        psdaoAvailable,
+        psdaoInputTokenRate,
+        psdaoPurchased,
+        privateSaleFunds: bigNumberToDecimal(privateSaleInputTokenBalance, 18)
+      }
+    } else {
+      // let marketPrice;
+      // let marketCap;
+      // let stakingTVL;
+      // let circSupply;
+      // let totalSupply;
+      // let treasuryMarketValue;
+
+      // if (networkID == NetworkId.MAINNET) {
+      //   // TODO: Implement protocol metrics below
+      //   const protocolMetricsQuery = `
+      //     query {
+      //       _meta {
+      //         block {
+      //           number
+      //         }
+      //       }
+      //       protocolMetrics(first: 1, orderBy: timestamp, orderDirection: desc) {
+      //         timestamp
+      //         sdaoCirculatingSupply
+      //         ssdaoCirculatingSupply
+      //         totalSupply
+      //         sdaoPrice
+      //         marketCap
+      //         totalValueLocked
+      //         treasuryMarketValue
+      //         nextEpochRebase
+      //         nextDistributedSdao
+      //       }
+      //     }
+      //   `;
+      //
+      //   const graphData = await apollo<{ protocolMetrics: IProtocolMetrics[] }>(protocolMetricsQuery);
+      //
+      //   if (!graphData) {
+      //     console.error("Returned a null response when querying TheGraph");
+      //     return;
+      //   }
+      //
+      //   stakingTVL = parseFloat(graphData.data.protocolMetrics[0].totalValueLocked);
+      //   // NOTE (appleseed): marketPrice from Graph was delayed, so get CoinGecko price
+      //   // const marketPrice = parseFloat(graphData.data.protocolMetrics[0].sdaoPrice);
+      //   try {
+      //     const originalPromiseResult = await dispatch(
+      //       loadMarketPrice({ networkID: networkID, provider: provider }),
+      //     ).unwrap();
+      //     marketPrice = originalPromiseResult?.marketPrice;
+      //   } catch (rejectedValueOrSerializedError) {
+      //     // handle error here
+      //     console.error("Returned a null response from dispatch(loadMarketPrice)");
+      //     return;
+      //   }
+      //
+      //   marketCap = parseFloat(graphData.data.protocolMetrics[0].marketCap);
+      //   circSupply = parseFloat(graphData.data.protocolMetrics[0].sdaoCirculatingSupply);
+      //   totalSupply = parseFloat(graphData.data.protocolMetrics[0].totalSupply);
+      //   treasuryMarketValue = parseFloat(graphData.data.protocolMetrics[0].treasuryMarketValue);
+      //   // const currentBlock = parseFloat(graphData.data._meta.block.number);
+      // } else if (provider) {
       // Custom implementation based on on-chain values
-    const treasuryMarketValue = await getTreasuryMarketValue(networkID);
-    // }
+      const treasuryMarketValue = await getTreasuryMarketValue(networkID);
+      // }
 
-    // if (!provider) {
-    //   console.error("failed to connect to provider, please connect your wallet");
-    //   return {
-    //     stakingTVL,
-    //     marketPrice,
-    //     marketCap,
-    //     circSupply,
-    //     totalSupply,
-    //     treasuryMarketValue,
-    //   } as IAppData;
-    // }
-    const block = await provider.getBlock("latest");
-    const currentBlock = block.number;
-    const currentBlockTimestamp = block.timestamp;
+      // if (!provider) {
+      //   console.error("failed to connect to provider, please connect your wallet");
+      //   return {
+      //     stakingTVL,
+      //     marketPrice,
+      //     marketCap,
+      //     circSupply,
+      //     totalSupply,
+      //     treasuryMarketValue,
+      //   } as IAppData;
+      // }
+      const block = await provider.getBlock("latest");
+      const currentBlock = block.number;
+      const currentBlockTimestamp = block.timestamp;
 
-    const stakingContract = Staking__factory.connect(addresses[networkID].STAKING_ADDRESS, provider);
-    const ssdogeContract = new ethers.Contract(addresses[networkID].SSDOGE_ADDRESS as string, SSDOGEContract.abi, provider) as StakedScholarDogeToken;
+      const stakingContract = Staking__factory.connect(addresses[networkID].STAKING_ADDRESS, provider);
+      const ssdaoContract = new ethers.Contract(addresses[networkID].SSDAO_ADDRESS as string, SSDAOContract.abi, provider) as StakedScholarDAOToken;
 
-    // Calculating staking
-    const epoch = await stakingContract.epoch();
-    const stakingReward = epoch.distribute;
-    const epochEnd = epoch.end;
-    const circ = await ssdogeContract.circulatingSupply();
+      // Calculating staking
+      const epoch = await stakingContract.epoch();
+      const stakingReward = epoch.distribute;
+      const epochEnd = epoch.end;
+      const circ = await ssdaoContract.circulatingSupply();
 
-    const stakingRebase = Number(stakingReward.toString()) / Number(circ.toString());
-    const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
-    const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3) - 1;
+      const stakingRebase = Number(stakingReward.toString()) / Number(circ.toString());
+      const fiveDayRate = Math.pow(1 + stakingRebase, 5 * 3) - 1;
+      const stakingAPY = Math.pow(1 + stakingRebase, 365 * 3) - 1;
 
-    // Current index
-    const currentIndex = await stakingContract.index();
+      // Current index
+      const currentIndex = await stakingContract.index();
 
-    return {
-      currentIndex: ethers.utils.formatUnits(currentIndex, "gwei"),
-      stakingTVL: await getStakingTVL(networkID),
-      loading: false,
-      epochEnd: epochEnd.toNumber(),
-      currentBlock,
-      currentBlockTimestamp,
-      fiveDayRate,
-      stakingAPY,
-      stakingRebase,
-      treasuryMarketValue
-    } as IAppData;
+      return {
+        currentIndex: ethers.utils.formatUnits(currentIndex, "gwei"),
+        stakingTVL: await getStakingTVL(networkID),
+        loading: false,
+        epochEnd: epochEnd.toNumber(),
+        currentBlock,
+        currentBlockTimestamp,
+        fiveDayRate,
+        stakingAPY,
+        stakingRebase,
+        treasuryMarketValue
+      } as IAppData;
+    }
   },
 );
 
@@ -177,18 +202,18 @@ export const findOrLoadMarketPrice = createAsyncThunk(
 );
 
 /**
- * - fetches the SDOGE price from CoinGecko (via getTokenPrice)
- * - falls back to fetch marketPrice from sdoge-dai contract
+ * - fetches the SDAO price from CoinGecko (via getTokenPrice)
+ * - falls back to fetch marketPrice from sdao-dai contract
  * - updates the App.slice when it runs
  */
 export const loadMarketPrice = createAsyncThunk("app/loadMarketPrice", async ({ networkID, provider }: IBaseAsyncThunk) => {
   let marketPrice: number;
   // TODO: Change here for get token price on mainnet ?
   try {
-    // only get marketPrice from bsc
+    // only get marketPrice on-chain
     marketPrice = await getMarketPrice(networkID);
   } catch (e) {
-    marketPrice = await getTokenPrice("sdoge");
+    marketPrice = await getTokenPrice("sdao");
   }
   return { marketPrice };
 });
@@ -221,6 +246,10 @@ export interface IAppData {
   readonly treasuryBalance?: number;
   readonly treasuryMarketValue?: number;
   readonly epochEnd?: number;
+  readonly psdaoAvailable?: number;
+  readonly psdaoInputTokenRate?: number;
+  readonly psdaoPurchased?: number;
+  readonly privateSaleFunds?: number;
   readonly loading: boolean;
   readonly loadingMarketCap: boolean;
   readonly loadingStakedPercentage: boolean;

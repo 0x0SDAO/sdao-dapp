@@ -144,18 +144,26 @@ export class EnvHelper {
     return INFURA_ID_LIST;
   }
 
-  static getBSCURIList(networkId: NetworkId): string[] {
+  static getURIList(networkId: NetworkId): string[] {
     let uriList: string[] = [];
 
     switch (networkId) {
-      case NetworkId.MAINNET:
-        uriList = urls.mainnetRpcs;
+      case NetworkId.FANTOM:
+        uriList = urls.ftmMainnetRpcs;
 
         break;
-      case NetworkId.TESTNET:
-        uriList = urls.testnetRpcs;
+      case NetworkId.FANTOM_TESTNET:
+        uriList = urls.ftmTestnetRpcs;
 
         break;
+      // case NetworkId.BSC:
+      //   uriList = urls.bscMainnetRpcs;
+      //
+      //   break;
+      // case NetworkId.BSC_TESTNET:
+      //   uriList = urls.bscTestnetRpcs;
+      //
+      //   break;
     }
 
     return uriList;
@@ -172,10 +180,10 @@ export class EnvHelper {
     switch (networkId) {
       case NetworkId.MAINNET:
         if (
-          EnvHelper.env.REACT_APP_BSC_SELF_HOSTED_NODE &&
-          EnvHelper.isNotEmpty(EnvHelper.env.REACT_APP_BSC_SELF_HOSTED_NODE)
+          EnvHelper.env.REACT_APP_SELF_HOSTED_NODE &&
+          EnvHelper.isNotEmpty(EnvHelper.env.REACT_APP_SELF_HOSTED_NODE)
         ) {
-          URI_LIST = EnvHelper.env.REACT_APP_BSC_SELF_HOSTED_NODE.split(new RegExp(EnvHelper.whitespaceRegex));
+          URI_LIST = EnvHelper.env.REACT_APP_SELF_HOSTED_NODE.split(new RegExp(EnvHelper.whitespaceRegex));
         }
         break;
       case NetworkId.ARBITRUM:
@@ -229,7 +237,7 @@ export class EnvHelper {
   }
 
   static getFallbackURIs(networkId: NetworkId) {
-    return EnvHelper.getBSCURIList(networkId);
+    return EnvHelper.getURIList(networkId);
   }
 
   // /**

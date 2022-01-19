@@ -12,7 +12,7 @@ const WalletButton = ({ openWallet }: { openWallet: () => void }) => {
   const label = connected ? address.slice(0, 6) + '...' : t`Connect Wallet`;
   const theme = useTheme();
   return (
-    <Button id="sdoge-menu-button" variant="contained" color="secondary" onClick={onClick}>
+    <Button id="sdao-menu-button" variant="contained" color="secondary" onClick={onClick}>
       <SvgIcon component={WalletIcon} style={{ marginRight: theme.spacing(1) }} />
       <Typography>{label}</Typography>
     </Button>

@@ -33,7 +33,7 @@ function ChangeNetwork() {
       <Grid container id="change-network-view">
         <Backdrop open={true}>
           <Fade in={true}>
-            <Paper className="sdoge-card sdoge-modal">
+            <Paper className="sdao-card sdao-modal">
               <Grid container className="grid-container">
                 <Grid className="grid-header">
                   <Grid>

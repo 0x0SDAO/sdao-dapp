@@ -69,10 +69,10 @@ export const girth = responsiveFontSizes(
         },
         MuiPaper: {
           root: {
-            "&.sdoge-menu": {
+            "&.sdao-menu": {
               backgroundColor: girthTheme.menuBg,
             },
-            "&.sdoge-modal": {
+            "&.sdao-modal": {
               backgroundColor: girthTheme.menuBg,
             },
           },

@@ -1,6 +1,6 @@
-# [ScholarDoge Frontend](https://dapp.scholardoge.org/)
+# [ScholarDAO Frontend](https://dapp.scholardao.net/)
 
-This is the front-end repo for ScholarDoge.
+This is the front-end repo for ScholarDAO.
 
 ## 🔧 Setting up Local Development
 
@@ -11,8 +11,8 @@ Required:
 - [Git](https://git-scm.com/downloads)
 
 ```bash
-$ git clone https://github.com/ScholarDoge/sdoge-dapp.git
-$ cd sdoge-dapp
+$ git clone https://github.com/ScholarDAO/sdao-dapp.git
+$ cd sdao-dapp
 
 # set up your environment variables
 # read the comments in the .env files for what is required/optional
@@ -27,27 +27,6 @@ The site is now running at `http://localhost:3000`!
 Open the source code and start editing!
 
 If you would like to run the frontend in a Docker image (e.g. to isolate dependencies and the nodejs version), run `yarn docker-start`.
-
-## Testnet Testing
-
-**Rinkeby faucet for sOHM:**
-[Lives here](https://rinkeby.etherscan.io/address/0x800B3d87b77361F0D1d903246cA1F51b5acb43c9#writeContract), to retrieve test sOHM click `Connect to Web3` and use function #3: `dripSOHM`. After connecting to web3, click `Write` to execute and 10 sOHM will automatically be transferred to your connected wallet.
-
-Note: The faucet is limited to one transfer per wallet every 6500 blocks (~1 day)
-
-**Rinkeby faucet for WETH:**
-[Wrap rinkeby eth on rinkeby uniswap](https://app.uniswap.org/#/swap)
-
-**Rinkeby faucets for LUSD, FRAX & DAI can be taken from rinkeby etherscan:**
-
-1. Go to `src/helpers/AllBonds.ts`
-2. then copy the rinkeby `reserveAddress` for the applicable bond & navigate to that contract on rinkeby etherscan.
-3. On Rinkeby etherscan use the `mint` function. You can use the number helper for 10^18 & then add four more zeros for 10,000 units of whichever reserve you are minting.
-
-## Avax Fuji Testnet
-
-1. [avax faucet](https://faucet.avax-test.network/)
-2. [explorer](https://explorer.avax-test.network/)
 
 ## Architecture/Layout
 
@@ -96,19 +75,13 @@ If you wish to use a theme's color scheme manually, follow these steps:
 
 For the available theme properties, take a look at the themes in `src/themes`.
 
-## 🚀 Deployment
-
-Auto deployed on [Fleek.co](http://fleek.co/) fronted by [Cloudflare](https://www.cloudflare.com/). Since it is hosted via IPFS there is no running "server" component and we don't have server sided business logic. Users are served an `index.html` and javascript to run our applications.
-
-_**TODO**: TheGraph implementation/how/why we use it._
-
 ### Continuous deployment
 
 Commits to the follow branches are automatically deployed to their respective URLs.
 | Branch | URL |
 | --- | --- |
-| master | <https://dapp.scholardoge.org> |
-| deploy | <https://staging.scholardoge.org> |
+| master | <https://dapp.scholardao.net> |
+| deploy | <https://staging.scholardao.net> |
 
 **Pull Requests**:
 Each PR into master will get its own custom URL that is visible on the PR page. QA & validate changes on that URL before merging into the deploy branch.

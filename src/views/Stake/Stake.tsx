@@ -15,10 +15,7 @@ import {
   Tabs,
   Typography,
   Zoom,
-  Divider,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
+  Divider
 } from "@material-ui/core";
 import { t, Trans } from "@lingui/macro";
 
@@ -33,8 +30,6 @@ import { Skeleton } from "@material-ui/lab";
 import { error } from "../../slices/MessagesSlice";
 import { ethers } from "ethers";
 import { useAppSelector } from "src/hooks";
-import { ExpandMore } from "@material-ui/icons";
-import { ConfirmDialog } from "./ConfirmDialog";
 import { Metric, MetricCollection } from "../../components/Metric";
 import StakeRow from "./StakeRow";
 
@@ -63,18 +58,18 @@ function Stake() {
   const fiveDayRate = useAppSelector(state => {
     return state.app.fiveDayRate;
   });
-  const sdogeBalance = useAppSelector(state => {
-    return state.account.balances && state.account.balances.sdoge;
+  const sdaoBalance = useAppSelector(state => {
+    return state.account.balances && state.account.balances.sdao;
   });
-  const ssdogeBalance = useAppSelector(state => {
-    return state.account.balances && state.account.balances.ssdoge;
+  const ssdaoBalance = useAppSelector(state => {
+    return state.account.balances && state.account.balances.ssdao || "0";
   });
   
   const stakeAllowance = useAppSelector(state => {
-    return (state.account.staking && state.account.staking.sdogeStake) || 0;
+    return (state.account.staking && state.account.staking.sdaoStake) || 0;
   });
   const unstakeAllowance = useAppSelector(state => {
-    return (state.account.staking && state.account.staking.sdogeUnstake) || 0;
+    return (state.account.staking && state.account.staking.sdaoUnstake) || 0;
   });
   const stakedPercentage = useAppSelector(state => {
     return state.app.stakedPercentage;
@@ -95,9 +90,9 @@ function Stake() {
 
   const setMax = () => {
     if (view === 0) {
-      setQuantity(sdogeBalance);
+      setQuantity(sdaoBalance);
     } else {
-      setQuantity(ssdogeBalance);
+      setQuantity(ssdaoBalance);
     }
   };
 
@@ -114,14 +109,14 @@ function Stake() {
 
     // 1st catch if quantity > balance
     const gweiValue = ethers.utils.parseUnits(quantity.toString(), "gwei");
-    if (action === "stake" && gweiValue.gt(ethers.utils.parseUnits(sdogeBalance, "gwei"))) {
-      return dispatch(error(t`You cannot stake more than your SDOGE balance.`));
+    if (action === "stake" && gweiValue.gt(ethers.utils.parseUnits(sdaoBalance, "gwei"))) {
+      return dispatch(error(t`You cannot stake more than your SDAO balance.`));
     }
 
-    if (!confirmation && action === "unstake" && gweiValue.gt(ethers.utils.parseUnits(ssdogeBalance, "gwei"))) {
+    if (!confirmation && action === "unstake" && gweiValue.gt(ethers.utils.parseUnits(ssdaoBalance, "gwei"))) {
       return dispatch(
         error(
-          t`You do not have enough SSDOGE to complete this transaction.`,
+          t`You do not have enough SSDAO to complete this transaction.`,
         ),
       );
     }
@@ -140,8 +135,8 @@ function Stake() {
 
   const hasAllowance = useCallback(
     token => {
-      if (token === "sdoge") return stakeAllowance > 0;
-      if (token === "ssdoge") return unstakeAllowance > 0;
+      if (token === "sdao") return stakeAllowance > 0;
+      if (token === "ssdao") return unstakeAllowance > 0;
       return 0;
     },
     [stakeAllowance, unstakeAllowance],
@@ -167,7 +162,7 @@ function Stake() {
 
   const trimmedBalance = Number(
     [
-      ssdogeBalance,
+      ssdaoBalance,
     ]
       .filter(Boolean)
       .map(balance => Number(balance))
@@ -191,7 +186,7 @@ function Stake() {
   return (
     <div id="stake-view">
       <Zoom in={true} onEntered={() => setZoomed(true)}>
-        <Paper className={`sdoge-card`}>
+        <Paper className={`sdao-card`}>
           <Grid container direction="column" spacing={2}>
             <Grid item>
               <div className="card-header">
@@ -229,7 +224,7 @@ function Stake() {
                     {modalButton}
                   </div>
                   <Typography variant="h6">
-                    <Trans>Connect your wallet to stake SDOGE</Trans>
+                    <Trans>Connect your wallet to stake SDAO</Trans>
                   </Typography>
                 </div>
               ) : (
@@ -259,29 +254,29 @@ function Stake() {
                     <Grid container className="stake-action-row">
                       <Grid item xs={12} sm={8} className="stake-grid-item">
                         {address && !isAllowanceDataLoading ? (
-                          (!hasAllowance("sdoge") && view === 0) ||
-                          (!hasAllowance("ssdoge") && view === 1) ? (
+                          (!hasAllowance("sdao") && view === 0) ||
+                          (!hasAllowance("ssdao") && view === 1) ? (
                             <Box className="help-text">
                               <Typography variant="body1" className="stake-note" color="textSecondary">
                                 {view === 0 ? (
                                   <>
-                                    <Trans>First time staking</Trans> <b>SDOGE</b>?
+                                    <Trans>First time staking</Trans> <b>SDAO</b>?
                                     <br />
-                                    <Trans>Please approve ScholarDoge to use your</Trans> <b>SDOGE</b>{" "}
+                                    <Trans>Please approve ScholarDAO to use your</Trans> <b>SDAO</b>{" "}
                                     <Trans>for staking</Trans>.
                                   </>
                                 ) : (
                                   <>
-                                    <Trans>First time unstaking</Trans> <b>SSDOGE</b>?
+                                    <Trans>First time unstaking</Trans> <b>SSDAO</b>?
                                     <br />
-                                    <Trans>Please approve ScholarDoge to use your</Trans> <b>SSDOGE</b>{" "}
+                                    <Trans>Please approve ScholarDAO to use your</Trans> <b>SSDAO</b>{" "}
                                     <Trans>for unstaking</Trans>.
                                   </>
                                 )}
                               </Typography>
                             </Box>
                           ) : (
-                            <FormControl className="sdoge-input" variant="outlined" color="primary">
+                            <FormControl className="sdao-input" variant="outlined" color="primary">
                               <InputLabel htmlFor="amount-input"/>
                               <OutlinedInput
                                 id="amount-input"
@@ -310,7 +305,7 @@ function Stake() {
                           <Box m={-2}>
                             {isAllowanceDataLoading ? (
                               <Skeleton />
-                            ) : address && hasAllowance("sdoge") ? (
+                            ) : address && hasAllowance("sdao") ? (
                               <Button
                                 className="stake-button"
                                 variant="contained"
@@ -333,7 +328,7 @@ function Stake() {
                                 color="primary"
                                 disabled={isPendingTxn(pendingTransactions, "approve_staking")}
                                 onClick={() => {
-                                  onSeekApproval("sdoge");
+                                  onSeekApproval("sdao");
                                 }}
                               >
                                 {txnButtonText(pendingTransactions, "approve_staking", t`Approve`)}
@@ -346,7 +341,7 @@ function Stake() {
                           <Box m={-2}>
                             {isAllowanceDataLoading ? (
                               <Skeleton />
-                            ) : (address && hasAllowance("ssdoge")) ? (
+                            ) : (address && hasAllowance("ssdao")) ? (
                               <Button
                                 className="stake-button"
                                 variant="contained"
@@ -369,7 +364,7 @@ function Stake() {
                                 color="primary"
                                 disabled={isPendingTxn(pendingTransactions, "approve_unstaking")}
                                 onClick={() => {
-                                  onSeekApproval("ssdoge");
+                                  onSeekApproval("ssdao");
                                 }}
                               >
                                 {txnButtonText(pendingTransactions, "approve_unstaking", t`Approve`)}
@@ -384,19 +379,19 @@ function Stake() {
                     <StakeRow
                       title={t`Unstaked Balance`}
                       id="user-balance"
-                      balance={`${trim(Number(sdogeBalance), 4)} SDOGE`}
+                      balance={`${trim(Number(sdaoBalance), 4)} SDAO`}
                       {...{ isAppLoading }}
                     />
                     <StakeRow
                       title={t`Staked Balance`}
                       id="user-staked-balance"
-                      balance={`${trim(Number(ssdogeBalance), 4)} SSDOGE`}
+                      balance={`${trim(Number(ssdaoBalance), 4)} SSDAO`}
                       {...{ isAppLoading }}
                     />
                     <Divider color="secondary" />
                     <StakeRow
                       title={t`Next Reward Amount`}
-                      balance={`${nextRewardValue} SSDOGE`}
+                      balance={`${nextRewardValue} SSDAO`}
                       {...{ isAppLoading }}
                     />
                     <StakeRow

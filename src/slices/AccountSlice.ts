@@ -1,7 +1,7 @@
 import { BigNumber, BigNumberish, ethers } from "ethers";
-import { addresses } from "../constants";
-import IBEP20Contract from "../abi/interfaces/IBEP20.json";
-import SSDOGEContract from "../abi/StakedScholarDogeToken.json";
+import { addresses, IS_PRIVATE_SALE_ENABLED } from "../constants";
+import IERC20Contract from "../abi/IERC20.json";
+import SSDAOContract from "../abi/StakedScholarDAOToken.json";
 
 import { handleContractError, setAll } from "../helpers";
 
@@ -9,16 +9,19 @@ import { createAsyncThunk, createSelector, createSlice } from "@reduxjs/toolkit"
 import { RootState } from "src/store";
 import { IBaseAddressAsyncThunk, ICalcUserBondDetailsAsyncThunk } from "./interfaces";
 import {
-  IBEP20,
-  ScholarDogeToken__factory,
-  StakedScholarDogeToken,
-  StakedScholarDogeToken__factory,
+  ERC20__factory,
+  IERC20, PresaleScholarDAOToken__factory,
+  ScholarDAOToken__factory,
+  StakedScholarDAOToken,
+  StakedScholarDAOToken__factory,
 } from "src/typechain";
 
 interface IUserBalances {
   balances: {
-    sdoge: string;
-    ssdoge: string;
+    sdao: string;
+    psdao?: string;
+    ssdao?: string;
+    dai: string;
   };
 }
 
@@ -32,58 +35,126 @@ interface IUserRecipientInfo {
 export const getBalances = createAsyncThunk(
   "account/getBalances",
   async ({ address, networkID, provider }: IBaseAddressAsyncThunk): Promise<IUserBalances> => {
-    let sdogeBalance = BigNumber.from("0");
-    let ssdogeBalance = BigNumber.from("0");
+    let sdaoBalance = BigNumber.from("0");
+    let daiBalance = BigNumber.from("0");
 
     try {
-      const sdogeContract = ScholarDogeToken__factory.connect(addresses[networkID].SDOGE_ADDRESS, provider);
-      sdogeBalance = await sdogeContract.balanceOf(address);
+      const sdaoContract = ScholarDAOToken__factory.connect(addresses[networkID].SDAO_ADDRESS, provider);
+      sdaoBalance = await sdaoContract.balanceOf(address);
     } catch (e) {
       handleContractError(e);
     }
+
     try {
-      const ssdogeContract = StakedScholarDogeToken__factory.connect(addresses[networkID].SSDOGE_ADDRESS, provider);
-      ssdogeBalance = await ssdogeContract.balanceOf(address);
+      const daiContract = ERC20__factory.connect(addresses[networkID].DAI_ADDRESS, provider);
+      daiBalance = await daiContract.balanceOf(address);
     } catch (e) {
-      console.log(e);
       handleContractError(e);
     }
-    return {
-      balances: {
-        sdoge: ethers.utils.formatUnits(sdogeBalance, "gwei"),
-        ssdoge: ethers.utils.formatUnits(ssdogeBalance, "gwei"),
-      },
-    };
+
+    if (!IS_PRIVATE_SALE_ENABLED) {
+      let ssdaoBalance = BigNumber.from("0");
+
+      try {
+        const ssdaoContract = StakedScholarDAOToken__factory.connect(addresses[networkID].SSDAO_ADDRESS, provider);
+        ssdaoBalance = await ssdaoContract.balanceOf(address);
+      } catch (e) {
+        console.log(e);
+        handleContractError(e);
+      }
+
+      return {
+        balances: {
+          sdao: ethers.utils.formatUnits(sdaoBalance, "gwei"),
+          ssdao: ethers.utils.formatUnits(ssdaoBalance, "gwei"),
+          dai: ethers.utils.formatUnits(daiBalance, "ether"),
+        },
+      };
+    } else {
+      let psdaoBalance = BigNumber.from("0");
+
+      try {
+        const psdaoContract = PresaleScholarDAOToken__factory.connect(addresses[networkID].PSDAO_ADDRESS, provider);
+        psdaoBalance = await psdaoContract.balanceOf(address);
+      } catch (e) {
+        console.log(e);
+        handleContractError(e);
+      }
+
+      return {
+        balances: {
+          sdao: ethers.utils.formatUnits(sdaoBalance, "gwei"),
+          psdao: ethers.utils.formatUnits(psdaoBalance, "gwei"),
+          dai: ethers.utils.formatUnits(daiBalance, "ether"),
+        },
+      };
+    }
   },
 );
 
 export const loadAccountDetails = createAsyncThunk(
   "account/loadAccountDetails",
   async ({ networkID, provider, address }: IBaseAddressAsyncThunk, { dispatch }) => {
-    let stakeAllowance = BigNumber.from("0");
-    let unstakeAllowance = BigNumber.from("0");
+    if (!IS_PRIVATE_SALE_ENABLED) {
+      let stakeAllowance = BigNumber.from("0");
+      let unstakeAllowance = BigNumber.from("0");
 
-    try {
-      const sdogeContract = new ethers.Contract(
-        addresses[networkID].SDOGE_ADDRESS as string,
-        IBEP20Contract.abi,
-        provider,
-      ) as IBEP20;
-      stakeAllowance = await sdogeContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+      try {
+        const sdaoContract = new ethers.Contract(
+          addresses[networkID].SDAO_ADDRESS as string,
+          IERC20Contract.abi,
+          provider,
+        ) as IERC20;
+        stakeAllowance = await sdaoContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
 
-      const ssdogeContract = new ethers.Contract(addresses[networkID].SSDOGE_ADDRESS as string, SSDOGEContract.abi, provider) as StakedScholarDogeToken;
-      unstakeAllowance = await ssdogeContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
-    } catch (e) {
-      handleContractError(e);
+        const ssdaoContract = new ethers.Contract(addresses[networkID].SSDAO_ADDRESS as string, SSDAOContract.abi, provider) as StakedScholarDAOToken;
+        unstakeAllowance = await ssdaoContract.allowance(address, addresses[networkID].STAKING_ADDRESS);
+      } catch (e) {
+        handleContractError(e);
+      }
+      await dispatch(getBalances({ address, networkID, provider }));
+
+      return {
+        staking: {
+          sdaoStake: +stakeAllowance,
+          sdaoUnstake: +unstakeAllowance,
+        },
+      };
+    } else {
+      let privateSaleTokenInAllowance = BigNumber.from("0");
+      let sdaoPsdaoBurnAllowance = BigNumber.from("0");
+
+      try {
+        const daiContract = new ethers.Contract(
+          addresses[networkID].DAI_ADDRESS as string,
+          IERC20Contract.abi,
+          provider,
+        ) as IERC20;
+        privateSaleTokenInAllowance = await daiContract.allowance(address, addresses[networkID].PRIVATE_SALE_ADDRESS);
+
+      } catch (e) {
+        handleContractError(e);
+      }
+
+      try {
+        const psdaoContract = new ethers.Contract(
+          addresses[networkID].PSDAO_ADDRESS as string,
+          IERC20Contract.abi,
+          provider,
+        ) as IERC20;
+        sdaoPsdaoBurnAllowance = await psdaoContract.allowance(address, addresses[networkID].SDAO_ADDRESS);
+
+      } catch (e) {
+        handleContractError(e);
+      }
+
+      return {
+        privateSale: {
+          privateSaleTokenInAllowance: +privateSaleTokenInAllowance,
+          sdaoPsdaoBurnAllowance: +sdaoPsdaoBurnAllowance
+        },
+      };
     }
-    await dispatch(getBalances({ address, networkID, provider }));
-
-    return {
-      staking: {
-        sdogeStake: +stakeAllowance,
-        sdogeUnstake: +unstakeAllowance,
-      },
-    };
   },
 );
 
@@ -114,7 +185,7 @@ export const calculateUserBondDetails = createAsyncThunk(
 
     // Calculate bond details.
     const bondContract = bond.getContractForBond(networkID, provider);
-    const reserveContract = bond.getBEP20ContractForReserve(networkID, provider);
+    const reserveContract = bond.getERC20ContractForReserve(networkID, provider);
     const bondDetails = await bondContract.bondInfo(address);
     const interestDue: BigNumberish = Number(bondDetails.payout.toString()) / Math.pow(10, 9);
     const bondMaturationBlock = +bondDetails.vesting + +bondDetails.lastBlock;
@@ -143,32 +214,37 @@ export const calculateUserBondDetails = createAsyncThunk(
 );
 
 export interface IAccountSlice extends /*IUserAccountDetails, */IUserBalances {
-  // giving: { ssdogeGive: number; donationInfo: IUserDonationInfo; loading: boolean };
-  // mockGiving: { ssdogeGive: number; donationInfo: IUserDonationInfo; loading: boolean };
-  redeeming: { ssdogeRedeemable: string; recipientInfo: IUserRecipientInfo };
+  // giving: { ssdaoGive: number; donationInfo: IUserDonationInfo; loading: boolean };
+  // mockGiving: { ssdaoGive: number; donationInfo: IUserDonationInfo; loading: boolean };
+  redeeming: { ssdaoRedeemable: string; recipientInfo: IUserRecipientInfo };
   bonds: { [key: string]: IUserBondDetails };
   balances: {
-    sdoge: string;
-    ssdoge: string;
-    busd: string;
+    sdao: string;
+    psdao?: string;
+    ssdao?: string;
+    dai: string;
   };
   loading: boolean;
   staking: {
-    sdogeStake: number;
-    sdogeUnstake: number;
+    sdaoStake: number;
+    sdaoUnstake: number;
   };
+  privateSale: {
+    privateSaleTokenInAllowance: number;
+    sdaoPsdaoBurnAllowance: number;
+  }
 }
 
 const initialState: IAccountSlice = {
   loading: false,
   bonds: {},
   balances: {
-    sdoge: "",
-    ssdoge: "",
-    busd: "",
+    sdao: "",
+    ssdao: "",
+    dai: "",
   },
   redeeming: {
-    ssdogeRedeemable: "",
+    ssdaoRedeemable: "",
     recipientInfo: {
       totalDebt: "",
       carry: "",
@@ -176,7 +252,8 @@ const initialState: IAccountSlice = {
       indexAtLastChange: "",
     },
   },
-  staking: { sdogeStake: 0, sdogeUnstake: 0 },
+  staking: { sdaoStake: 0, sdaoUnstake: 0 },
+  privateSale: { privateSaleTokenInAllowance: 0, sdaoPsdaoBurnAllowance: 0 },
 };
 
 const accountSlice = createSlice({

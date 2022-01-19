@@ -1,5 +1,5 @@
 import { Box, SvgIcon, Typography } from "@material-ui/core";
-import { ReactComponent as sSdogeTokenImg } from "../assets/tokens/token_sSDOGE.svg";
+import { ReactComponent as sSdaoTokenImg } from "../assets/tokens/token_sSDAO.svg";
 import { ReactComponent as yieldImg } from "../assets/icons/yield.svg";
 import { ReactComponent as vaultLockImg } from "../assets/icons/vault-lock.svg";
 import { ReactComponent as arrowRightImg } from "../assets/icons/arrow-right.svg";
@@ -8,7 +8,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { Skeleton } from "@material-ui/lab";
 
 const viewBox = "0 0 100 100";
-// The SSDOGE SVG is 100x100px, whereas the others are 50x50px
+// The SSDAO SVG is 100x100px, whereas the others are 50x50px
 const smallViewBox = "0 0 50 50";
 const iconStyle = { height: "64px", width: "64px", margin: "auto" };
 const smallIconStyle = { height: "32px", width: "32px", margin: "auto" };
@@ -32,18 +32,18 @@ export function WalletGraphic({ quantity, verb = "retained" }: EducationGraphicP
         </Typography>
       </Box>
       <Box display="flex" flex="1" alignItems="center" alignContent="center" justifyContent="center" m={2}>
-        <SvgIcon component={sSdogeTokenImg} viewBox={viewBox} style={iconStyle} />
+        <SvgIcon component={sSdaoTokenImg} viewBox={viewBox} style={iconStyle} />
       </Box>
       <Box display="flex" flex="1" alignItems="center" alignContent="center" justifyContent="center" className="text">
         <Typography variant="h6" align="center" className="cta-text">
-          {quantity} SSDOGE {verb}
+          {quantity} SSDAO {verb}
         </Typography>
       </Box>
     </Box>
   );
 }
 
-export function DepositSsdoge({ message }: GenericEducationGraphicProps) {
+export function DepositSsdao({ message }: GenericEducationGraphicProps) {
   const isSmallScreen = useMediaQuery("(max-width: 600px)");
   return isSmallScreen ? (
     <Box display="flex" flexDirection="row" className="sect" style={{ marginTop: "16px", marginBottom: "16px" }}>
@@ -57,7 +57,7 @@ export function DepositSsdoge({ message }: GenericEducationGraphicProps) {
           m={2}
           style={{ marginBottom: "8px" }}
         >
-          <SvgIcon component={sSdogeTokenImg} viewBox={viewBox} style={smallIconStyle} />
+          <SvgIcon component={sSdaoTokenImg} viewBox={viewBox} style={smallIconStyle} />
         </Box>
         <Box
           display="flex"
@@ -77,8 +77,8 @@ export function DepositSsdoge({ message }: GenericEducationGraphicProps) {
         </Typography>
         <Typography variant="body2" align="left" className="education-message" style={{ lineHeight: "16px" }}>
           <Trans>
-            ScholarDoge Give is a means of directing the yield that is accrued on your SSDOGE to another wallet. The first
-            step is depositing your SSDOGE and specifying a recipient.
+            ScholarDAO Give is a means of directing the yield that is accrued on your SSDAO to another wallet. The first
+            step is depositing your SSDAO and specifying a recipient.
           </Trans>
         </Typography>
       </Box>
@@ -95,7 +95,7 @@ export function DepositSsdoge({ message }: GenericEducationGraphicProps) {
           m={2}
           style={{ marginBottom: "8px" }}
         >
-          <SvgIcon component={sSdogeTokenImg} viewBox={viewBox} style={smallIconStyle} />
+          <SvgIcon component={sSdaoTokenImg} viewBox={viewBox} style={smallIconStyle} />
         </Box>
         <Box
           display="flex"
@@ -115,8 +115,8 @@ export function DepositSsdoge({ message }: GenericEducationGraphicProps) {
         </Typography>
         <Typography variant="body2" align="left" className="education-message" style={{ lineHeight: "16px" }}>
           <Trans>
-            ScholarDoge Give is a means of directing the yield that is accrued on your SSDOGE to another wallet. The first
-            step is depositing your SSDOGE and specifying a recipient.
+            ScholarDAO Give is a means of directing the yield that is accrued on your SSDAO to another wallet. The first
+            step is depositing your SSDAO and specifying a recipient.
           </Trans>
         </Typography>
       </Box>
@@ -137,7 +137,7 @@ export function VaultGraphic({ quantity, verb = "deposited", isLoading }: Educat
       </Box>
       <Box display="flex" flex="1" alignItems="center" justifyContent="center" className="text">
         <Typography variant="h6" align="center" className="cta-text">
-          {isLoading ? <Skeleton width={120} /> : `${quantity} SSDOGE ${verb}`}
+          {isLoading ? <Skeleton width={120} /> : `${quantity} SSDAO ${verb}`}
         </Typography>
       </Box>
     </Box>
@@ -184,8 +184,8 @@ export function LockInVault({ message }: GenericEducationGraphicProps) {
         </Typography>
         <Typography variant="body2" align="left" className="education-message" style={{ lineHeight: "16px" }}>
           <Trans>
-            Then, your deposited SSDOGE is kept in a vault smart contract that will send your rebases to the recipient.
-            You can withdraw or edit your principal SSDOGE amount at any time.
+            Then, your deposited SSDAO is kept in a vault smart contract that will send your rebases to the recipient.
+            You can withdraw or edit your principal SSDAO amount at any time.
           </Trans>
         </Typography>
       </Box>
@@ -228,8 +228,8 @@ export function LockInVault({ message }: GenericEducationGraphicProps) {
         </Typography>
         <Typography variant="body2" align="left" className="education-message" style={{ lineHeight: "16px" }}>
           <Trans>
-            Then, your deposited SSDOGE is kept in a vault smart contract that will send your rebases to the recipient.
-            You can withdraw or edit your principal SSDOGE amount at any time.
+            Then, your deposited SSDAO is kept in a vault smart contract that will send your rebases to the recipient.
+            You can withdraw or edit your principal SSDAO amount at any time.
           </Trans>
         </Typography>
       </Box>
@@ -258,7 +258,7 @@ export function YieldGraphic({ quantity }: EducationGraphicProps) {
       </Box>
       <Box display="flex" flex="1" alignItems="center" justifyContent="center" className="text">
         <Typography variant="h6" align="center" className="cta-text">
-          {`${t`Receives yield from`} ${quantity} SSDOGE`}
+          {`${t`Receives yield from`} ${quantity} SSDAO`}
         </Typography>
       </Box>
     </Box>
@@ -286,7 +286,7 @@ export function RedeemGraphic({ quantity, isLoading }: EducationGraphicProps) {
       </Box>
       <Box display="flex" flex="1" alignItems="center" justifyContent="center" className="text">
         <Typography variant="h6" align="center" className="cta-text">
-          {isLoading ? <Skeleton width={120} /> : `${t`Redeem`} ${quantity} ${`SSDOGE in yield`}`}
+          {isLoading ? <Skeleton width={120} /> : `${t`Redeem`} ${quantity} ${`SSDAO in yield`}`}
         </Typography>
       </Box>
     </Box>
@@ -328,7 +328,7 @@ export function ReceivesYield({ message }: GenericEducationGraphicProps) {
         <Typography variant="body2" align="left" className="education-message" style={{ lineHeight: "16px" }}>
           <Trans>
             The recipient you specified, or the project you selected, will then receive the rebases associated with your
-            SSDOGE deposit until you withdraw your SSDOGE principal from the vault.
+            SSDAO deposit until you withdraw your SSDAO principal from the vault.
           </Trans>
         </Typography>
       </Box>
@@ -366,7 +366,7 @@ export function ReceivesYield({ message }: GenericEducationGraphicProps) {
         <Typography variant="body2" align="left" className="education-message" style={{ lineHeight: "16px" }}>
           <Trans>
             The recipient you specified, or the project you selected, will then receive the rebases associated with your
-            SSDOGE deposit until you withdraw your SSDOGE principal from the vault.
+            SSDAO deposit until you withdraw your SSDAO principal from the vault.
           </Trans>
         </Typography>
       </Box>
@@ -383,11 +383,11 @@ export function CurrPositionGraphic({ quantity }: EducationGraphicProps) {
         </Typography>
       </Box>
       <Box display="flex" flex="1" alignItems="center" justifyContent="center" m={2}>
-        <SvgIcon component={sSdogeTokenImg} viewBox={viewBox} style={iconStyle} />
+        <SvgIcon component={sSdaoTokenImg} viewBox={viewBox} style={iconStyle} />
       </Box>
       <Box display="flex" flex="1" alignItems="center" justifyContent="center" className="text">
         <Typography variant="h6" align="center" className="cta-text">
-          {quantity} SSDOGE
+          {quantity} SSDAO
         </Typography>
       </Box>
     </Box>
@@ -403,11 +403,11 @@ export function NewPositionGraphic({ quantity }: EducationGraphicProps) {
         </Typography>
       </Box>
       <Box display="flex" flex="1" alignItems="center" justifyContent="center" m={2}>
-        <SvgIcon component={sSdogeTokenImg} viewBox={viewBox} style={iconStyle} />
+        <SvgIcon component={sSdaoTokenImg} viewBox={viewBox} style={iconStyle} />
       </Box>
       <Box display="flex" flex="1" alignItems="center" justifyContent="center" className="text">
         <Typography variant="h6" align="center" className="cta-text">
-          {quantity} SSDOGE
+          {quantity} SSDAO
         </Typography>
       </Box>
     </Box>

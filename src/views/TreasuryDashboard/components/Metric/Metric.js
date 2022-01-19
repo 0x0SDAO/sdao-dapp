@@ -20,11 +20,11 @@ export const MarketCap = () => {
   );
 };
 
-export const SDOGEPrice = () => {
+export const SDAOPrice = () => {
   const marketPrice = useSelector(state => state.app.marketPrice);
   return (
     <Metric
-      label={t`SDOGE Price`}
+      label={t`SDAO Price`}
       metric={marketPrice && formatCurrency(marketPrice, 2)}
       isLoading={!marketPrice}
       {...sharedProps}
@@ -44,13 +44,13 @@ export const CircSupply = () => {
   );
 };
 
-// export const BackingPerSDOGE = () => {
-//   const backingPerSdoge = useSelector(state => state.app.treasuryMarketValue / state.app.circSupply);
+// export const BackingPerSDAO = () => {
+//   const backingPerSdao = useSelector(state => state.app.treasuryMarketValue / state.app.circSupply);
 //   return (
 //     <Metric
-//       label={t`Backing per SDOGE`}
-//       metric={!isNaN(backingPerSdoge) && formatCurrency(backingPerSdoge, 2)}
-//       isLoading={!backingPerSdoge}
+//       label={t`Backing per SDAO`}
+//       metric={!isNaN(backingPerSdao) && formatCurrency(backingPerSdao, 2)}
+//       isLoading={!backingPerSdao}
 //       {...sharedProps}
 //     />
 //   );
@@ -61,10 +61,10 @@ export const CircSupply = () => {
 //   return (
 //     <Metric
 //       label={t`Current Index`}
-//       metric={currentIndex && trim(currentIndex, 2) + " SSDOGE"}
+//       metric={currentIndex && trim(currentIndex, 2) + " SSDAO"}
 //       isLoading={!currentIndex}
 //       {...sharedProps}
-//       tooltip="The current index tracks the amount of SSDOGE accumulated since the beginning of staking. Basically, how much SSDOGE one would have if they staked and held a single SDOGE from day 1."
+//       tooltip="The current index tracks the amount of SSDAO accumulated since the beginning of staking. Basically, how much SSDAO one would have if they staked and held a single SDAO from day 1."
 //     />
 //   );
 // };
@@ -77,21 +77,21 @@ export const StakedPercentage = () => {
       metric={percentage && percentage.toFixed(2) + " %"}
       isLoading={!percentage}
       {...sharedProps}
-      tooltip={`Percentage of SDOGE circulating supply staked.`}
+      tooltip={`Percentage of SDAO circulating supply staked.`}
     />
   );
 };
 
-// export const GSDOGEPrice = () => {
-//   const gSdogePrice = useSelector(state => state.app.marketPrice * state.app.currentIndex);
+// export const GSDAOPrice = () => {
+//   const gSdaoPrice = useSelector(state => state.app.marketPrice * state.app.currentIndex);
 //   return (
 //     <Metric
 //       className="metric wsoprice"
-//       label={t`gSDOGE Price`}
-//       metric={gSdogePrice && formatCurrency(gSdogePrice, 2)}
-//       isLoading={!gSdogePrice}
+//       label={t`gSDAO Price`}
+//       metric={gSdaoPrice && formatCurrency(gSdaoPrice, 2)}
+//       isLoading={!gSdaoPrice}
 //       {...sharedProps}
-//       tooltip={`gSDOGE = SSDOGE * index\n\nThe price of gSDOGE is equal to the price of SDOGE multiplied by the current index`}
+//       tooltip={`gSDAO = SSDAO * index\n\nThe price of gSDAO is equal to the price of SDAO multiplied by the current index`}
 //     />
 //   );
 // };

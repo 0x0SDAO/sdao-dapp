@@ -24,7 +24,7 @@ function AdvancedSettings({
 }) {
   return (
     <Modal id="hades" open={open} onClose={handleClose} hideBackdrop>
-      <Paper className="sdoge-card sdoge-popover">
+      <Paper className="sdao-card sdao-popover">
         <Box display="flex">
           <IconButton onClick={handleClose}>
             <SvgIcon color="primary" component={XIcon} />

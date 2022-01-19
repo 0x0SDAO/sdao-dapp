@@ -19,7 +19,7 @@ import { formatCurrency } from "src/helpers";
 import { useAppSelector, useWeb3Context } from "src/hooks";
 import useCurrentTheme from "src/hooks/useTheme";
 
-import { busd } from "src/helpers/AllBonds";
+import { dai } from "src/helpers/AllBonds";
 
 import { Tokens, useWallet } from "./Token";
 import { Trans } from "@lingui/macro";
@@ -126,7 +126,7 @@ const WalletTotalValue = () => {
   const tokens = useWallet(userAddress, networkId, providerInitialized);
   const isLoading = useAppSelector(s => s.account.loading || s.app.loadingMarketPrice || s.app.loading);
   const marketPrice = useAppSelector(s => s.app.marketPrice || 0);
-  const [currency, setCurrency] = useState<"USD" | "SDOGE">("USD");
+  const [currency, setCurrency] = useState<"USD" | "SDAO">("USD");
 
   const walletTotalValueUSD = Object.values(tokens).reduce(
     (totalValue, token) => totalValue + parseFloat(token.totalBalance) * token.price,
@@ -134,10 +134,10 @@ const WalletTotalValue = () => {
   );
   const walletValue = {
     USD: walletTotalValueUSD,
-    SDOGE: walletTotalValueUSD / marketPrice,
+    SDAO: walletTotalValueUSD / marketPrice,
   };
   return (
-    <Box onClick={() => setCurrency(currency === "USD" ? "SDOGE" : "USD")}>
+    <Box onClick={() => setCurrency(currency === "USD" ? "SDAO" : "USD")}>
       <Typography style={{ lineHeight: 1.1, fontWeight: 600, fontSize: "0.975rem" }} color="textSecondary">
         MY WALLET
       </Typography>
@@ -182,9 +182,9 @@ function InitialWalletView({ onClose }: { onClose: () => void }) {
         >
           <ExternalLink
             color={currentTheme === "dark" ? "primary" : undefined}
-            href={`https://pancakeswap.finance/swap?inputCurrency=${busd.getAddressForReserve(
+            href={`https://spookyswap.finance/swap?inputCurrency=${dai.getAddressForReserve(
               networkId,
-            )}&outputCurrency=${addresses[networkId].SDOGE_ADDRESS}`}
+            )}&outputCurrency=${addresses[networkId].SDAO_ADDRESS}`}
           >
             <Typography>Get on Pancakeswap</Typography>
           </ExternalLink>
@@ -192,7 +192,7 @@ function InitialWalletView({ onClose }: { onClose: () => void }) {
           {/*  href={`https://app.rari.capital/fuse/pool/18`}*/}
           {/*  borrowOn="Rari Capital"*/}
           {/*  borrowableTokensIcons={[wethTokenImg, daiTokenImg, fraxTokenImg]}*/}
-          {/*  Icon1={wsSdogeTokenImg}*/}
+          {/*  Icon1={wsSdaoTokenImg}*/}
           {/*/>*/}
         </Box>
 
