@@ -3,7 +3,7 @@ import { addresses, IS_PRIVATE_SALE_ENABLED } from "../constants";
 import IERC20Contract from "../abi/IERC20.json";
 import SSDAOContract from "../abi/StakedScholarDAOToken.json";
 
-import { handleContractError, setAll } from "../helpers";
+import { bigNumberToDecimal, handleContractError, setAll } from "../helpers";
 
 import { createAsyncThunk, createSelector, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "src/store";
@@ -59,7 +59,6 @@ export const getBalances = createAsyncThunk(
         const ssdaoContract = StakedScholarDAOToken__factory.connect(addresses[networkID].SSDAO_ADDRESS, provider);
         ssdaoBalance = await ssdaoContract.balanceOf(address);
       } catch (e) {
-        console.log(e);
         handleContractError(e);
       }
 
@@ -77,7 +76,6 @@ export const getBalances = createAsyncThunk(
         const psdaoContract = PresaleScholarDAOToken__factory.connect(addresses[networkID].PSDAO_ADDRESS, provider);
         psdaoBalance = await psdaoContract.balanceOf(address);
       } catch (e) {
-        console.log(e);
         handleContractError(e);
       }
 
@@ -143,15 +141,14 @@ export const loadAccountDetails = createAsyncThunk(
           provider,
         ) as IERC20;
         sdaoPsdaoBurnAllowance = await psdaoContract.allowance(address, addresses[networkID].SDAO_ADDRESS);
-
       } catch (e) {
         handleContractError(e);
       }
 
       return {
         privateSale: {
-          privateSaleTokenInAllowance: +privateSaleTokenInAllowance,
-          sdaoPsdaoBurnAllowance: +sdaoPsdaoBurnAllowance
+          privateSaleTokenInAllowance: bigNumberToDecimal(privateSaleTokenInAllowance, 18),
+          sdaoPsdaoBurnAllowance: bigNumberToDecimal(sdaoPsdaoBurnAllowance, 9)
         },
       };
     }

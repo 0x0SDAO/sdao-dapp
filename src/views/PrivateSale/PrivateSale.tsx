@@ -95,12 +95,12 @@ function PrivateSale() {
     }
   }
 
-  const onPrivateSaleApproval = async () => {
-    await dispatch(changePrivateSaleTokenInApproval({ address, provider, networkID: networkId }));
+  const onPrivateSaleApproval = async (qty: string) => {
+    await dispatch(changePrivateSaleTokenInApproval({ amount: qty, address, provider, networkID: networkId }));
   };
 
-  const onSDAOPSDAOBurnApproval = async () => {
-    await dispatch(changeSDAOPSDAOBurnApproval({ address, provider, networkID: networkId }));
+  const onSDAOPSDAOBurnApproval = async (qty: string) => {
+    await dispatch(changeSDAOPSDAOBurnApproval({ amount: qty, address, provider, networkID: networkId }));
   };
 
   const onBuyPSDAO = async () => {
@@ -117,7 +117,7 @@ function PrivateSale() {
     }
 
     // 2nd catch if quantity > availablePSDAO
-    if (Number(quantity) > psdaoAvailable) {
+    if (getOutputAmount(0) > psdaoAvailable) {
       return dispatch(error(t`You cannot buy more than available PSDAO.`));
     }
 
@@ -150,16 +150,16 @@ function PrivateSale() {
 
   const hasPresaleAllowance = useCallback(
     () => {
-      return tokenInAllowance > 0;
+      return tokenInAllowance >= Number(quantity);
     },
-    [tokenInAllowance],
+    [tokenInAllowance, quantity],
   );
 
   const hasClaimAllowance = useCallback(
     () => {
-      return sdaoPsdaoBurnAllowance > 0;
+      return sdaoPsdaoBurnAllowance >= Number(quantity);
     },
-    [sdaoPsdaoBurnAllowance],
+    [sdaoPsdaoBurnAllowance, quantity],
   );
 
   const isAllowanceDataLoading = (tokenInAllowance == null && view === 0) || (sdaoPsdaoBurnAllowance == null && view === 1);
@@ -263,8 +263,8 @@ function PrivateSale() {
                     <Grid container className="private-sale-action-row">
                       <Grid item xs={12} sm={8} className="private-sale-grid-item">
                         {address && !isAllowanceDataLoading ? (
-                          (!hasPresaleAllowance() && view === 0) ||
-                          (!hasClaimAllowance() && view === 1) ? (
+                          (!tokenInAllowance && view === 0) ||
+                          (!sdaoPsdaoBurnAllowance && view === 1) ? (
                             <Box className="help-text">
                               <Typography variant="body1" className="private-sale-note" color="textSecondary">
                                 {view === 0 ? (
@@ -314,7 +314,7 @@ function PrivateSale() {
                           <Box m={-2}>
                             {isAllowanceDataLoading ? (
                               <Skeleton />
-                            ) : address && hasPresaleAllowance() ? (
+                            ) : address && (hasPresaleAllowance()) ? (
                               <Button
                                 className="buy-PSDAO-button"
                                 variant="contained"
@@ -337,7 +337,7 @@ function PrivateSale() {
                                 color="primary"
                                 disabled={isPendingTxn(pendingTransactions, "approve_private_sale")}
                                 onClick={() => {
-                                  onPrivateSaleApproval();
+                                  onPrivateSaleApproval(quantity);
                                 }}
                               >
                                 {txnButtonText(pendingTransactions, "approve_private_sale", t`Approve PrivateSale`)}
@@ -373,7 +373,7 @@ function PrivateSale() {
                                 color="primary"
                                 disabled={isPendingTxn(pendingTransactions, "approve_sdao_psdao_burn")}
                                 onClick={() => {
-                                  onSDAOPSDAOBurnApproval();
+                                  onSDAOPSDAOBurnApproval(quantity);
                                 }}
                               >
                                 {txnButtonText(pendingTransactions, "approve_sdao_psdao_burn", t`Approve ScholarDAO`)}

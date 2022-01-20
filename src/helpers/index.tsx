@@ -123,7 +123,6 @@ export async function getStakingPercentage(networkId: number) {
   const sdaoContract = new ethers.Contract(sdaoAddress || "", ERC20Contract.abi, provider) as ERC20;
   const stakedSupply = bigNumberToDecimal(await sdaoContract.balanceOf(addresses[networkId].STAKING_ADDRESS), 9);
   const circulatingSupply = await getCirculatingSupply(networkId);
-
   return stakedSupply / circulatingSupply * 100;
 }
 

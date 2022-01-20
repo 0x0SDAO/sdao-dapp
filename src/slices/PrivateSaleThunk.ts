@@ -10,6 +10,7 @@ import { segmentUA } from "../helpers/userAnalyticHelpers";
 import { IERC20, PrivateSale__factory, ScholarDAOToken__factory } from "src/typechain";
 import ReactGA from "react-ga";
 import { loadAppDetails } from "./AppSlice";
+import { bigNumberToDecimal } from "../helpers";
 
 interface IUAData {
   address: string;
@@ -21,7 +22,7 @@ interface IUAData {
 
 export const changePrivateSaleTokenInApproval = createAsyncThunk(
   "privateSale/changePrivateSaleTokenInApproval",
-  async ({ provider, address, networkID }: IPresaleApprovalThunk, { dispatch }) => {
+  async ({ amount, provider, address, networkID }: IPresaleApprovalThunk, { dispatch }) => {
     if (!provider) {
       dispatch(error("Please connect your wallet!"));
       return;
@@ -32,24 +33,38 @@ export const changePrivateSaleTokenInApproval = createAsyncThunk(
       IERC20Contract.abi,
       signer
     ) as IERC20;
+    const psdaoContract = new ethers.Contract(
+      addresses[networkID].PSDAO_ADDRESS as string,
+      IERC20Contract.abi,
+      signer
+    ) as IERC20;
     let approveTx;
     let tokenInAllowance = await daiContract.allowance(address, addresses[networkID].PRIVATE_SALE_ADDRESS);
+    const amount18 = ethers.utils.parseUnits(amount || "0", "ether");
     // return early if approval has already happened
-    if (tokenInAllowance.gt(BigNumber.from("0"))) {
+    if (tokenInAllowance.gt(amount18)) {
       dispatch(info("Approval completed."));
       return dispatch(
         fetchAccountSuccess({
           privateSale: {
-            privateSaleTokenInAllowance: +tokenInAllowance,
+            privateSaleTokenInAllowance: bigNumberToDecimal(tokenInAllowance, 18),
           },
         }),
       );
     }
 
     try {
+      let approveAmount;
+
+      if (amount && Number(amount) > 0) {
+        approveAmount = amount18.toString();
+      } else {
+        approveAmount = ethers.utils.parseUnits("100000", "ether");
+      }
+
       approveTx = await daiContract.approve(
         addresses[networkID].PRIVATE_SALE_ADDRESS,
-        ethers.utils.parseUnits("100000", "ether").toString(),
+        approveAmount,
       );
 
       const text = "Approve private sale for buying";
@@ -70,11 +85,13 @@ export const changePrivateSaleTokenInApproval = createAsyncThunk(
 
     // go get fresh allowances
     tokenInAllowance = await daiContract.allowance(address, addresses[networkID].PRIVATE_SALE_ADDRESS);
+    const burnAllowance = await psdaoContract.allowance(address, addresses[networkID].SDAO_ADDRESS);
 
     return dispatch(
       fetchAccountSuccess({
         privateSale: {
-          privateSaleTokenInAllowance: +tokenInAllowance
+          privateSaleTokenInAllowance: bigNumberToDecimal(tokenInAllowance, 18),
+          sdaoPsdaoBurnAllowance: bigNumberToDecimal(burnAllowance, 9)
         },
       }),
     );
@@ -83,12 +100,17 @@ export const changePrivateSaleTokenInApproval = createAsyncThunk(
 
 export const changeSDAOPSDAOBurnApproval = createAsyncThunk(
   "privateSale/changeSDAOPSDAOBurnApproval",
-  async ({ provider, address, networkID }: IPresaleApprovalThunk, { dispatch }) => {
+  async ({ amount, provider, address, networkID }: IPresaleApprovalThunk, { dispatch }) => {
     if (!provider) {
       dispatch(error("Please connect your wallet!"));
       return;
     }
     const signer = provider.getSigner();
+    const daiContract = new ethers.Contract(
+      addresses[networkID].DAI_ADDRESS as string,
+      IERC20Contract.abi,
+      signer
+    ) as IERC20;
     const psdaoContract = new ethers.Contract(
       addresses[networkID].PSDAO_ADDRESS as string,
       IERC20Contract.abi,
@@ -96,22 +118,31 @@ export const changeSDAOPSDAOBurnApproval = createAsyncThunk(
     ) as IERC20;
     let approveTx;
     let allowance = await psdaoContract.allowance(address, addresses[networkID].SDAO_ADDRESS);
+    const amount9 = ethers.utils.parseUnits(amount || "0", "gwei");
     // return early if approval has already happened
-    if (allowance.gt(BigNumber.from("0"))) {
+    if (allowance.gt(amount9)) {
       dispatch(info("Approval completed."));
       return dispatch(
         fetchAccountSuccess({
           privateSale: {
-            sdaoPsdaoBurnAllowance: +allowance,
+            sdaoPsdaoBurnAllowance: bigNumberToDecimal(allowance, 9),
           },
         }),
       );
     }
 
     try {
+      let approveAmount;
+
+      if (amount && Number(amount) > 0) {
+        approveAmount = amount9.toString();
+      } else {
+        approveAmount = ethers.utils.parseUnits("100000", "gwei");
+      }
+
       approveTx = await psdaoContract.approve(
         addresses[networkID].SDAO_ADDRESS,
-        ethers.utils.parseUnits("100000", "ether").toString(),
+        approveAmount,
       );
 
       const text = "Approve SDAO to PSDAO";
@@ -132,11 +163,13 @@ export const changeSDAOPSDAOBurnApproval = createAsyncThunk(
 
     // go get fresh allowances
     allowance = await psdaoContract.allowance(address, addresses[networkID].SDAO_ADDRESS);
+    const tokenInAllowance = await daiContract.allowance(address, addresses[networkID].PRIVATE_SALE_ADDRESS);
 
     return dispatch(
       fetchAccountSuccess({
         privateSale: {
-          sdaoPsdaoBurnAllowance: +allowance
+          privateSaleTokenInAllowance: bigNumberToDecimal(tokenInAllowance, 18),
+          sdaoPsdaoBurnAllowance: bigNumberToDecimal(allowance, 9)
         },
       }),
     );

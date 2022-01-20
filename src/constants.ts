@@ -1,7 +1,7 @@
 import { NodeHelper } from "./helpers/NodeHelper";
 import ftm from "./assets/tokens/ftm32.svg";
 
-export const IS_PRIVATE_SALE_ENABLED = true;
+export const IS_PRIVATE_SALE_ENABLED = false;
 
 // TODO Check values below
 export const THE_GRAPH_URL = "https://api.thegraph.com/subgraphs/name/drondin/sdao-protocol-metrics";
@@ -89,7 +89,7 @@ export const addresses: IAddresses = {
     WFTM_BOND_ADDRESS: "0x679Bf7df9851aC815adA8266aA010C7Ba934e9A4",
     DISTRIBUTOR_ADDRESS: "0x4fF3FcE82f868FC1b3C11312CFBec941a8d01FF3",
     BONDINGCALC_ADDRESS: "0x2d22B51738D806fd32D1Abb472600f713e011872",
-    CIRCULATING_SUPPLY_ADDRESS: "0x38A67e3CD8e57ddc1A4f64A194BD47d4D09e9e7B",
+    CIRCULATING_SUPPLY_ADDRESS: "0x0b48fceC969190C23422f9398F73Cd185858DeCA",
     TREASURY_ADDRESS: "0x57AFCb4EFBEB6F797C2c88914F2Fd31dc85D0A17",
     REDEEM_HELPER_ADDRESS: "0xB5AfF5941cfba046ee5370FFFa0B332920BE7A2D",
   },
