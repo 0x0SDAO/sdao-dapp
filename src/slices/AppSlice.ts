@@ -45,7 +45,9 @@ export const loadAppDetails = createAsyncThunk(
       const psdaoAvailable = bigNumberToDecimal(await psdaoContract.balanceOf(prvSaleAddr), 9);
       const psdaoInputTokenRate = (await prvSaleContract.psdaoRate()).toNumber();
       const privateSaleInputTokenBalance = await daiContract.balanceOf(prvSaleAddr);
-      const psdaoPurchased = bigNumberToDecimal((await prvSaleContract.calcAmountRaised(privateSaleInputTokenBalance)), 18);
+      const outputAmount = await prvSaleContract.calcAmountRaised(privateSaleInputTokenBalance);
+      const psdaoPurchased = bigNumberToDecimal(outputAmount, 9);
+
       return {
         psdaoAvailable,
         psdaoInputTokenRate,

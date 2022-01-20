@@ -1,10 +1,8 @@
 import React, { useCallback, useState, ChangeEventHandler } from "react";
 import { useDispatch } from "react-redux";
-import { usePathForNetwork } from "src/hooks/usePathForNetwork";
-import { useHistory } from "react-router-dom";
 import {
   Box,
-  Button,
+  Button, Divider,
   FormControl,
   Grid,
   InputAdornment,
@@ -18,10 +16,8 @@ import {
 } from "@material-ui/core";
 import { t, Trans } from "@lingui/macro";
 
-import RebaseTimer from "../../components/RebaseTimer/RebaseTimer";
 import TabPanel from "../../components/TabPanel";
 import { trim } from "../../helpers";
-import { changeApproval, changeStake } from "../../slices/StakeThunk";
 import "./privateSale.scss";
 import { useWeb3Context } from "src/hooks/web3Context";
 import { isPendingTxn, txnButtonText } from "src/slices/PendingTxnsSlice";
@@ -36,6 +32,8 @@ import {
   changeSDAOPSDAOBurnApproval,
   claimSDAO,
 } from "../../slices/PrivateSaleThunk";
+import PrivateSaleRow from "./PrivateSaleRow";
+import { getBalances } from "../../slices/AccountSlice";
 
 function a11yProps(index: number) {
   return {
@@ -51,15 +49,17 @@ function PrivateSale() {
   const [zoomed, setZoomed] = useState(false);
   const [view, setView] = useState(0);
   const [quantity, setQuantity] = useState("");
-  const [confirmation, setConfirmation] = useState(false);
+
+  dispatch(getBalances({ address, networkID: networkId, provider }));
 
   const isAppLoading = useAppSelector(state => state.app.loading);
 
   const psdaoAvailable = useAppSelector(state => {
-    return state.app.psdaoAvailable;
+    return state.app.psdaoAvailable || 0;
   });
   const psdaoInputTokenRate = useAppSelector(state => {
-    return state.app.psdaoInputTokenRate;
+    const rate = state.app.psdaoInputTokenRate || 0;
+    return (rate) ? rate / 100 : 0;
   });
   const purchasedPSDAO = useAppSelector(state => {
     return state.app.psdaoPurchased || 0;
@@ -72,6 +72,9 @@ function PrivateSale() {
   });
   const psdaoUserBalance = useAppSelector(state => {
     return (state.account.balances && state.account.balances.psdao) || "0";
+  });
+  const sdaoUserBalance = useAppSelector(state => {
+    return (state.account.balances && state.account.balances.sdao) || "0";
   });
   const tokenInAllowance = useAppSelector(state => {
     return (state.account.privateSale && state.account.privateSale.privateSaleTokenInAllowance) || 0;
@@ -111,6 +114,11 @@ function PrivateSale() {
     const value18 = ethers.utils.parseUnits(quantity.toString(), "ether");
     if (value18.gt(ethers.utils.parseUnits(daiUserBalance, "ether"))) {
       return dispatch(error(t`You cannot buy more than your DAI balance.`));
+    }
+
+    // 2nd catch if quantity > availablePSDAO
+    if (Number(quantity) > psdaoAvailable) {
+      return dispatch(error(t`You cannot buy more than available PSDAO.`));
     }
 
     await dispatch(
@@ -165,6 +173,7 @@ function PrivateSale() {
   );
 
   const changeView = (_event: React.ChangeEvent<any>, newView: number) => {
+    setQuantity("");
     setView(newView);
   };
 
@@ -172,16 +181,15 @@ function PrivateSale() {
     if (Number(e.target.value) >= 0) setQuantity(e.target.value);
   }, []);
 
-  const trimmedBalance = Number(
-    [
-      daiUserBalance,
-      psdaoUserBalance
-    ]
-      .filter(Boolean)
-      .map(balance => Number(balance))
-      .reduce((a, b) => a + b, 0)
-      .toFixed(4),
-  );
+  const getOutputAmount = (view: number) => {
+    let output = quantity ? Number.parseInt(quantity) : 0;
+
+    if (view === 0 && output) {
+      output = Number.parseInt(quantity) * psdaoInputTokenRate;
+    }
+
+    return output;
+  }
 
   return (
     <div id="private-sale-view">
@@ -191,7 +199,6 @@ function PrivateSale() {
             <Grid item>
               <div className="card-header">
                 <Typography variant="h5">Private sale</Typography>
-                <RebaseTimer />
               </div>
             </Grid>
 
@@ -201,19 +208,16 @@ function PrivateSale() {
                   className="available-PSDAO"
                   label={t`Available PSDAO`}
                   metric={`${psdaoAvailable} PSDAO`}
-                  isLoading={!psdaoAvailable}
                 />
                 <Metric
                   className="purchased-PSDAO"
                   label={t`Purchased PSDAO`}
                   metric={`${purchasedPSDAO} PSDAO`}
-                  isLoading={!purchasedPSDAO}
                 />
                 <Metric
                   className="raised-funds"
                   label={t`Raised funds`}
-                  metric={`${purchasedPSDAO} DAI`}
-                  isLoading={!purchasedPSDAO}
+                  metric={`${raisedTokens} DAI`}
                 />
               </MetricCollection>
             </Grid>
@@ -244,14 +248,14 @@ function PrivateSale() {
                     >
                       <Tab
                         label={t({
-                          id: "buy_PSDAO",
+                          id: "Buy",
                           comment: "The action of buying PSDAO tokens",
                         })}
                         {...a11yProps(0)}
                       />
                       <Tab
                         label={t({
-                          id: "claim_SDAO",
+                          id: "Claim",
                           comment: "The action of claiming SDAO tokens",
                         })}
                         {...a11yProps(1)} />
@@ -262,7 +266,7 @@ function PrivateSale() {
                           (!hasPresaleAllowance() && view === 0) ||
                           (!hasClaimAllowance() && view === 1) ? (
                             <Box className="help-text">
-                              <Typography variant="body1" className="stake-note" color="textSecondary">
+                              <Typography variant="body1" className="private-sale-note" color="textSecondary">
                                 {view === 0 ? (
                                   <>
                                     <Trans>First time purchasing</Trans> <b>PSDAO</b> ?
@@ -380,6 +384,45 @@ function PrivateSale() {
                       </Grid>
                     </Grid>
                   </Box>
+                  <div className="private-sale-user-data">
+                    <PrivateSaleRow
+                      title={t`DAI Balance`}
+                      id="dai-balance"
+                      balance={`${trim(Number(daiUserBalance), 4)} DAI`}
+                      {...{ isAppLoading }}
+                    />
+                    <PrivateSaleRow
+                      title={t`PSDAO Balance`}
+                      id="psdao-balance"
+                      balance={`${trim(Number(psdaoUserBalance), 4)} PSDAO`}
+                      {...{ isAppLoading }}
+                    />
+                    <PrivateSaleRow
+                      title={t`SDAO Balance`}
+                      id="sdao-balance"
+                      balance={`${trim(Number(sdaoUserBalance), 4)} SDAO`}
+                      {...{ isAppLoading }}
+                    />
+                    <Divider color="secondary" />
+                    <PrivateSaleRow
+                      title={t`DAI-PSDAO rate`}
+                      balance={`${psdaoInputTokenRate}`}
+                      {...{ isAppLoading }}
+                    />
+                    { view == 0 ? (
+                      <PrivateSaleRow
+                        title={t`PSDAO you will get`}
+                        balance={`${getOutputAmount(view)} PSDAO`}
+                        {...{ isAppLoading }}
+                      />
+                    ) : (
+                      <PrivateSaleRow
+                        title={t`SDAO you will get`}
+                        balance={`${getOutputAmount(view)} SDAO`}
+                        {...{ isAppLoading }}
+                      />
+                    )}
+                  </div>
                 </>
               )}
             </div>

@@ -9,6 +9,7 @@ import { IActionValueAsyncThunk, IPresaleApprovalThunk, IJsonRPCError, IValueAsy
 import { segmentUA } from "../helpers/userAnalyticHelpers";
 import { IERC20, PrivateSale__factory, ScholarDAOToken__factory } from "src/typechain";
 import ReactGA from "react-ga";
+import { loadAppDetails } from "./AppSlice";
 
 interface IUAData {
   address: string;
@@ -195,6 +196,7 @@ export const buyPSDAO = createAsyncThunk(
       }
     }
     dispatch(getBalances({ address, networkID, provider }));
+    dispatch(loadAppDetails({ networkID, provider }));
   },
 );
 
@@ -251,5 +253,6 @@ export const claimSDAO = createAsyncThunk(
       }
     }
     dispatch(getBalances({ address, networkID, provider }));
+    dispatch(loadAppDetails({ networkID, provider }));
   },
 );
