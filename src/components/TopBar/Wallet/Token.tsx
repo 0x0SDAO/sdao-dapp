@@ -218,7 +218,8 @@ export const useWallet = (
   providerInitialized: boolean,
 ): Record<string, IToken> => {
   // default to mainnet while not initialized
-  const networkId = providerInitialized ? chainId : NetworkId.MAINNET;
+  // TODO: Set mainnet below for deployment
+  const networkId = providerInitialized ? chainId : NetworkId.TESTNET;
 
   const connectedChainBalances = useAppSelector(s => s.account.balances);
   const sdaoPrice = useAppSelector(s => s.app.marketPrice);

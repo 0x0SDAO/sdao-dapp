@@ -77,9 +77,11 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
   const [connected, setConnected] = useState(false);
   const [address, setAddress] = useState("");
   // NOTE (appleseed): loading eth mainnet as default rpc provider for a non-connected wallet
-  const [provider, setProvider] = useState<JsonRpcProvider>(NodeHelper.getMainnetStaticProvider());
-  const [networkId, setNetworkId] = useState(1);
-  const [networkName, setNetworkName] = useState("");
+  // TODO: Replace below with mainnet for production
+  const [provider, setProvider] = useState<JsonRpcProvider>(NodeHelper.getTestnetStaticProvider());
+  // TODO: Change values below for launch
+  const [networkId, setNetworkId] = useState(4002);
+  const [networkName, setNetworkName] = useState("Fantom testnet");
   const [providerUri, setProviderUri] = useState("");
   const [providerInitialized, setProviderInitialized] = useState(false);
 

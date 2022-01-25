@@ -128,6 +128,10 @@ export class NodeHelper {
     return new StaticJsonRpcProvider(NodeHelper.getURI(NetworkId.MAINNET));
   };
 
+  static getTestnetStaticProvider = () => {
+    return new StaticJsonRpcProvider(NodeHelper.getURI(NetworkId.TESTNET));
+  };
+
   static getCurrentStaticProvider = (networkId: number) => {
     return new StaticJsonRpcProvider(NodeHelper.getURI(networkId));
   };

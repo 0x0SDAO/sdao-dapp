@@ -215,7 +215,9 @@ function App() {
   useEffect(() => {
     // don't load ANY details until wallet is Checked
     if (walletChecked) {
-      setSupportedNetwork(addresses[provider.network.chainId] != null);
+      if (provider.network) {
+        setSupportedNetwork(addresses[provider.network.chainId] != null);
+      }
 
       if (networkId !== -1) {
         loadDetails("account");
