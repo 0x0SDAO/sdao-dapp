@@ -114,16 +114,16 @@ export const addresses: IAddresses = {
     TREASURY_ADDRESS: "",
     REDEEM_HELPER_ADDRESS: "",
   },
-  [NetworkId.ARBITRUM]: {
-  }, // TODO: Replace with Arbitrum contract addresses when ready
-  [NetworkId.ARBITRUM_TESTNET]: {
-  }, // TODO: Replace with Arbitrum Testnet contract addresses when ready
-  [NetworkId.AVALANCHE_TESTNET]: {
-  }, // TODO: Avalanche Testnet addresses
-  [NetworkId.AVALANCHE]: {
-  }, // TODO: Avalanche Mainnet addresses
-  [NetworkId.POLYGON]: {
-  },
+  // [NetworkId.ARBITRUM]: {
+  // }, // TODO: Replace with Arbitrum contract addresses when ready
+  // [NetworkId.ARBITRUM_TESTNET]: {
+  // }, // TODO: Replace with Arbitrum Testnet contract addresses when ready
+  // [NetworkId.AVALANCHE_TESTNET]: {
+  // }, // TODO: Avalanche Testnet addresses
+  // [NetworkId.AVALANCHE]: {
+  // }, // TODO: Avalanche Mainnet addresses
+  // [NetworkId.POLYGON]: {
+  // },
   // [NetworkId.FANTOM]: {
   //   FACTORY_ADDRESS: "",
   //   ZERO_ADDRESS: "0x0000000000000000000000000000000000000000",

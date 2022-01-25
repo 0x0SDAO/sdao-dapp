@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function NavDrawer({ mobileOpen, handleDrawerToggle }) {
+function NavDrawer({ mobileOpen, handleDrawerToggle, supportedNetwork }) {
   const classes = useStyles();
   // eslint-disable-next-line no-undef
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -36,7 +36,7 @@ function NavDrawer({ mobileOpen, handleDrawerToggle }) {
       }}
       disableBackdropTransition={!isIOS}
       disableDiscovery={isIOS}>
-      <NavContent handleDrawerToggle={handleDrawerToggle} />
+      <NavContent handleDrawerToggle={handleDrawerToggle} supportedNetwork={supportedNetwork}/>
     </SwipeableDrawer>
   );
 }

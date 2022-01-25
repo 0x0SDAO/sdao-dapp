@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function TopBar({ theme, toggleTheme, handleDrawerToggle }) {
+function TopBar({ theme, toggleTheme, handleDrawerToggle, supportedNetwork }) {
   const classes = useStyles();
   const isVerySmallScreen = useMediaQuery("(max-width: 355px)");
 
@@ -52,7 +52,7 @@ function TopBar({ theme, toggleTheme, handleDrawerToggle }) {
           {/* {!isVerySmallScreen && <SdaoMenu />} /}
           <Wallet />
           {/ <ConnectMenu /> */}
-          <Wallet />
+          <Wallet supportedNetwork={supportedNetwork}/>
           <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
           {/*<LocaleSwitcher />*/}
         </Box>

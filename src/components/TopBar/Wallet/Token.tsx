@@ -18,13 +18,12 @@ import { addresses, NetworkId } from "src/constants";
 import { formatCurrency } from "src/helpers";
 
 import { ReactComponent as MoreIcon } from "src/assets/icons/more.svg";
-import { ReactComponent as SdaoImg } from "src/assets/tokens/token_SDOGE32.svg";
-import { ReactComponent as SSdaoImg } from "src/assets/tokens/token_SSDOGE32.svg";
+import { ReactComponent as SdaoImg } from "src/assets/tokens/token_SDAO32.svg";
+import { ReactComponent as SSdaoImg } from "src/assets/tokens/token_SSDAO32.svg";
 
 import { segmentUA } from "src/helpers/userAnalyticHelpers";
 import { t } from "@lingui/macro";
 import TokenLogo from "../../TokenLogo";
-import { ReactComponent } from "*.svg";
 
 const Accordion = withStyles({
   root: {

@@ -38,7 +38,7 @@ function ChooseBond() {
   const isAccountLoading: boolean = useAppSelector(state => state.account.loading);
 
   const accountBonds: IUserBondDetails[] = useAppSelector(state => {
-    const withInterestDue = [];
+    const withInterestDue: IUserBondDetails[] = [];
     for (const bond in state.account.bonds) {
       if (state.account.bonds[bond].interestDue > 0) {
         withInterestDue.push(state.account.bonds[bond]);

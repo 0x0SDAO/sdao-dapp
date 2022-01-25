@@ -36,7 +36,7 @@ import { girth as gTheme } from "./themes/girth.js";
 import "./style.scss";
 import { useGoogleAnalytics } from "./hooks/useGoogleAnalytics";
 import Announcement from "./components/Announcement/Announcement";
-import { IS_PRIVATE_SALE_ENABLED, NetworkId } from "./constants";
+import { addresses, IS_PRIVATE_SALE_ENABLED, NetworkId } from "./constants";
 import Stake from "./views/Stake/Stake";
 import PrivateSale from "./views/PrivateSale/PrivateSale";
 
@@ -96,6 +96,7 @@ function App() {
   const classes = useStyles();
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [supportedNetwork, setSupportedNetwork] = useState(false);
 
   const { address, connect, hasCachedProvider, provider, connected, networkId, providerInitialized } = useWeb3Context();
   const isSmallerScreen = useMediaQuery("(max-width: 980px)");
@@ -117,11 +118,14 @@ function App() {
 
     if (whichDetails === "app") {
       loadDashboard(loadProvider);
-      loadApp(loadProvider);
+
+      if (supportedNetwork) {
+        loadApp(loadProvider);
+      }
     }
 
     // don't run unless provider is a Wallet...
-    if (whichDetails === "account" && address && connected) {
+    if (whichDetails === "account" && address && connected && supportedNetwork) {
       loadAccount(loadProvider);
     }
   }
@@ -132,7 +136,13 @@ function App() {
       // NOTE (appleseed) - tech debt - better network filtering for active bonds
       if (networkId === NetworkId.MAINNET || networkId === NetworkId.TESTNET) {
         bonds.map(bond => {
-          dispatch(calcBondDetails({ bond, value: "", provider: loadProvider, address: loadProvider.address, networkID: networkId }));
+          dispatch(calcBondDetails({
+            bond,
+            value: "",
+            provider: loadProvider,
+            address: loadProvider.address,
+            networkID: networkId,
+          }));
         });
       }
     },
@@ -154,8 +164,11 @@ function App() {
       if (!providerInitialized) {
         return;
       }
-      dispatch(loadAccountDetails({ networkID: networkId, address, provider: loadProvider }));
+
       // dispatch(getMigrationAllowances({ address, provider: loadProvider, networkID: networkId }));
+
+      dispatch(loadAccountDetails({ networkID: networkId, address, provider: loadProvider }));
+
       bonds.map(bond => {
         // NOTE: get any Claimable bonds, they may not be bondable
         if (bond.getClaimability(networkId)) {
@@ -181,6 +194,7 @@ function App() {
     if (hasCachedProvider()) {
       // then user DOES have a wallet
       connect().then(() => {
+        setSupportedNetwork(addresses[provider.network.chainId] != null);
         setWalletChecked(true);
         segmentUA({
           type: "connect",
@@ -201,6 +215,8 @@ function App() {
   useEffect(() => {
     // don't load ANY details until wallet is Checked
     if (walletChecked) {
+      setSupportedNetwork(addresses[provider.network.chainId] != null);
+
       if (networkId !== -1) {
         loadDetails("account");
         loadDetails("app");
@@ -212,6 +228,8 @@ function App() {
   useEffect(() => {
     // don't load ANY details until wallet is Connected
     if (connected && providerInitialized) {
+      setSupportedNetwork(addresses[provider.network.chainId] != null);
+
       loadDetails("account");
     }
   }, [connected, networkId, providerInitialized]);
@@ -241,18 +259,18 @@ function App() {
         {/* {isAppLoading && <LoadingSplash />} */}
         <div className={`app ${isSmallerScreen && "tablet"} ${isSmallScreen && "mobile"} ${theme}`}>
           <Messages />
-          <TopBar theme={theme} toggleTheme={toggleTheme} handleDrawerToggle={handleDrawerToggle} />
+          <TopBar supportedNetwork={supportedNetwork} theme={theme} toggleTheme={toggleTheme} handleDrawerToggle={handleDrawerToggle} />
 
           <nav className={classes.drawer}>
             {isSmallerScreen ? (
-              <NavDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+              <NavDrawer supportedNetwork={supportedNetwork} mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
             ) : (
-              <Sidebar />
+              <Sidebar supportedNetwork={supportedNetwork} />
             )}
           </nav>
 
           <div className={`${classes.content} ${isSmallerScreen && classes.contentShift}`}>
-            {trimmedPath.indexOf("dashboard") === -1 && <Announcement />}
+            {providerInitialized && !supportedNetwork && <Announcement />}
 
             <Switch>
               <Route exact path="/dashboard">
@@ -260,11 +278,11 @@ function App() {
               </Route>
 
               <Route exact path="/">
-                <Redirect to={!IS_PRIVATE_SALE_ENABLED ? "/dashboard" : "/private-sale"} />
+                <Redirect to={!IS_PRIVATE_SALE_ENABLED || !supportedNetwork ? "/dashboard" : "/private-sale"} />
               </Route>
 
               {
-                !IS_PRIVATE_SALE_ENABLED ? (
+                !IS_PRIVATE_SALE_ENABLED && supportedNetwork ? (
                   <>
                     <Route path="/stake">
                       <Stake />
@@ -282,11 +300,15 @@ function App() {
                     </Route>
                   </>
                 ) : (
-                  <>
-                    <Route path="/private-sale">
-                      <PrivateSale />
-                    </Route>
-                  </>
+                  supportedNetwork ? (
+                    <>
+                      <Route path="/private-sale">
+                        <PrivateSale />
+                      </Route>
+                    </>
+                  ) : (
+                    <></>
+                  )
                 )
               }
 

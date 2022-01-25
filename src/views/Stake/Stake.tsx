@@ -144,7 +144,7 @@ function Stake() {
 
   const isAllowanceDataLoading = (stakeAllowance == null && view === 0) || (unstakeAllowance == null && view === 1);
 
-  const modalButton = [];
+  const modalButton: JSX.Element[] = [];
 
   modalButton.push(
     <Button variant="contained" color="primary" className="connect-button" onClick={connect} key={1}>

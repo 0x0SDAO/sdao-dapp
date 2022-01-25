@@ -3,7 +3,7 @@ import { addresses, NetworkId } from "src/constants";
 
 // TODO: Set correct images below
 import { ReactComponent as DaiImg } from "src/assets/tokens/DAI.svg";
-import { ReactComponent as SdaoDaiImg } from "src/assets/tokens/SDOGE-BUSD.svg";
+import { ReactComponent as SdaoDaiImg } from "src/assets/tokens/SDAO-DAI.svg";
 import { ReactComponent as wFTMImg } from "src/assets/tokens/ftm32.svg";
 
 import { default as BondDepositoryContract } from "src/abi/BondDepository.json";

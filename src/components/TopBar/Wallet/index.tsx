@@ -29,7 +29,7 @@ const StyledSwipeableDrawer = withStyles(theme => ({
   },
 }))(SwipeableDrawer);
 
-export function Wallet() {
+export function Wallet({supportedNetwork}) {
   const [isWalletOpen, setWalletOpen] = useState(false);
   const closeWallet = () => setWalletOpen(false);
   const openWallet = () => setWalletOpen(true);
@@ -41,7 +41,7 @@ export function Wallet() {
 
   return (
     <>
-      <WalletButton openWallet={openWallet} />
+      <WalletButton openWallet={supportedNetwork ? openWallet : () => {}} />
       <StyledSwipeableDrawer
         disableBackdropTransition={!isIOS}
         disableDiscovery={isIOS}

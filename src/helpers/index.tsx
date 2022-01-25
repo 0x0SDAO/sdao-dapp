@@ -9,8 +9,8 @@ import { default as ERC20Contract } from "../abi/ERC20.json";
 import { default as RedeemHelperContract } from "../abi/RedeemHelper.json";
 
 import { SvgIcon } from "@material-ui/core";
-import { ReactComponent as SdaoImg } from "../assets/tokens/token_SDOGE.svg";
-import { ReactComponent as SSdaoImg } from "../assets/tokens/token_sSDOGE.svg";
+import { ReactComponent as SdaoImg } from "../assets/tokens/token_SDAO.svg";
+import { ReactComponent as SSdaoImg } from "../assets/tokens/token_SSDAO.svg";
 
 import { sdao_dai } from "./AllBonds";
 import { JsonRpcSigner, StaticJsonRpcProvider } from "@ethersproject/providers";

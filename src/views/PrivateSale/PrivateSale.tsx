@@ -164,7 +164,7 @@ function PrivateSale() {
 
   const isAllowanceDataLoading = (tokenInAllowance == null && view === 0) || (sdaoPsdaoBurnAllowance == null && view === 1);
 
-  const modalButton = [];
+  const modalButton: JSX.Element[] = [];
 
   modalButton.push(
     <Button variant="contained" color="primary" className="connect-button" onClick={connect} key={1}>

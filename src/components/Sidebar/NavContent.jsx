@@ -7,7 +7,7 @@ import { ReactComponent as WalletIcon } from "../../assets/icons/wallet.svg";
 import { ReactComponent as BondIcon } from "../../assets/icons/bond.svg";
 import { ReactComponent as DashboardIcon } from "../../assets/icons/dashboard.svg";
 import { ReactComponent as PresaleIcon } from "../../assets/icons/wallet.svg";
-import { ReactComponent as SDAOIcon } from "../../assets/icons/sdoge-logo-100.svg";
+import { ReactComponent as SDAOIcon } from "../../assets/icons/SDAO_LOGO_100.svg";
 import { ReactComponent as ArrowUpIcon } from "../../assets/icons/arrow-up.svg";
 import { Trans } from "@lingui/macro";
 import { getSWBuyLinkURL, trim } from "../../helpers";
@@ -29,7 +29,7 @@ import { Skeleton } from "@material-ui/lab";
 import "./sidebar.scss";
 import { ExpandMore } from "@material-ui/icons";
 
-function NavContent({ handleDrawerToggle }) {
+function NavContent({ handleDrawerToggle, supportedNetwork }) {
   const [isActive] = useState();
   const { networkId } = useWeb3Context();
   const { bonds } = useBonds(networkId);
@@ -66,7 +66,7 @@ function NavContent({ handleDrawerToggle }) {
 
           <div className="dapp-menu-links">
             <div className="dapp-nav" id="navbarNav">
-              {networkId === NetworkId.MAINNET || networkId === NetworkId.TESTNET ? (
+              {supportedNetwork ? (
                 <>
                   {!IS_PRIVATE_SALE_ENABLED ? (
                     <>
@@ -244,6 +244,34 @@ function NavContent({ handleDrawerToggle }) {
                 </>
               ) : (
                 <>
+                  <Link
+                    component={NavLink}
+                    id="dash-nav"
+                    to="/dashboard"
+                    isActive={(match, location) => {
+                      return checkPage(match, location, "dashboard");
+                    }}
+                    className={`button-dapp-menu ${isActive ? "active" : ""}`}
+                    onClick={handleDrawerToggle}
+                  >
+                    <Typography variant="h6">
+                      <SvgIcon color="primary" component={DashboardIcon} />
+                      <Trans>Dashboard</Trans>
+                    </Typography>
+                  </Link>
+
+                  <Link
+                    href={swLink}
+                    target="_blank"
+                    isActive={() => false}
+                    className={`button-dapp-menu`}
+                    onClick={handleDrawerToggle}
+                  >
+                    <Typography variant="h6">
+                      <SvgIcon color="primary" component={WalletIcon} />
+                      <Trans>Buy on SpookySwap</Trans>
+                    </Typography>
+                  </Link>
                 </>
               )}
             </div>

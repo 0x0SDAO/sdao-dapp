@@ -34,13 +34,13 @@ const TreasuryDashboard = memo(() => {
             </MetricCollection>
           </Paper>
         </Box>
-        <Zoom in={true}>
-          <Grid container spacing={2} className="data-grid">
-            <Grid item lg={12} md={12} sm={12} xs={12}>
-              <Paper className="sdao-card sdao-chart-card">
-                {/*TODO: Set content here*/}
-              </Paper>
-            </Grid>
+        {/*<Zoom in={true}>*/}
+        {/*  <Grid container spacing={2} className="data-grid">*/}
+        {/*    <Grid item lg={12} md={12} sm={12} xs={12}>*/}
+        {/*      <Paper className="sdao-card sdao-chart-card">*/}
+        {/*        /!*TODO: Set content here*!/*/}
+        {/*      </Paper>*/}
+        {/*    </Grid>*/}
 
             {/*<Grid item lg={6} md={6} sm={12} xs={12}>*/}
             {/*  <Paper className="sdao-card sdao-chart-card">*/}
@@ -96,8 +96,8 @@ const TreasuryDashboard = memo(() => {
             {/*    <RunwayAvailableGraph />*/}
             {/*  </Paper>*/}
             {/*</Grid>*/}
-          </Grid>
-        </Zoom>
+        {/*  </Grid>*/}
+        {/*</Zoom>*/}
       </Container>
     </div>
   );

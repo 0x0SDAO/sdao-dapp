@@ -9,9 +9,10 @@ interface IGetCurrentNetwork {
 export const initNetworkFunc = async ({ provider }: IGetCurrentNetwork) => {
   try {
     let networkName: string;
-    let supported = true;
+    const supported = true;
+
     const id: number = await provider.getNetwork().then(network => network.chainId);
-    let uri = NodeHelper.getURI(id);
+    const uri = NodeHelper.getURI(id);
     switch (id) {
       case NetworkId.FANTOM:
         networkName = "Fantom mainnet";
@@ -26,10 +27,18 @@ export const initNetworkFunc = async ({ provider }: IGetCurrentNetwork) => {
       //   networkName = "BSC testnet";
       //   break;
       default:
-        supported = false;
-        networkName = "Unsupported Network";
-        uri = "";
-        break;
+        // supported = false;
+        // networkName = "Unsupported Network";
+        // uri = "";
+
+        // break;
+        // TODO: Set default here to avoid errors (FTM mainnet for production).
+        return {
+          networkId: NetworkId.FANTOM_TESTNET,
+          networkName: "Fantom testnet",
+          uri: NodeHelper.getURI(NetworkId.FANTOM_TESTNET),
+          initialized: true,
+        };
     }
 
     return {
