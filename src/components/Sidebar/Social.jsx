@@ -13,7 +13,7 @@ export default function Social() {
       {/*  <SvgIcon color="primary" component={Medium} />*/}
       {/*</Link>*/}
 
-      <Link href="https://twitter.com/ScholarDAO" target="_blank">
+      <Link href="https://twitter.com/Scholar_DAO" target="_blank">
         <SvgIcon color="primary" component={Twitter} />
       </Link>
 
